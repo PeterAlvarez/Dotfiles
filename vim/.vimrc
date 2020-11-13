@@ -10,19 +10,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
 Plug 'honza/vim-snippets'        "snippets
-"Plug 'sirver/ultisnips'        "snippets
-
-" On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Initialize plugin system
 Plug 'sainnhe/gruvbox-material'		"Escheme Pro
@@ -41,13 +32,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'	"Ranger integrado en vim
 Plug 'uiiaoo/java-syntax.vim'		"Syntax for java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'valloric/youcompleteme'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'         "cerrado de parentesis corchetes etc
-"Plug 'natebosch/vim-lsc'
 Plug 'ryanoasis/vim-devicons'       "iconos
-"Plug 'lifepillar/vim-gruvbox8'      "theme
 Plug 'morhetz/gruvbox'
+
+"======ELIMINAR PLUGINS======
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"Plug 'sirver/ultisnips'        "snippets
+"Plug 'valloric/youcompleteme'
+"Plug 'natebosch/vim-lsc'
+"Plug 'lifepillar/vim-gruvbox8'      "theme
 call plug#end()
 
 "========================= Config vimEditor ===================
@@ -316,3 +311,8 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 "autocmd Filetype py setlocal ts=4 sw=4 sts=0 expandtab
 "autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
 
+"========================== Macros =====================
+"@f => formatear codigo
+"@c => copia todo el codigo
+"@d => borra todo el codigo
+"@u => espacios entre ()
