@@ -316,3 +316,4 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 "@c => copia todo el codigo
 "@d => borra todo el codigo
 "@u => espacios entre ()
+inoremap ii <Esc>
