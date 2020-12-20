@@ -298,6 +298,11 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 "========================== ventana activa =======================
 
+"========================== +Clipboard  =======================
+"+clipboard "+p no funciona en vim nativo (arch)
+"para solucionar el problema instale gvim
+set clipboard=unnamedplus
+
 "========================== Multiple-cursors =======================
 
 "========================== tab sangria ======================
@@ -335,5 +340,8 @@ nnoremap <leader>sm :mksession! ~/.mksession/
 nnoremap <leader>so :source ~/.mksession/
 "$ vim -S [ruta file][name file].vim => abre una session desde vim desde teminal
 
+"========================= Lineas en blanco =====================
+nnoremap o o<Esc>
+nnoremap O O<Esc>
 
 
