@@ -320,12 +320,20 @@ set foldmethod=manual
 set nofoldenable
 nnoremap mm zfi}
 
-"=========================e Macros =====================
+"========================= Macros =====================
 "@f => formatear codigo
 "@c => copia todo el codigo
 "@d => borra todo el codigo
 "@u => espacios entre ()
 
 inoremap ii <Esc>
+
+"========================= Session vim =====================
+":mksession [ruta file][name file].vim => guarda sssion
+nnoremap <leader>sm :mksession! ~/.mksession/
+":source [ruta file][name file].vim => abre una session desde vim
+nnoremap <leader>so :source ~/.mksession/
+"$ vim -S [ruta file][name file].vim => abre una session desde vim desde teminal
+
 
 
