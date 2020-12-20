@@ -36,6 +36,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'         "cerrado de parentesis corchetes etc
 Plug 'ryanoasis/vim-devicons'       "iconos
 Plug 'morhetz/gruvbox'
+Plug 'terryma/vim-multiple-cursors' "multicursors
 
 "======ELIMINAR PLUGINS======
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -291,10 +292,13 @@ function Colors()
 endfunction
 call Colors()
 nnoremap <leader>co :call Colors()<CR>
+
 "========================== config line code ======================
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 "========================== ventana activa =======================
+
+"========================== Multiple-cursors =======================
 
 "========================== tab sangria ======================
 " by default, the indent is 2 spaces.
@@ -311,9 +315,17 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 "autocmd Filetype py setlocal ts=4 sw=4 sts=0 expandtab
 "autocmd Filetype java setlocal ts=4 sw=4 sts=0 expandtab
 
-"========================== Macros =====================
+"========================== floding =====================
+set foldmethod=manual
+set nofoldenable
+nnoremap mm zfi}
+
+"=========================e Macros =====================
 "@f => formatear codigo
 "@c => copia todo el codigo
 "@d => borra todo el codigo
 "@u => espacios entre ()
+
 inoremap ii <Esc>
+
+
