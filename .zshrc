@@ -104,6 +104,9 @@ alias ls='lsd  --group-dirs=first'
 alias rr='ranger'
 alias ytv='youtube-dl -f 'bestvideo+bestaudio' --recode-video mp4'
 alias ytm='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0'
+alias brillo='vim /sys/class/backlight/intel_backlight/brightness'
+#alias sshot='import -window `xwininfo | grep 'Window id:' | cut -d" " -f4` $HOME/Imágenes/screenshots/$(date +%Y%m%d%H%M%S).jpg'
+
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"

@@ -150,3 +150,5 @@ alt + l
     mocp -k +3
 alt + h
     mocp -k -3
+alt + s
+    import -window `xwininfo | grep 'Window id:' | cut -d" " -f4` $HOME/Imágenes/screenshots/`date +%F_%H:%M:%S`.jpg
