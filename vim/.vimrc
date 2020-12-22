@@ -123,8 +123,12 @@ nnoremap <leader>- :vertical resize -5<CR>
 nnoremap <leader>* :resize +5<CR>
 nnoremap <leader>/ :resize -5<CR>
 nnoremap <leader>u :resize <CR>
-nnoremap <leader>y :vertical resize <CR>
-nnoremap <leader>r :reg <CR>
+"Full Screen
+nnoremap <leader>rf :tab split <CR>
+"ventanas iguales
+nnoremap <leader>re <c-w>= <CR>
+
+"nnoremap <leader>y :vertical resize <CR>
 "nnoremap <leader>l :winc l<CR>
 "nnoremap <leader>h :winc h<CR>
 "nnoremap <leader>k :winc k<CR>
@@ -134,7 +138,7 @@ nnoremap <leader>r :reg <CR>
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 map <f1> :NERDTreeToggle<CR>
-
+map <leader>nf :NERDTreeFind<CR>
 
 "========================= ColorScheme =========================
 set background=dark
@@ -179,6 +183,7 @@ nnoremap <leader>gm :GitGutterPrevHunk 		   <CR>
 nnoremap <leader>gh :GitGutterPreviewHunk 	   <CR>
 
 "========================= Surround =========================
+
 
 "========================= FZF =========================
 nnoremap <leader>fP :CocSearch <C-R>=expand("<cword>")<CR><CR>
