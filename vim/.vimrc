@@ -187,28 +187,38 @@ nnoremap <leader>gh :GitGutterPreviewHunk 	   <CR>
 
 "========================= FZF =========================
 nnoremap <leader>fP :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
 "rename
 nmap <leader>rr <plug>(coc-rename)
+
 "archivos abiertos
 nnoremap <leader>fb :Buffers 	<CR>
+
 "muestra todos los archivos en ruta especificada
 nnoremap <leader>ff :Files <C-R>=expand("~/myCode")<CR><CR>
+
 "linea de codigo en el actual buffer
-nnoremap <leader>fs :Lines <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>fL :Lines 	    <CR>
+nnoremap <leader>fW :Lines <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>fw :BLines <C-R>=expand("<cword>")<CR><CR>
+
 "linea en el archivo actual
-nnoremap <leader>fp :BLines <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>fL :Lines 	    <CR>
 nnoremap <leader>fl :BLines	    <CR>
+
 "lista las marcas de archivo actual
 nnoremap <leader>fm :Marks 	    <CR>
+
 "historial de bufers abierto
-nnoremap <leader>ls :History 	<CR>
+nnoremap <leader>fB :History 	<CR>
+
 "historial de comandos ejecutados
-nnoremap <leader>fh :History: 	<CR>
+nnoremap <leader>fr :History: 	<CR>
+
 "historial de busquedas
-nnoremap <leader>fH :History/	<CR>
+nnoremap <leader>fR :History/	<CR>
+
 "mapeado de teclas
-nnoremap <leader>fm :Maps	    <CR>
+nnoremap <leader>fM :Maps	    <CR>
 
 let g:fzf_layout = { 'up': '60%' }
 command! -bang -nargs=? -complete=dir Files
@@ -346,7 +356,8 @@ nnoremap <leader>so :source ~/.mksession/
 "$ vim -S [ruta file][name file].vim => abre una session desde vim desde teminal
 
 "========================= Lineas en blanco =====================
-nnoremap o o<Esc>
-nnoremap O O<Esc>
+nnoremap t o<Esc>
+nnoremap T O<Esc>
+
 
 
