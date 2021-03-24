@@ -37,8 +37,10 @@ Plug 'jiangmiao/auto-pairs'         "cerrado de parentesis corchetes etc
 Plug 'ryanoasis/vim-devicons'       "iconos
 Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors' "multicursors
+Plug 'wfxr/minimap.vim'            "minimap
 
 "======ELIMINAR PLUGINS======
+"Plug 'severin-lemaignan/vim-minimap'
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plug 'sirver/ultisnips'        "snippets
 "Plug 'valloric/youcompleteme'
@@ -74,7 +76,7 @@ set nobackup            "no archivos .bk
 set incsearch           "Busqueda incremental de cadenas
 set updatetime=300
 set cul                 "visualiza la linea en la q estas
-
+set mouse=a             "Active mouse
 "set hlsearch "resaltado de busqueda
 "set backspace=indent,eol,start
 set wrap               "rompe las lineas q sobrepasen textwidth
@@ -173,14 +175,16 @@ map <F2> :Startify<CR>
 "`v` (abrir en división vertical)
 
 "========================= GFugitive Gitgutter =========================
+"Recupera una linea Modifica a un commit anterior
+nnoremap <leader>gh :GitGutterUndoHunk <CR>
 "(desactiva IndenLine)
 nnoremap <leader>gt :GitGutterLineHighlightsToggle <CR>
 "siguiente cambio
 nnoremap <leader>gn :GitGutterNextHunk 		   <CR>
 "anterior cambio
-nnoremap <leader>gm :GitGutterPrevHunk 		   <CR>
+nnoremap <leader>gp :GitGutterPrevHunk 		   <CR>
 "Muestra los cambios en una linea
-nnoremap <leader>gh :GitGutterPreviewHunk 	   <CR>
+nnoremap <leader>gd :GitGutterPreviewHunk 	   <CR>
 
 "========================= Surround =========================
 
@@ -280,8 +284,7 @@ nmap / <Plug>(easymotion-tn)
 "========================= AutoPairs   ======================
 let g:AutoPairsMultilineClose=0
 
-"========================= Config color ======================
-
+"========================= my Config Colors   ======================
 set termguicolors
 "guibg=cFOndo :color xterm256:
 "guifg=#bdae93 , d5c4a1
@@ -311,6 +314,7 @@ nnoremap <leader>co :call Colors()<CR>
 "========================== config line code ======================
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
 "========================== ventana activa =======================
 
 "========================== +Clipboard  =======================
@@ -320,6 +324,17 @@ set clipboard=unnamedplus
 
 "========================== Multiple-cursors =======================
 
+"========================== Minimap ======================
+let g:minimap_base_highlight='GruvboxGray'
+let g:minimap_width = 11
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+let g:minimap_highlight = 'CocListFgBlue'
+let g:minimap_highlight_range = 1
+
+nnoremap <leader>mm :Minimap<CR>
+nnoremap <leader>mc :MinimapClose<CR>
+nnoremap <leader>mr :MinimapRefresh<CR>
 "========================== tab sangria ======================
 " by default, the indent is 2 spaces.
 set tabstop=4
@@ -359,5 +374,7 @@ nnoremap <leader>so :source ~/.mksession/
 nnoremap t o<Esc>
 nnoremap T O<Esc>
 
-
-
+"========================= Experimental ===================
+nnoremap <leader>ft gg=G''
+nnoremap <leader>cp ggyG''
+nnoremap <leader>dd ggdG
