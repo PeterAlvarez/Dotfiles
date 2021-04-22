@@ -40,6 +40,7 @@ Plug 'terryma/vim-multiple-cursors' "multicursors
 Plug 'wfxr/minimap.vim'            "minimap
 
 "======ELIMINAR PLUGINS======
+"Plug 'skywind3000/asyncrun.vim'
 "Plug 'severin-lemaignan/vim-minimap'
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plug 'sirver/ultisnips'        "snippets
@@ -53,6 +54,7 @@ filetype plugin indent on    " required
 filetype plugin on
 syntax on               " opcional ( viene por defecto xd).
 "set autowriteall
+set laststatus=0
 set nocompatible
 set encoding=UTF-8
 set number 		" numeros al costado del editor
@@ -83,6 +85,8 @@ set wrap               "rompe las lineas q sobrepasen textwidth
 "set colorcolumn=80      "line control code
 "packloadall
 "silent! helptags ALL " All messages and errors will be ignored.
+set scrolljump=5 "salto cada 5 lineas al final de v
+set scrolloff=10 "muestra 10 lineas abajo antes de llegar al final
 
 "========================= my mapeo de tecla ====================
 "desabilitando flechas
@@ -150,8 +154,14 @@ colorscheme gruvbox
 let g:gruvbox_material_background = 'hard' "soft medium poner antes del colorscheme
 "========================== AirLine ============================
 let g:airline_theme = 'gruvbox_material'
-let g:airline#extensions#tabline#enabled = 1 "pestanias buffer
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+"let g:airline#extensions#tabline#enabled = 1 "pestanias buffer
+"let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_section_a = airline#section#create(['mode', ' ☰ ','%{&ff}',' ☰ ', '%{bufnr("%")}'])
+let g:airline_section_z = "%p%% ☰ \ue0a1:%l/%L ☰ Col:%c"
+let g:airline_section_c = airline#section#create(['%t'])
+
 
 "========================= Whiteespace =========================
 let g:strip_whitespace_on_save=1 		"Borra espacios enblando al guardar
@@ -263,10 +273,10 @@ endif
 
 
 "========================= EasyMotion  ======================
-map zl <Plug>(easymotion-lineforward)
-map zj <Plug>(easymotion-j)
-map zk <Plug>(easymotion-k)
-map zh <Plug>(easymotion-linebackward)
+"map zl <Plug>(easymotion-lineforward)
+"map zj <Plug>(easymotion-j)
+"map zk <Plug>(easymotion-k)
+"Map zh <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
@@ -378,3 +388,4 @@ nnoremap T O<Esc>
 nnoremap <leader>ft gg=G''
 nnoremap <leader>cp ggyG''
 nnoremap <leader>dd ggdG
+
