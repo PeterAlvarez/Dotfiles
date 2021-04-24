@@ -8,6 +8,18 @@ endif
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 
+" Nice menu when typing `:find *.py`
+"set wildmode=longest
+set wildmenu
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
@@ -17,6 +29,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Initialize plugin system
 Plug 'sainnhe/gruvbox-material'		"Escheme Pro
+Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'		"Tab line buttom
 Plug 'ntpeters/vim-better-whitespace'	"Spacios en blanco
 Plug 'christoomey/vim-tmux-navigator'	"moverse entre paneles
@@ -32,16 +45,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'francoiscabrol/ranger.vim'	"Ranger integrado en vim
 Plug 'uiiaoo/java-syntax.vim'		"Syntax for java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'    "Busqueda Avanzada Importante
 Plug 'jiangmiao/auto-pairs'         "cerrado de parentesis corchetes etc
 Plug 'ryanoasis/vim-devicons'       "iconos
-Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors' "multicursors
 Plug 'wfxr/minimap.vim'            "minimap
+Plug 'severin-lemaignan/vim-minimap'
 
-"======ELIMINAR PLUGINS======
+"======ELIMINAR OBSOLETOS======
+"Plug 'morhetz/gruvbox'
 "Plug 'skywind3000/asyncrun.vim'
-"Plug 'severin-lemaignan/vim-minimap'
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Plug 'sirver/ultisnips'        "snippets
 "Plug 'valloric/youcompleteme'
@@ -49,26 +62,26 @@ Plug 'wfxr/minimap.vim'            "minimap
 "Plug 'lifepillar/vim-gruvbox8'      "theme
 call plug#end()
 
+
 "========================= Config vimEditor ===================
 filetype plugin indent on    " required
 filetype plugin on
 syntax on               " opcional ( viene por defecto xd).
 "set autowriteall
-set laststatus=0
 set nocompatible
 set encoding=UTF-8
 set number 		" numeros al costado del editor
 set relativenumber      " relativo number
-set hidden
-set expandtab           " enter spaces when tab is pressed
+set hidden              "para mantener un buferEditado abierto
 set textwidth=80        " Romper lines cuado sobre pasa los 120 caracteres
+set expandtab           " enter spaces when tab is pressed
 "set softtabstop=4
 "set tabstop=4           " use 4 spaces to represent tab
 "set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new line
+set signcolumn=yes
+set autoindent          " copy indent from current line when starting a new line:
 set showcmd             " show (partial) command in status line
 set fillchars+=vert:\▏  " linea visualmente mejor xD.
-set wildmenu 		" menu
 set ruler 		" Always show current position
 set cmdheight=1 	" Height of the command bar
 set hid 		" A buffer becomes hidden when it is abandoned
@@ -77,7 +90,7 @@ set noswapfile          "no crea archivos de intercambio .spw
 set nobackup            "no archivos .bk
 set incsearch           "Busqueda incremental de cadenas
 set updatetime=300
-set cul                 "visualiza la linea en la q estas
+"set cul                 "visualiza la linea en la q estas
 set mouse=a             "Active mouse
 "set hlsearch "resaltado de busqueda
 "set backspace=indent,eol,start
@@ -85,7 +98,7 @@ set wrap               "rompe las lineas q sobrepasen textwidth
 "set colorcolumn=80      "line control code
 "packloadall
 "silent! helptags ALL " All messages and errors will be ignored.
-set scrolljump=5 "salto cada 5 lineas al final de v
+"set scrolljump=5 "salto cada 5 lineas al final de v
 set scrolloff=10 "muestra 10 lineas abajo antes de llegar al final
 
 "========================= my mapeo de tecla ====================
@@ -124,10 +137,10 @@ nnoremap <leader>e :b #<CR>
 nnoremap <leader>b :bdelete<CR>
 
 "reducir y aumentar el tamanio de las ventanas abiertas
-nnoremap <leader>+ :vertical resize +5<CR>
-nnoremap <leader>- :vertical resize -5<CR>
-nnoremap <leader>* :resize +5<CR>
-nnoremap <leader>/ :resize -5<CR>
+nnoremap <leader>/ :vertical resize +5<CR>
+nnoremap <leader>* :vertical resize -5<CR>
+nnoremap <leader>+ :resize +5<CR>
+nnoremap <leader>- :resize -5<CR>
 nnoremap <leader>u :resize <CR>
 "Full Screen
 nnoremap <leader>rf :tab split <CR>
@@ -144,7 +157,7 @@ nnoremap <leader>re <c-w>= <CR>
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 map <f1> :NERDTreeToggle<CR>
-map <leader>nf :NERDTreeFind<CR>
+"map <leader>nf :NERDTreeFind<CR>
 
 "========================= ColorScheme =========================
 set background=dark
@@ -152,6 +165,7 @@ set background=dark
 colorscheme gruvbox
 "let g:gruvbox_invert_selection='0'
 let g:gruvbox_material_background = 'hard' "soft medium poner antes del colorscheme
+
 "========================== AirLine ============================
 let g:airline_theme = 'gruvbox_material'
 "let g:airline#extensions#tabline#enabled = 1 "pestanias buffer
@@ -200,10 +214,6 @@ nnoremap <leader>gd :GitGutterPreviewHunk 	   <CR>
 
 
 "========================= FZF =========================
-nnoremap <leader>fP :CocSearch <C-R>=expand("<cword>")<CR><CR>
-
-"rename
-nmap <leader>rr <plug>(coc-rename)
 
 "archivos abiertos
 nnoremap <leader>fb :Buffers 	<CR>
@@ -220,26 +230,43 @@ nnoremap <leader>fL :Lines 	    <CR>
 nnoremap <leader>fl :BLines	    <CR>
 
 "lista las marcas de archivo actual
-nnoremap <leader>fm :Marks 	    <CR>
+"nnoremap <leader>fm :Marks 	    <CR>
 
 "historial de bufers abierto
 nnoremap <leader>fB :History 	<CR>
 
 "historial de comandos ejecutados
-nnoremap <leader>fr :History: 	<CR>
+nnoremap <leader>: :History: 	<CR>
 
 "historial de busquedas
-nnoremap <leader>fR :History/	<CR>
+nnoremap <leader>/ :History/	<CR>
 
 "mapeado de teclas
-nnoremap <leader>fM :Maps	    <CR>
+nnoremap <leader>fm :Maps	    <CR>
 
-let g:fzf_layout = { 'up': '60%' }
+"let g:fzf_layout = { 'up': '60%' }
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, {'options': [ '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
-let g:fzf_preview_window = 'right:50%'
 
-"======================== Ranger ============================
+"let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+
+let g:fzf_colors =
+    \ { 'fg':      ['fg', 'netrwList'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'GruvboxRedBold'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'NONE'],
+    \ 'bg+':     ['bg', 'Normal', 'Normal'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'GruvboxRedBold'],
+    \ 'border':  ['fg', 'netrwList'],
+    \ 'prompt':  ['fg', 'PreProc'],
+    \ 'pointer': ['fg', 'Special'],
+    \ 'marker':  ['fg', 'GruvboxRedBold'],
+    \ 'spinner': ['fg', 'GruvboxRedBold'],
+    \ 'header':  ['fg', 'GruvboxRedBold'] }
+
+"======================== ranger ============================
 let g:ranger_map_keys = 0
 map <F3> :Ranger <CR>
 
@@ -265,15 +292,69 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+"Busca palabra en todos los buffer
+nnoremap <leader>fP :CocSearch <C-R>=expand("<cword>")<CR><CR>
+"rename
+nmap <leader>rr <plug>(coc-rename)
+"
+" GoTo code navigation.
+nmap <silent><space>vd <Plug>(coc-definition)
+nmap <silent><space>vt <Plug>(coc-type-definition)
+nmap <silent><space>vi <Plug>(coc-implementation)
+nmap <silent><space>vr <Plug>(coc-references)
 
+set updatetime=300
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>cd  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>ce  :<C-u>CocList extensions<cr>
+" Show commands.
+"nnoremap <silent><nowait> <space>cc  :<C-u>CocList commands<cr>
+ "Find symbol of current document.
+nnoremap <silent><nowait> <space>l  :<C-u>CocList outline<cr>
+
+" Search workspace symbols.
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+  \ 'header':  ['fg', 'Comment'] } nmap <leader>f  <Plug>(coc-format-selected)
+
+
+
+" Use K to show documentation in preview window.
+
+nnoremap <silent> H :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+nnoremap K a<Enter><ESC>
 
 "========================= EasyMotion  ======================
-"map zl <Plug>(easymotion-lineforward)
+map zl <Plug>(easymotion-lineforward)
 "map zj <Plug>(easymotion-j)
 "map zk <Plug>(easymotion-k)
 "Map zh <Plug>(easymotion-linebackward)
@@ -304,6 +385,14 @@ highlight Normal ctermbg=NONE ctermfg=NONE guifg=#bdae93 guibg=NONE
 highlight MyColors ctermbg=NONE ctermfg=NONE guifg=#fb4934 guibg=NONE
 highlight MyColors2 ctermbg=NONE ctermfg=NONE guifg=#7b9e89 guibg=NONE
 
+highlight ColorColumn ctermbg=0 guibg=grey
+hi SignColumn guibg=NONE
+hi CursorLineNR guibg=NONE
+highlight Normal guibg=NONE
+highlight LineNr guifg=#83a598
+highlight netrwDir guifg=#5eacd3
+highlight qfFileName guifg=#aed75f
+
 function Colors()
     let m=matchadd( 'MyColors' , ";" )
     let m=matchadd( 'MyColors' , "(" )
@@ -314,9 +403,9 @@ function Colors()
     let m=matchadd( 'MyColors' , "]" )
     let m=matchadd( 'MyColors' , ":" )
     let n=matchadd( 'MyColors2' , "=" )
-    let n=matchadd( 'MyColors2' , "</" )
-    let n=matchadd( 'MyColors2' , ">" )
-    let n=matchadd( 'MyColors2' , "<" )
+    "let n=matchadd( 'MyColors2' , "</" )
+    "let n=matchadd( 'MyColors2' , "<" )
+    "let n=matchadd( 'MyColors2' , ">" )
 endfunction
 call Colors()
 nnoremap <leader>co :call Colors()<CR>
@@ -336,15 +425,24 @@ set clipboard=unnamedplus
 
 "========================== Minimap ======================
 let g:minimap_base_highlight='GruvboxGray'
-let g:minimap_width = 11
-let g:minimap_auto_start = 1
+let g:minimap_width = 20
+"let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
-let g:minimap_highlight = 'CocListFgBlue'
+let g:minimap_highlight = 'Special'
 let g:minimap_highlight_range = 1
 
 nnoremap <leader>mm :Minimap<CR>
 nnoremap <leader>mc :MinimapClose<CR>
 nnoremap <leader>mr :MinimapRefresh<CR>
+
+
+"========================== Minimap 2 ======================
+"let g:minimap_show='<leader>mm'
+"let g:minimap_update='<leader>mu'
+"let g:minimap_close='<leader>mc'
+"let g:minimap_toggle='<leader>gt'
+"let g:minimap_highlight='Special'
+
 "========================== tab sangria ======================
 " by default, the indent is 2 spaces.
 set tabstop=4
@@ -363,7 +461,7 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 "========================== floding =====================
 set foldmethod=manual
 set nofoldenable
-nnoremap mm zfi}
+"nnoremap mm zfi}
 
 "========================= Macros =====================
 "@f => formatear codigo
@@ -384,8 +482,16 @@ nnoremap <leader>so :source ~/.mksession/
 nnoremap t o<Esc>
 nnoremap T O<Esc>
 
+
 "========================= Experimental ===================
 nnoremap <leader>ft gg=G''
 nnoremap <leader>cp ggyG''
 nnoremap <leader>dd ggdG
+noremap <leader>aa ggVG
+
+"Mover lineas
+vnoremap <C-j> :m '>+1 <CR>gv=gv
+vnoremap <C-k> :m '<-2 <CR>gv=gv
+
+"========================= colors Experimental ===================
 
