@@ -53,13 +53,7 @@ Plug 'wfxr/minimap.vim'            "minimap
 Plug 'severin-lemaignan/vim-minimap'
 
 "======ELIMINAR OBSOLETOS======
-"Plug 'morhetz/gruvbox'
-"Plug 'skywind3000/asyncrun.vim'
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"Plug 'sirver/ultisnips'        "snippets
-"Plug 'valloric/youcompleteme'
-"Plug 'natebosch/vim-lsc'
-"Plug 'lifepillar/vim-gruvbox8'      "theme
+
 call plug#end()
 
 
@@ -109,9 +103,9 @@ map <Left> <Nop>
 map <Right> <Nop>
 
 "moverse en el buffer (up)
-map <F7> :bprev<CR>
+map <F7> :bprev<CR>zz
 imap<F7> <Esc>:bprev<CR>i
-map <F8> :bnext<CR>
+map <F8> :bnext<CR>zz
 imap<F8> <Esc>:bnext<CR>i
 execute "set <F7>=\eq"
 execute "set <F8>=\ew"
@@ -133,7 +127,7 @@ nnoremap <leader>q :q <CR>
 nnoremap <leader>i :TmuxNavigatePrevious<CR>
 
 "nnoremap <leader>p :buffer
-nnoremap <leader>e :b #<CR>
+nnoremap <leader>e :b #<CR>zz
 nnoremap <leader>b :bdelete<CR>
 
 "reducir y aumentar el tamanio de las ventanas abiertas
@@ -212,11 +206,10 @@ nnoremap <leader>gd :GitGutterPreviewHunk 	   <CR>
 
 "========================= Surround =========================
 
-
 "========================= FZF =========================
 
 "archivos abiertos
-nnoremap <leader>fb :Buffers 	<CR>
+nnoremap <leader>fb :Buffers <CR>
 
 "muestra todos los archivos en ruta especificada
 nnoremap <leader>ff :Files <C-R>=expand("~/myCode")<CR><CR>
@@ -376,6 +369,7 @@ nmap / <Plug>(easymotion-tn)
 let g:AutoPairsMultilineClose=0
 
 "========================= my Config Colors   ======================
+
 set termguicolors
 "guibg=cFOndo :color xterm256:
 "guifg=#bdae93 , d5c4a1
@@ -385,7 +379,7 @@ highlight Normal ctermbg=NONE ctermfg=NONE guifg=#bdae93 guibg=NONE
 highlight MyColors ctermbg=NONE ctermfg=NONE guifg=#fb4934 guibg=NONE
 highlight MyColors2 ctermbg=NONE ctermfg=NONE guifg=#7b9e89 guibg=NONE
 
-highlight ColorColumn ctermbg=0 guibg=grey
+
 hi SignColumn guibg=NONE
 hi CursorLineNR guibg=NONE
 highlight Normal guibg=NONE
@@ -411,6 +405,7 @@ call Colors()
 nnoremap <leader>co :call Colors()<CR>
 
 "========================== config line code ======================
+highlight ColorColumn ctermbg=0 guibg=#83a598
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
@@ -474,6 +469,7 @@ inoremap ii <Esc>
 "========================= Session vim =====================
 ":mksession [ruta file][name file].vim => guarda sssion
 nnoremap <leader>sm :mksession! ~/.mksession/
+
 ":source [ruta file][name file].vim => abre una session desde vim
 nnoremap <leader>so :source ~/.mksession/
 "$ vim -S [ruta file][name file].vim => abre una session desde vim desde teminal
@@ -482,6 +478,7 @@ nnoremap <leader>so :source ~/.mksession/
 nnoremap t o<Esc>
 nnoremap T O<Esc>
 
+nnoremap G Gzz<Esc>
 
 "========================= Experimental ===================
 nnoremap <leader>ft gg=G''
