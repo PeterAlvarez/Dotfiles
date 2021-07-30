@@ -9,7 +9,6 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 
 " Nice menu when typing `:find *.py`
-"set wildmode=longest
 set wildmenu
 " Ignore files
 set wildignore+=*.pyc
@@ -178,8 +177,6 @@ let g:strip_whitespace_confirm=0		"eliminar confirmacion al borrar
 "========================= navigator ==========================
 "nnoremap :TmuxNavigatePrevious<cr>
 
-"========================= Polyglot ===========================
-"let g:polyglot_disabled = ['css'] 		Ejemplo
 
 "========================= nerdcommenter ======================
 
