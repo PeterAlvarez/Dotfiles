@@ -32,14 +32,29 @@ syntax on                    "opcional ( viene por defecto xd).
 
 
 "==========================================================
+"                      Ignore Files
+"==========================================================
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+"==========================================================
+
+
+
+"==========================================================
 "                      Set Config
 "==========================================================
-set number
+"numbers Line
+set number 		" numeros al costado del editor
+set relativenumber      " relativo number
+
 "set autowriteall
 set nocompatible
 set encoding=UTF-8
-set number 		" numeros al costado del editor
-set relativenumber      " relativo number
 set hidden              "para mantener un buferEditado abierto
 set textwidth=80        " Romper lines cuado sobre pasa los 120 caracteres
 "set softtabstop=4
@@ -176,6 +191,11 @@ let g:fzf_colors =
     \ 'marker':  ['fg', 'GruvboxRedBold'],
     \ 'spinner': ['fg', 'GruvboxRedBold'],
     \ 'header':  ['fg', 'GruvboxRedBold'] }
+
+"Git
+hi GitGutterAdd guibg=NONE guifg=#b8bb26
+hi GitGutterChange guibg=NONE guifg=#8ec07c
+hi GitGutterDelete guibg=NONE guifg=#fb4934
 "==========================================================
 
 

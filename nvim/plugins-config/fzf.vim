@@ -1,5 +1,4 @@
 "========================= FZF =========================
-
 "archivos abiertos
 nnoremap <leader>ls :Buffers <CR>
 

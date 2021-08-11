@@ -1,15 +1,3 @@
-" Nice menu when typing `:find *.py`
-" Ignore files
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
-set wildignore+=**/.git/*
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 Plug 'francoiscabrol/ranger.vim'
@@ -29,7 +17,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'vim-airline/vim-airline'
 Plug 'sainnhe/gruvbox-material'
-Plug 'tpope/vim-fugitive'		"Complemento a git
+"Plug 'tpope/vim-fugitive'		"Complemento a git
 Plug 'airblade/vim-gitgutter'		"Complemento a git
 Plug 'tpope/vim-surround'		"Importante mapeo shorcut tecla s
 Plug 'easymotion/vim-easymotion'    "Busqueda Avanzada Importante
