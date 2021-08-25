@@ -2,13 +2,22 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="/home/tux/.oh-my-zsh"
 export LC_ALL="es_ES.UTF-8"
 export LC_CTYPE="es_ES.UTF-8"
+export LANG=en_ES.UTF-8
+export XDG_RUNTIME_DIR="/run/user/$UID"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+#export BAT_CONFIG_PATH="/path/to/bat.conf"
+
+
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="jonathan"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -16,10 +25,8 @@ export LC_CTYPE="es_ES.UTF-8"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-ZSH_THEME="jonathan"
-#SOLARIZED_THEME="dark"
-#
-#Uncomment the following line to use case-sensitive completion.
+
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
@@ -31,12 +38,11 @@ ZSH_THEME="jonathan"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
-
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+## Uncomment the following line if pasting URLs and other text is messed up.
+## DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -48,6 +54,8 @@ ZSH_THEME="jonathan"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -71,7 +79,8 @@ ZSH_THEME="jonathan"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( git fzf  zsh-syntax-highlighting zsh-autosuggestions sudo man colored-man-pages )
+
+plugins=( git fzf common-aliases colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo man colored-man-pages battery )
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -79,14 +88,14 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_ES.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#if [[ -n $SSH_CONNECTION ]]; then
+   #export EDITOR='nvim'
+#else
+   #export EDITOR='nvim'
+#fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -95,7 +104,14 @@ export LANG=en_ES.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+#requisito para nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+export EDITOR='/usr/bin/nvim'
+
 # Example aliases
 alias ll='lsd -lh --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
@@ -106,10 +122,7 @@ alias rr='ranger'
 alias ytv='youtube-dl -f 'bestvideo+bestaudio' --recode-video mp4'
 alias ytm='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0'
 alias brillo='vim /sys/class/backlight/intel_backlight/brightness'
-#alias sshot='import -window `xwininfo | grep 'Window id:' | cut -d" " -f4` $HOME/Imágenes/screenshots/$(date +%Y%m%d%H%M%S).jpg'
-
-
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias cat='bat --paging=never'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
