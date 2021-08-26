@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font Bold 10
+font pango:FiraCode Nerd Font Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -198,70 +198,70 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        output HDMI-1
-        output eDP-1
-        output --primary
-        position top \
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t gruvbox-powerline \
-        -m spacer weather cpu memory disk sensors pasource amixer battery datetime kernel pacman \
-        -p disk.format="{percent:05.02f}%"\
-        -p cpu.format ="{percent:05.02f}%"\
-        -p memory.format="{percent:05.02f}%"\
-        -p datetime.format="%R"\
-        -p pacman.sum="True"\
-        -p sensors.show_freq="false"\
-        -p weather.location="Tarija"\
-        -p spacer.text="  PeterAlvarez"\
-        -p weather.showcity="false"
-        workspace_buttons yes
-    	height 25
+    output HDMI-1
+    output eDP-1
+    output --primary
+    position top \
+    status_command ~/.config/bumblebee-status/bumblebee-status \
+    -t gruvbox-powerline \
+    -m spacer weather cpu memory disk sensors pasource amixer battery datetime kernel pacman \
+    -p disk.format="{percent:05.02f}%"\
+    -p cpu.format ="{percent:05.02f}%"\
+    -p memory.format="{percent:05.02f}%"\
+    -p datetime.format="%R"\
+    -p pacman.sum="True"\
+    -p sensors.show_freq="false"\
+    -p weather.location="Tarija"\
+    -p spacer.text="  PeterAlvarez"\
+    -p weather.showcity="false"
+    workspace_buttons yes
+    height 25
 
 
-        colors {
-                background #282828
-                statusline #ffffff
-                separator #666666
+    colors {
+        background #282828
+        statusline #ffffff
+        separator #666666
 
-                # colorclass       <border> <background> <text>
-                focused_workspace  #b8bb26 #b8bb26 #282828
-                active_workspace   #282828 #282828 #8ec07c
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #458588 #458588 #282828
+        # colorclass       <border> <background> <text>
+        focused_workspace  #b8bb26 #b8bb26 #282828
+        active_workspace   #282828 #282828 #8ec07c
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #458588 #458588 #282828
 
-                binding_mode       #2f343a #900000 #ffffff
-        }
+        binding_mode       #2f343a #900000 #ffffff
+    }
 
-        modifier none
+    modifier none
 
 }
 
 
 bar {
-        output DP-1
-        position top \
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t gruvbox-powerline \
-        -m battery datetime kernel pacman \
-        -p datetime.format="%R"\
-        -p pacman.sum="True"\
-        workspace_buttons yes
-    	height 25
+    output DP-1
+    position top \
+    status_command ~/.config/bumblebee-status/bumblebee-status \
+    -t gruvbox-powerline \
+    -m battery datetime kernel pacman \
+    -p datetime.format="%R"\
+    -p pacman.sum="True"\
+    workspace_buttons yes
+    height 25
 
-        colors {
-                background #282828
-                statusline #ffffff
-                separator #666666
+    colors {
+        background #282828
+        statusline #ffffff
+        separator #666666
 
-                # colorclass       <border> <background> <text>
-                focused_workspace  #b8bb26 #b8bb26 #282828
-                active_workspace   #282828 #282828 #8ec07c
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #458588 #458588 #282828
+        # colorclass       <border> <background> <text>
+        focused_workspace  #b8bb26 #b8bb26 #282828
+        active_workspace   #282828 #282828 #8ec07c
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #458588 #458588 #282828
 
-                binding_mode       #2f343a #900000 #ffffff
-        }
-        modifier none
+        binding_mode       #2f343a #900000 #ffffff
+    }
+    modifier none
 }
 
 
