@@ -49,6 +49,8 @@ set wildignore+=**/.git/*
 "                      Set Config
 "==========================================================
 "numbers Line
+set ai "Auto indent
+set nosc noru nosm
 set number 		" numeros al costado del editor
 set relativenumber      " relativo number
 
@@ -61,7 +63,6 @@ set textwidth=80        " Romper lines cuado sobre pasa los 120 caracteres
 "set tabstop=4           " use 4 spaces to represent tab
 "set laststatus=0set shiftwidth=4        " number of spaces to use for auto indent
 set signcolumn=yes
-set autoindent          " copy indent from current line when starting a new line:
 set showcmd             " show (partial) command in status line
 set fillchars+=vert:\▏  " linea visualmente mejor xD.
 set ruler 		" Always show current position
@@ -161,10 +162,11 @@ nnoremap <leader>re <c-w>= <CR>
 highlight Normal ctermbg=NONE ctermfg=NONE guifg=#bdae93 guibg=NONE
 highlight MyColors ctermbg=NONE ctermfg=NONE guifg=#fb4934 guibg=NONE
 highlight MyColors2 ctermbg=NONE ctermfg=NONE guifg=#7b9e89 guibg=NONEfriday
+hi SpecialKey cterm=bold ctermfg=11 ctermbg=0 gui=bold guifg=#657b83 guibg=NONE
+hi LineNr  ctermbg=0 guifg=#83a598 guibg=NONE
 
 hi SignColumn guibg=NONE
 hi CursorLineNR guibg=NONE
-highlight LineNr guifg=#83a598
 highlight netrwDir guifg=#5eacd3
 highlight qfFileName guifg=#aed75f
 
@@ -257,7 +259,7 @@ nnoremap <leader>sm :mksession! ~/.mksession/
 nnoremap <leader>so :source ~/.mksession/
 "$ vim -S [ruta file][name file].vim => abre una session desde vim desde teminal
 "==========================================================
-
+let g:rainbow_active = 1
 
 
 "==========================================================
@@ -275,3 +277,11 @@ nnoremap <leader>so :source ~/.mksession/
 "@c => copia todo el codigo
 "@d => borra todo el codigo
 "@u => espacios entre ()
+
+"==========================================================
+"                         Move window
+"==========================================================
+map eh <C-w>h
+map ek <C-w>k
+map ej <C-w>j
+map el <C-w>l
