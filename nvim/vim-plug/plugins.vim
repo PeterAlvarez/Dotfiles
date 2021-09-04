@@ -37,7 +37,9 @@ Plug 'Pocco81/TrueZen.nvim'
 Plug 'rbgrouleff/bclose.vim'
 
 Plug 'overcache/NeoSolarized'
+Plug 'jlanzarotta/bufexplorer'
 
+"Plug 'Yohannfra/Nvim-Switch-Buffer'
 "Plug 'yamatsum/nvim-cursorline'
 "Plug 'wfxr/minimap.vim'
 "Plug 'honza/vim-snippets'

@@ -7,8 +7,9 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = ' '
 
 
-nmap <A-q> <Plug>AirlineSelectPrevTab zz
-nmap <A-w> <Plug>AirlineSelectNextTab zz
+nmap<S-J> <Plug>AirlineSelectPrevTab zz
+nmap<S-K> <Plug>AirlineSelectNextTab zz
+
 let g:airline_section_a = airline#section#create(['mode', ' ☰ ','%{&ff}',' ☰ ', '%{bufnr("%")}'])
 let g:airline_section_z = "%p%% ☰ \ue0a1:%l/%L ☰ Col:%c"
 let g:airline_section_c = airline#section#create(['%t'])

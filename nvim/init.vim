@@ -1,5 +1,5 @@
 "==========================================================
-"                        PLUGINS
+"                      PLUGINS
 "==========================================================
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plugins-config/ranger.vim
@@ -7,7 +7,6 @@ source $HOME/.config/nvim/plugins-config/treesitter.vim
 source $HOME/.config/nvim/plugins-config/gruvbox.vim
 source $HOME/.config/nvim/plugins-config/startif.vim
 source $HOME/.config/nvim/plugins-config/devicons.vim
-source $HOME/.config/nvim/plugins-config/airline.vim
 source $HOME/.config/nvim/plugins-config/git.vim
 source $HOME/.config/nvim/plugins-config/sorround.vim
 source $HOME/.config/nvim/plugins-config/easymotion.vim
@@ -18,6 +17,8 @@ source $HOME/.config/nvim/plugins-config/vista.vim
 source $HOME/.config/nvim/plugins-config/blankline.vim
 source $HOME/.config/nvim/plugins-config/fzf.vim
 source $HOME/.config/nvim/plugins-config/truezen.vim
+source $HOME/.config/nvim/plugins-config/bufExplorer.vim
+source $HOME/.config/nvim/plugins-config/airline.vim
 "==========================================================
 
 
@@ -88,6 +89,7 @@ set nofoldenable "abrir un archivo con los plieuges abiertos
 set termguicolors
 set lazyredraw
 set ttyfast
+set cursorline
 "==========================================================
 
 
@@ -124,7 +126,7 @@ let mapleader = " "
 
 "Exit y guardar
 nnoremap <leader>w :wa <CR>
-nnoremap <leader>q :q <CR>
+"nnoremap <leader>q :q <CR>
 "nnoremap <leader>h :TmuxNavigateLeft<CR>
 "nnoremap <leader>l :TmuxNavigateRight<CR>
 "nnoremap <leader>i :TmuxNavigatePrevious<CR>
@@ -142,6 +144,7 @@ nnoremap <leader>u :resize <CR>
 nnoremap <leader>rf :tab split <CR>
 "ventanas iguales
 nnoremap <leader>re <c-w>= <CR>
+
 
 "nnoremap <leader>y :vertical resize <CR>
 "nnoremap <leader>l :winc l<CR>
@@ -177,6 +180,9 @@ hi CocInfoSign guibg=NONE guifg=#83a598
 hi CocHintSign guibg=NONE guifg=#8ec07c
 hi CocErrorFloat guifg=#fb4934
 hi VertSplit ctermfg=241 ctermbg=235 guifg=#665c54 guibg=NONE
+
+"CursorLine
+"CursorLine ctermbg=0 guibg=#073642 guisp=#93a1a1
 
 "Fzf Colors Config
 let g:fzf_colors =
