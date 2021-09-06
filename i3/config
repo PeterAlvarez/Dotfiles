@@ -35,7 +35,7 @@ exec --no-startup-id synapse
 exec --no-startup-id tilda
 exec --no-startup-id picom
 #exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/3.jpg
+exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/4.png
 #exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 3520x0 --rotate normal --output HDMI-1 --primary --mode 1920x1080 --pos 1600x0 --rotate normal --output DP-1 --mode 1600x900 --pos 0x0 --rotate normal --output HDMI-2 --off
 
 
@@ -306,13 +306,14 @@ workspace 0 output HDMI-1-1
 
 
 ########## ventanas
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 4
 
-gaps inner 11
+gaps inner 20
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
 
 # Color settings
+#set $bg-color 	         #cc241d
 set $bg-color 	         #458588
 client.focused          $bg-color           $bg-color          $bg-color          $bg-color
 

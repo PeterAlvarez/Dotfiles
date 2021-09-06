@@ -18,6 +18,7 @@ source $HOME/.config/nvim/plugins-config/blankline.vim
 source $HOME/.config/nvim/plugins-config/fzf.vim
 source $HOME/.config/nvim/plugins-config/truezen.vim
 source $HOME/.config/nvim/plugins-config/bufExplorer.vim
+source $HOME/.config/nvim/plugins-config/nvimCheatSh.vim
 source $HOME/.config/nvim/plugins-config/airline.vim
 "==========================================================
 
@@ -132,7 +133,7 @@ nnoremap <leader>w :wa <CR>
 "nnoremap <leader>i :TmuxNavigatePrevious<CR>
 "nnoremap <leader>p :buffer
 nnoremap <leader>e :b #<CR>zz
-nnoremap <leader>b :bdelete<CR>
+nnoremap <leader>q :bdelete<CR>
 
 "reducir y aumentar el tamanio de las ventanas abiertas
 nnoremap <leader>/ :vertical resize +5<CR>
@@ -145,6 +146,7 @@ nnoremap <leader>rf :tab split <CR>
 "ventanas iguales
 nnoremap <leader>re <c-w>= <CR>
 
+nnoremap <leader>j :join<CR>
 
 "nnoremap <leader>y :vertical resize <CR>
 "nnoremap <leader>l :winc l<CR>
@@ -242,8 +244,8 @@ vnoremap <C-j> :m '>+1 <CR>gv=gv
 vnoremap <C-k> :m '<-2 <CR>gv=gv
 
 "new Line (Command)
-nnoremap t o<Esc>
 nnoremap T O<Esc>
+nnoremap t o<Esc>
 
 "Scroll Bot (Command)
 nnoremap G Gzz<Esc>
@@ -291,3 +293,19 @@ map eh <C-w>h
 map ek <C-w>k
 map ej <C-w>j
 map el <C-w>l
+
+"==========================================================
+"                         Soport Language
+"==========================================================
+
+"soport ruby
+let g:ruby_host_prog = '/home/tux/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host'
+
+
+"soporte perl desactivado
+let g:loaded_perl_provider = 0
+
+"cambiar el estado de la carpeta perl de oculto o visualmente
+"activa y desacomentar la siguiente linea
+"let g:perl_host_prog = '/usr/bin/perl'
+

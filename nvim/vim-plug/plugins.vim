@@ -39,6 +39,9 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'overcache/NeoSolarized'
 Plug 'jlanzarotta/bufexplorer'
 
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-cheat.sh'
+
 "Plug 'Yohannfra/Nvim-Switch-Buffer'
 "Plug 'yamatsum/nvim-cursorline'
 "Plug 'wfxr/minimap.vim'
