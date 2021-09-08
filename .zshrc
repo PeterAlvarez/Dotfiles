@@ -17,7 +17,9 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
+#ZSH_THEME="spaceship"
+ZSH_THEME="fwalch"
+#ZSH_THEME="jonathan"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,8 +82,32 @@ ZSH_THEME="jonathan"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=( git fzf common-aliases colored-man-pages zsh-syntax-highlighting zsh-autosuggestions sudo man colored-man-pages battery )
+plugins=( git
+    archlinux
+    fzf
+    common-aliases
+    colored-man-pages
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    sudo
+    man
+    colored-man-pages
+    battery
+    alias-finder
+    copydir
+    copyfile
+    vi-mode
+    copybuffer
+)
+
 source $ZSH/oh-my-zsh.sh
+
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+MODE_INDICATOR="%F{#458588}%f"
+
+#PROMPT=' $(battery_pct_prompt) %M %{$fg_bold[green]%} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)
+#$ '
+PROMPT='%{$fg_bold[red]%}[ %{$reset_color%}$(battery_pct_prompt)%{$fg_bold[red]%} ]-%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[green]%}%M %{$fg_bold[cyan]%}%c%{$fg[red]%}]%{$reset_color%}%{$fg_bold[blue]%}$(git_prompt_info) '
 
 # User configuration
 
@@ -123,8 +149,11 @@ alias ytv='youtube-dl -f 'bestvideo+bestaudio' --recode-video mp4'
 alias ytm='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0'
 alias brillo='vim /sys/class/backlight/intel_backlight/brightness'
 alias cat='bat --paging=never'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias af='alias-finder --longer'
+alias yy='copydir'
+alias cf='copyfile'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 PATH="/home/tux/perl5/bin${PATH:+:${PATH}}"; export PATH;

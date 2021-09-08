@@ -2,16 +2,16 @@
 "                      Git Config
 "==========================================================
 "Recupera una linea Modifica a un commit anterior
-nnoremap <leader>guh :GitGutterUndoHunk <CR>
+nnoremap guh :GitGutterUndoHunk <CR>
 
 "view next
-nnoremap <leader>gn :GitGutterNextHunk<CR>
+nnoremap gn :GitGutterNextHunk<CR>
 
 "view previe
-nnoremap <leader>gp :GitGutterPrev<CR>
+nnoremap gp :GitGutterPrevHunk<CR>
 
 "Muestra los cambios en una linea
-nnoremap <leader>gv :GitGutterPreviewHunk<CR>
+nnoremap gv :GitGutterPreviewHunk<CR>
 
 "icons
 let g:gitgutter_sign_added              = ''
