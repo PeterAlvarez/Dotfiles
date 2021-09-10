@@ -176,7 +176,7 @@ highlight netrwDir guifg=#5eacd3
 highlight qfFileName guifg=#aed75f
 
 "Coc Colors Config
-hi CocErrorSign guibg=NONE guifg=#fb4934
+hi CocErrorSign guifg=#fb4934
 hi CocWarningSign guibg=NONE guifg=#fe8019
 hi CocInfoSign guibg=NONE guifg=#83a598
 hi CocHintSign guibg=NONE guifg=#8ec07c
@@ -289,10 +289,19 @@ let g:rainbow_active = 1
 "==========================================================
 "                         Move window
 "==========================================================
-map eh <C-w>h
-map ek <C-w>k
-map ej <C-w>j
-map el <C-w>l
+nmap zs :split<Return><C-w>w
+nmap zv :vsplit<Return><C-w>w
+
+map zh <C-w>h
+map zk <C-w>k
+map zj <C-w>j
+map zl <C-w>l
+
+"==========================================================
+"                         Move Buffers
+"==========================================================
+nmap<S-J> :bn <CR>zz
+nmap<S-K> :bp <CR>zz
 
 "==========================================================
 "                         Soport Language

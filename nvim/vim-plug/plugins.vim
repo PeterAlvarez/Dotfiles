@@ -42,6 +42,8 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-cheat.sh'
 
+"Plug 'hoob3rt/lualine.nvim'
+"Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 "Plug 'Yohannfra/Nvim-Switch-Buffer'
 "Plug 'yamatsum/nvim-cursorline'
 "Plug 'wfxr/minimap.vim'
