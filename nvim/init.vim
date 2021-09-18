@@ -1,4 +1,4 @@
-"==========================================================
+
 "                      PLUGINS
 "==========================================================
 source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -63,7 +63,8 @@ set hidden              "para mantener un buferEditado abierto
 set textwidth=80        " Romper lines cuado sobre pasa los 120 caracteres
 "set softtabstop=4
 "set tabstop=4           " use 4 spaces to represent tab
-"set laststatus=0set shiftwidth=4        " number of spaces to use for auto indent
+set laststatus=0
+"set shiftwidth=4        " number of spaces to use for auto indent
 set signcolumn=yes
 set showcmd             " show (partial) command in status line
 set fillchars+=vert:\▏  " linea visualmente mejor xD.
@@ -176,11 +177,11 @@ highlight netrwDir guifg=#5eacd3
 highlight qfFileName guifg=#aed75f
 
 "Coc Colors Config
-hi CocErrorSign guifg=#fb4934
+hi CocErrorSign guifg=#fb4934 guibg=NONE
 hi CocWarningSign guibg=NONE guifg=#fe8019
 hi CocInfoSign guibg=NONE guifg=#83a598
 hi CocHintSign guibg=NONE guifg=#8ec07c
-hi CocErrorFloat guifg=#fb4934
+hi CocErrorFloat guifg=#fb4934 guibg=NONE
 hi VertSplit ctermfg=241 ctermbg=235 guifg=#665c54 guibg=NONE
 
 "CursorLine
@@ -234,9 +235,9 @@ map <Right> <Nop>
 imap <C-l> <Esc>$a
 
 "Experimental
-nnoremap <leader>fc gg=G''
-nnoremap <leader>cp ggyG''
-nnoremap <leader>dd ggdG
+nnoremap <leader>af gg=G''
+nnoremap <leader>ay ggyG''
+nnoremap <leader>ad ggdG
 noremap <leader>aa ggVG
 
 "Move Line (Visual)

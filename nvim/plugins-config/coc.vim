@@ -38,10 +38,10 @@ nnoremap <leader>fP :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nmap <leader>rr <plug>(coc-rename)
 "
 " GoTo code navigation.
-nmap <silent><space>vd <Plug>(coc-definition)
-nmap <silent><space>vt <Plug>(coc-type-definition)
-nmap <silent><space>vi <Plug>(coc-implementation)
-nmap <silent><space>vr <Plug>(coc-references)
+nmap <silent><space>d <Plug>(coc-definition)
+nmap <silent><space>dl <Plug>(coc-references)
+"nmap <silent><space>vt <Plug>(coc-type-definition)
+"nmap <silent><space>vi <Plug>(coc-implementation)
 
 set updatetime=300
 

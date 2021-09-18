@@ -152,6 +152,7 @@ alias cat='bat --paging=never'
 alias af='alias-finder --longer'
 alias yy='copydir'
 alias cf='copyfile'
+alias wm='xprop WM_CLASS'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
