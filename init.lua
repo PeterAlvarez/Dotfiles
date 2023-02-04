@@ -1,0 +1,2 @@
+require("theTux")
+print("lua")
