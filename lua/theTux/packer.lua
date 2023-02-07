@@ -20,15 +20,8 @@ return require('packer').startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  --scheme rosepine
-  --use({
-  --  'rose-pine/neovim',
-  --  as = 'rose-pine',
-  --  config = function()
-  --    require("rose-pine").setup()
-  --    vim.cmd('colorscheme rose-pine')
-  --  end
-  --})
+  
+  use 'hoob3rt/lualine.nvim' --statusLIne
   
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use( 'nvim-treesitter/playground')
