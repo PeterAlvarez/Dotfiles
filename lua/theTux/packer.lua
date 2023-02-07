@@ -15,14 +15,21 @@ return require('packer').startup(function(use)
 	}
 
 	--color scheme
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			require("rose-pine").setup()
-			vim.cmd('colorscheme rose-pine')
-		end
-	})
+  -- scheme solarized
+  use {
+    'svrana/neosolarized.nvim',
+    requires = { 'tjdevries/colorbuddy.nvim' }
+  }
+  --scheme rosepine
+  --use({
+  --  'rose-pine/neovim',
+  --  as = 'rose-pine',
+  --  config = function()
+  --    require("rose-pine").setup()
+  --    vim.cmd('colorscheme rose-pine')
+  --  end
+  --})
+  
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use( 'nvim-treesitter/playground')
 	
