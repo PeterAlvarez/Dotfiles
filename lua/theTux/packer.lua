@@ -4,15 +4,9 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use 'wbthomason/packer.nvim'
-	
-	-- buscador de archivos
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	use('wbthomason/packer.nvim') -- packer manages plugins of Neovim
+  use('williamboman/mason.nvim')
+  use('williamboman/mason-lspconfig.nvim')
 
 	--color scheme
   -- scheme solarized
@@ -20,40 +14,49 @@ return require('packer').startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  
+
   use 'hoob3rt/lualine.nvim' --statusLIne
-  
+
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
 	use( 'nvim-treesitter/playground')
-	
-	--navigation files
-	use( 'ThePrimeagen/harpoon')
-	
-	--git
+
+  use('neovim/nvim-lspconfig') --LSP
+  
+  use('onsails/lspkind-nvim') --vscode-like pictograms
+
+  use('hrsh7th/cmp-buffer') -- nvim-cmp source for buffer words
+
+  use('hrsh7th/cmp-nvim-lsp') -- nvim-cmp source for neovim's built-in LSP
+
+  use('hrsh7th/nvim-cmp') -- Completion
+
 	use( 'tpope/vim-fugitive')
 
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{'williamboman/mason.nvim'},           -- Optional
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+  use('L3MON4D3/LuaSnip')
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},         -- Required
-			{'hrsh7th/cmp-nvim-lsp'},     -- Required
-			{'hrsh7th/cmp-buffer'},       -- Optional
-			{'hrsh7th/cmp-path'},         -- Optional
-			{'saadparwaiz1/cmp_luasnip'}, -- Optional
-			{'hrsh7th/cmp-nvim-lua'},     -- Optional
+  use('windwp/nvim-autopairs')
 
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},             -- Required
-			{'rafamadriz/friendly-snippets'}, -- Optional
-		}
-	}
+  use('windwp/nvim-ts-autotag')
+
+  use('nvim-lua/plenary.nvim')-- Common utilities
+
+  use('nvim-telescope/telescope.nvim')
+
+  use('nvim-telescope/telescope-file-browser.nvim')
+
+  use('kyazdani42/nvim-web-devicons')
+
+  use('akinsho/nvim-bufferline.lua')
+
+  use('glepnir/lspsaga.nvim') -- LSP UIs 
+
+  use('jose-elias-alvarez/null-ls.nvim') --use neovim as a language server to inject LSP diagnostics,code actions
+
+  use('MunifTanjim/prettier.nvim') --Prettier plugin for Neovim's builting
+
+  use('lewis6991/gitsigns.nvim')
 
 end)
+
 
