@@ -11,4 +11,4 @@ lspconfig.setup {
   automatic_installation = true
 }
 
-require'lspconfig'.tailwindcss.setup{}
+--require'lspconfig'.tailwindcss.setup{}
