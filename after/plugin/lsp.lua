@@ -1,147 +1,39 @@
-local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then return end
+local lsp = require('lsp-zero')
 
-local protocol = require('vim.lsp.protocol')
+lsp.preset('recommended')
+lsp.ensure_installed({
+    'tsserver',
+    'eslint',
+    'sumneko_lua',
+})
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-  vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup_format,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr })
-      end,
-  })
-end
+lsp.setup_servers({
+    'tsserver'
+})
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+lsp.set_preferences({
 
-  --Enable completion triggered by <c-x><c-o>
-  --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-end
-
-protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-}
+})
 
 
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+lsp.preset('recommended')
 
-nvim_lsp.tsserver.setup {
-    on_attach = on_attach,
-    cmd = { "typescript-language-server", "--stdio" },
-    capabilities = capabilities
-}
-
-nvim_lsp.html.setup {
-    cmd = { "vscode-html-language-server", "--stdio" },
-    on_attach = on_attach,
-    filetypes = { 'html' },
-    capabilities = capabilities,
-
-    init_option = {
-        configurationSection = { "html", "css", "javascript" },
-        embeddedLanguages = {
-            css = true,
-            javascript = true
-        },
-        provideFormatter = true
+lsp.setup_nvim_cmp({
+    formatting = {
+        -- changing the order of fields so the icon is the first
+        fields = { 'abbr', 'menu', 'kind' },
+        -- here is where the change happens
+        format = require('lspkind').cmp_format({
+            maxwidth = 80,
+            before = function(entry, vim_item)
+              return vim_item
+            end
+        })
     },
-    setting = {},
-}
+})
 
-nvim_lsp.sumneko_lua.setup {
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-      enable_format_on_save(client, bufnr)
-    end,
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
+lsp.setup()
 
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false
-            },
-        },
-    },
-}
-
-nvim_lsp.emmet_ls.setup {
-    cmd = { "emmet-ls", "--stdio" },
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
-
-nvim_lsp.cssls.setup {
-    cmd = { "vscode-css-language-server", "--stdio" },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "css", "scss", "less" },
-}
-
-nvim_lsp.tailwindcss.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-nvim_lsp.angularls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-
-
---nvim_lsp.eslint.setup {
---    cmd = { "vscode-eslint-language-server", "--stdio" },
---    on_attach = on_attach,
---    capabilities = capabilities,
---}
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

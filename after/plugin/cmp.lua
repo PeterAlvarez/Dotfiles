@@ -1,8 +1,14 @@
 local status, cmp = pcall(require, "cmp")
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')
+
+luasnip.config.set_config({
+    region_check_events = 'InsertEnter',
+    delete_check_events = 'InsertLeave',
+    enable_autosnippets = true,
+})
 
 if (not status) then return end
-local lspkind = require 'lspkind'
-
 
 cmp.setup({
     snippet = {
@@ -11,28 +17,36 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs( -4),
+        ['<C-u>'] = cmp.mapping.scroll_docs( -4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<Tab>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-        }),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true
-        }),
-        ['<C-k>'] = cmp.mapping.select_prev_item({
-            behavior = cmp.ConfirmBehavior.select
-        }),
-        ['<C-j>'] = cmp.mapping.select_next_item({
-            behavior = cmp.ConfirmBehavior.select
-        }),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<C-l>'] = cmp.mapping.confirm({ select = false }),
+
+        ['<C-d>'] = cmp.mapping(function(fallback)
+          if luasnip.jumpable(1) then
+            luasnip.jump(1)
+          else
+            fallback()
+          end
+        end, { 'i', 's', 'n' }),
+
+        ['<C-b>'] = cmp.mapping(function(fallback)
+          if luasnip.jumpable( -1) then
+            luasnip.jump( -1)
+          else
+            fallback()
+          end
+        end, { 'i', 's', 'n' }),
+
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'nvim_lsp', keyword_length = 3 },
+        { name = 'buffer',   keyword_length = 3 },
+        { name = 'luasnip',  keyword_length = 2 },
     }),
     formatting = {
         format = lspkind.cmp_format({
@@ -45,9 +59,13 @@ cmp.setup({
 })
 
 
+--require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets/" } })
+luasnip.filetype_extend("javascript", { "html" })
+luasnip.filetype_extend("html", { "css" })
 
+require("luasnip/loaders/from_vscode").load({ include = { "javascript", "javascriptreact" } })
+require("luasnip/loaders/from_vscode").lazy_load()
 
---require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.cmd [[
   set completeopt=menuone,noinsert,noselect
