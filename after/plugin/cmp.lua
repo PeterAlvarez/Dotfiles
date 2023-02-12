@@ -21,7 +21,7 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<C-l>'] = cmp.mapping.confirm({ select = false }),
-
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }),
         ['<C-d>'] = cmp.mapping(function(fallback)
           if luasnip.jumpable(1) then
             luasnip.jump(1)
@@ -59,12 +59,13 @@ cmp.setup({
 })
 
 
---require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets/" } })
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets/" } })
+require("luasnip/loaders/from_vscode").load({ include = { "javascript", "javascriptreact" } })
+require("luasnip/loaders/from_vscode").lazy_load()
+
 luasnip.filetype_extend("javascript", { "html" })
 luasnip.filetype_extend("html", { "css" })
 
-require("luasnip/loaders/from_vscode").load({ include = { "javascript", "javascriptreact" } })
-require("luasnip/loaders/from_vscode").lazy_load()
 
 
 vim.cmd [[
