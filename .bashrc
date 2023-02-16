@@ -178,6 +178,8 @@ alias em='emacs -nw'
 alias _='sudo'
 alias pyServer='python -m http.server'
 alias entrada='~/.input'
+alias ide='sh ~/myCode/Dotfiles/scripts/tmuxInit.sh'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
