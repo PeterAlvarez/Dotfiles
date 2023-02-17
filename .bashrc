@@ -179,6 +179,14 @@ alias _='sudo'
 alias pyServer='python -m http.server'
 alias entrada='~/.input'
 alias ide='sh ~/myCode/Dotfiles/scripts/tmuxInit.sh'
+alias tmc='sh ~/myCode/Dotfiles/scripts/tmux-sessions.sh'
+alias coding='tmux attach -t coding'
+alias cat='batcat --paging=never'
+alias gmd='cd ~/myCode/Dotfiles/'
+alias gmm='cd ~/myCode'
+alias gmc='cd ~/.config/'
+alias rr='ranger'
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
