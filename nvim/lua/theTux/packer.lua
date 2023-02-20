@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
   --GitHub
   use('tpope/vim-fugitive')
   use('lewis6991/gitsigns.nvim')
-
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   use('onsails/lspkind-nvim') --vscode-like pictograms
   use('nvim-lua/plenary.nvim') -- Common utilities
@@ -98,4 +98,7 @@ return require('packer').startup(function(use)
       })
     end
   })
+
+  --comments
+  use("terrortylor/nvim-comment")
 end)
