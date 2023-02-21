@@ -43,7 +43,10 @@ vim.keymap.set('i', '<C-a>', '<Esc>$a')
 -- final de archivo con focus mid
 vim.keymap.set('n', 'G', 'Gzz<Esc>')
 
+--compile config neovim
+vim.keymap.set("n", "<leader>so", "<cmd>so<CR>")
 
+--elimination caracter x
 vim.keymap.set('n', 'x', '"_x')
 
 -- Increment/decrement
