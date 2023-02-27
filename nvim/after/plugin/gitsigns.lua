@@ -46,15 +46,12 @@ gitsigns.setup {
     yadm                         = {
         enable = false
     },
-
-
 }
 
-
-vim.keymap.set('n', '<leader>gh', '<cmd>Gitsigns preview_hunk<CR>')
-vim.keymap.set('n', '<leader>gp', '<cmd>Gitsigns prev_hunk<CR>zz')
-vim.keymap.set('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>zz')
-vim.keymap.set('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
-
-vim.keymap.set('n', '<leader>gdi', '<cmd>DiffviewOpen<CR>')
-vim.keymap.set('n', '<leader>gdc', '<cmd>DiffviewClose<CR>')
+---------------- esta en which-key ---------------------------
+-- vim.keymap.set('n', '<leader>gh', '<cmd>Gitsigns preview_hunk<CR>')
+-- vim.keymap.set('n', '<leader>gp', '<cmd>Gitsigns prev_hunk<CR>zz')
+-- vim.keymap.set('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>zz')
+-- vim.keymap.set('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
+-- vim.keymap.set('n', '<leader>gdi', '<cmd>DiffviewOpen<CR>')
+-- vim.keymap.set('n', '<leader>gdc', '<cmd>DiffviewClose<CR>')

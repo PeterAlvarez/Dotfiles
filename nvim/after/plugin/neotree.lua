@@ -20,6 +20,7 @@ config = function()
     -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
+    --@diagnostic disable-next-line: redundant-value
     vim.fn.sign_define("DiagnosticSignError",
         { text = " ", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn",
@@ -235,6 +236,6 @@ require("neo-tree").setup({
 
 -- vim.cmd([[nnoremap <F1> :Neotree reveal<cr>]])
 
-vim.keymap.set("n", "<F1>", "<cmd>NeoTreeFloatToggle<CR>")
-vim.keymap.set("n", "<F2>", "<cmd>NeoTreeShowToggle<CR>")
+-- vim.keymap.set("n", "<F1>", "<cmd>NeoTreeFloatToggle<CR>")
+-- vim.keymap.set("n", "<F2>", "<cmd>NeoTreeShowToggle<CR>")
 -- vim.keymap.set("n", "<F3>", "<cmd>Neotree<CR>")
