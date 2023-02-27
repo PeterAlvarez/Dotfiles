@@ -35,8 +35,8 @@ wk.setup {
         -- ["<tab>"] = "TAB",
     },
     icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
+        breadcrumb = " ", -- symbol used in the command line area that shows your active key combo
+        separator = " ", -- symbol used between a key and it's label
         group = " ", -- symbol prepended to a group
     },
     popup_mappings = {
@@ -46,7 +46,7 @@ wk.setup {
     window = {
         border = "single", -- none, single, double, shadow
         position = "bottom", -- bottom, top
-        margin = { 1, 1, 1, 1 }, -- extra window margin [top, right, bottom, left]
+        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
         winblend = 0
     },
@@ -77,8 +77,13 @@ wk.setup {
     },
 }
 
+-- vim.keymap.set('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
 wk.register({
     ['<leader>'] = {
+        ['f'] = {
+            name = 'Execute funtion',
+            c = { '<cmd>lua ColorMyPencils()<cr>', 'Color My Pencils' }
+        },
         name = "leader",
         ['g'] = {
             name = "Git",
@@ -87,6 +92,7 @@ wk.register({
             n = { '<cmd>Gitsigns next_hunk<CR>zz', 'Next hunk' },
             d = { '<cmd>DiffviewOpen<CR>', 'Diff view Open' },
             c = { '<cmd>DiffviewClose<CR>', 'Diff view Close' },
+            r = { '<cmd>Gitsigns reset_hunk<CR>', 'reset hunk' }
         },
 
         ['l'] = {
@@ -116,7 +122,7 @@ wk.register({
             end,
             'find files'
         },
-        r = { function() builtin.live_grep() end,
+        g = { function() builtin.live_grep() end,
             'Live Grep in proyect'
         },
         w = { function() builtin.live_grep { search_dirs = { "%:p" } } end,
@@ -153,7 +159,32 @@ wk.register({
                 })
             end,
             'view file proyect'
+        },
+        r = {
+            function() builtin.lsp_references() end,
+            'LSP References'
+        },
+        o = {
+            function() builtin.oldfiles() end,
+            'Previously open files'
+        },
+        ['/'] = {
+            function() builtin.search_history() end,
+            'Lists searches'
+        },
+        [':'] = {
+            function() builtin.command_history() end,
+            'Lists commands execute'
+        },
+        c = {
+            function() builtin.highlights() end,
+            'Color highlights'
+        },
+        v = {
+            function() builtin.git_status() end,
+            'Lists diff preview'
         }
+
     }
 })
 
