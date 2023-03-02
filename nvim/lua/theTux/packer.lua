@@ -96,5 +96,5 @@ return require('packer').startup(function(use)
 
     -- map-keys
     use("folke/which-key.nvim")
-    use ( 'goolord/alpha-nvim' )
+    use('goolord/alpha-nvim')
 end)

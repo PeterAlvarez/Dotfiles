@@ -8,7 +8,7 @@ tmux send-keys "ranger" C-m && sleep $tiempo
 tmux new-window -t coding:4 -n "ﭧ Testing" && sleep $tiempo
 tmux new-window -t coding:5 -n " Dockers" && sleep $tiempo
 tmux new-window -t coding:1 -n " Nvim" && sleep $tiempo
-tmux send-keys "cd ~/myCode/" C-m && tmux send-keys "nvim ." C-m && sleep $tiempo
+tmux send-keys "cd ~/myCode/" C-m && tmux send-keys "nvim" C-m && sleep $tiempo
 
 
 #tmux new-session -d -t "debug" && sleep $tiempo
