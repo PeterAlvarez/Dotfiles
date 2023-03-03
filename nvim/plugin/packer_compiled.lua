@@ -245,11 +245,6 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["peek.nvim"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/peek.nvim",
-    url = "https://github.com/toppair/peek.nvim"
-  },
   playground = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/playground",
@@ -279,6 +274,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-instant-markdown"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
+    url = "https://github.com/instant-markdown/vim-instant-markdown"
   },
   ["which-key.nvim"] = {
     loaded = true,

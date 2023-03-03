@@ -97,5 +97,8 @@ return require('packer').startup(function(use)
     -- map-keys
     use("folke/which-key.nvim")
     use('goolord/alpha-nvim')
-    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+
+    use('davidgranstrom/nvim-markdown-preview')
+    use('folke/tokyonight.nvim')
+    use("ellisonleao/gruvbox.nvim")
 end)

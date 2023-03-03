@@ -80,6 +80,14 @@ wk.setup {
 -- vim.keymap.set('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
 wk.register({
     ['<leader>'] = {
+        ['p'] = {
+            name = 'my shorcuts',
+            a = { "mzJ`z", 'Move line' },
+            e = { "<cmd>b#<CR>", 'Buff prev' },
+            w = { '<cmd>wa<CR>', 'Save' },
+            c = { '<cmd>bd<CR>', 'Close buff' },
+            s = { '<cmd>so<CR>', 'Compile Packer' }
+        },
         ['f'] = {
             name = 'Execute funtion',
             c = { '<cmd>lua ColorMyPencils()<cr>', 'Color My Pencils' }

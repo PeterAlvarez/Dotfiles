@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 
-vim.keymap.set("n", "P", "mzJ`z")
+-- vim.keymap.set("n", "P", "mzJ`z")
 
 -- scrool siempre en el medio
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -15,8 +15,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- greatest remap ever W
+vim.keymap.set("x", "P", [["_dP]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -24,18 +24,19 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- moverse en el buffer
 vim.keymap.set("n", "<S-L>", "<cmd>bn<CR>zz")
 vim.keymap.set("n", "<S-H>", "<cmd>bp<CR>zz")
---regresar a un buffer posteriro
-vim.keymap.set("n", "<leader>e", "<cmd>b#<CR>")
+
+--regresar a un buffer posteriro W
+-- vim.keymap.set("n", "<leader>e", "<cmd>b#<CR>")
 
 -- de modo insertar a modo normal
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "kk", "<Esc>")
 
---guardar modificaciones en el archivo
-vim.keymap.set("n", "<leader>w", "<cmd>wa<CR>")
+--guardar modificaciones en el archivo W
+-- vim.keymap.set("n", "<leader>w", "<cmd>wa<CR>")
 
---cerrar el buffer actual
-vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
+--cerrar el buffer actual W
+-- vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
 
 -- insertar al final de la linea
 vim.keymap.set('i', '<C-a>', '<Esc>$a')
@@ -43,8 +44,8 @@ vim.keymap.set('i', '<C-a>', '<Esc>$a')
 -- final de archivo con focus mid
 vim.keymap.set('n', 'G', 'Gzz<Esc>')
 
---compile config neovim
-vim.keymap.set("n", "<leader>so", "<cmd>so<CR>")
+--compile config neovim W
+-- vim.keymap.set("n", "<leader>so", "<cmd>so<CR>")
 
 --elimination caracter x
 vim.keymap.set('n', 'x', '"_x')
@@ -82,4 +83,5 @@ vim.keymap.set('n', '<C-w><left>', '<C-w><')
 vim.keymap.set('n', '<C-w><right>', '<C-w>>')
 vim.keymap.set('n', '<C-w><up>', '<C-w>+')
 vim.keymap.set('n', '<C-w><down>', '<C-w>-')
-vim.keymap.set('n', '<C-w><down>', '<C-w>-')
+
+vim.keymap.set('n', 'yy', '$v^y')
