@@ -67,7 +67,6 @@ nvim_lsp.lua_ls.setup {
                 -- Get the language server to recognize the `vim` global
                 globals = { 'vim' },
             },
-
             workspace = {
                 -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file("", true),
@@ -126,11 +125,14 @@ vim.opt.signcolumn = 'yes'
 --     }
 -- })
 local project_library_path = "/path/to/project/lib"
-local cmd = {"ngserver", "--stdio", "--tsProbeLocations", project_library_path , "--ngProbeLocations", project_library_path}
+local cmd = { "ngserver", "--stdio", "--tsProbeLocations", project_library_path, "--ngProbeLocations",
+    project_library_path }
 
-require'lspconfig'.angularls.setup{
-  cmd = cmd,
-  on_new_config = function(new_config,new_root_dir)
-    new_config.cmd = cmd
-  end,
+require 'lspconfig'.angularls.setup {
+    cmd = cmd,
+    on_new_config = function(new_config, new_root_dir)
+        new_config.cmd = cmd
+    end,
 }
+
+require'lspconfig'.marksman.setup{}
