@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+--Return line and zz
+vim.keymap.set("n", "''", "''zz")
+
 
 -- vim.keymap.set("n", "P", "mzJ`z")
 
@@ -85,3 +88,9 @@ vim.keymap.set('n', '<C-w><up>', '<C-w>+')
 vim.keymap.set('n', '<C-w><down>', '<C-w>-')
 
 vim.keymap.set('n', 'yy', '$v^y')
+
+--terminal mode visual
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
+
+vim.keymap.set('n', 'Y', 'Vy')
+vim.keymap.set('n', 'D', '0D')

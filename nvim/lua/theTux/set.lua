@@ -33,7 +33,7 @@ vim.opt.cmdheight = 1
 
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 6
-vim.opt.shell = 'fish'
+vim.opt.shell = 'bash'
 vim.opt.backupskip = 'tmp/*,/private/tmp/*'
 
 
@@ -44,9 +44,9 @@ vim.opt.inccommand = 'split'
 vim.opt.ignorecase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
-vim.opt.ai = true --auto indent
-vim.opt.si = true -- Smart indent
-vim.opt.wrap = false --No wrap lines
+vim.opt.ai = true            --auto indent
+vim.opt.si = true            -- Smart indent
+vim.opt.wrap = false         --No wrap lines
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.path:append { '**' } --Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -70,3 +70,21 @@ vim.opt.formatoptions:append { 'r' }
 
 -- clipboard copy paste
 vim.opt.clipboard = "unnamedplus"
+
+
+--space replace for (·)
+vim.cmd [[ set listchars=tab:\|\ ,trail:· list ]]
+
+-- color yank
+vim.cmd [[
+    augroup AuYank
+        autocmd!
+        autocmd TextYankPost *
+        \ lua vim.highlight.on_yank{higroup="IncSearch", timeout=300, on_visual=true }
+    augroup END
+]]
+
+
+-- desable continuation of comments to the next line
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
