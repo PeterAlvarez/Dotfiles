@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   ["hop.nvim"] = {
     config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
     loaded = true,
@@ -220,6 +225,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-markdown-preview"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-markdown-preview",
+    url = "https://github.com/davidgranstrom/nvim-markdown-preview"
+  },
   ["nvim-surround"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-surround",
@@ -270,15 +280,15 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-instant-markdown"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/vim-instant-markdown",
-    url = "https://github.com/instant-markdown/vim-instant-markdown"
   },
   ["which-key.nvim"] = {
     loaded = true,
