@@ -20,20 +20,20 @@ return require('packer').startup(function(use)
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            { 'williamboman/mason.nvim' }, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-buffer' }, -- Optional
-            { 'hrsh7th/cmp-path' }, -- Optional
+            { 'hrsh7th/nvim-cmp' },         -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },       -- Optional
+            { 'hrsh7th/cmp-path' },         -- Optional
             { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
             -- Snippet;f
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
 
     --Code Formattier
     use('jose-elias-alvarez/null-ls.nvim') --use neovim as a language server to inject LSP diagnostics,code actions
-    use('MunifTanjim/prettier.nvim') --Prettier plugin for Neovim's builting
+    use('MunifTanjim/prettier.nvim')       --Prettier plugin for Neovim's builting
 
 
     --find file telescope
@@ -63,9 +63,9 @@ return require('packer').startup(function(use)
     use('lewis6991/gitsigns.nvim')
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-    use('onsails/lspkind-nvim') --vscode-like pictograms
+    use('onsails/lspkind-nvim')  --vscode-like pictograms
     use('nvim-lua/plenary.nvim') -- Common utilities
-    use('glepnir/lspsaga.nvim') -- LSP UIs
+    use('glepnir/lspsaga.nvim')  -- LSP UIs
 
     use {
         "nvim-neo-tree/neo-tree.nvim",

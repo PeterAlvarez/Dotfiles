@@ -94,3 +94,18 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 vim.keymap.set('n', 'Y', 'Vy')
 vim.keymap.set('n', 'D', '0D')
+
+--new line finish file
+vim.api.nvim_set_keymap('n', '<C-o>', ":call append(line('$'), '')<CR>", { noremap = true })
+
+
+vim.api.nvim_set_keymap('n', '<leader>o', ":call append(line('.'), '' )<CR>", { noremap = true, silent = true })
+
+-- Función para insertar una línea en blanco encima de la línea actual sin mover el cursor
+function insertBlankLineAbove()
+    local current_line = vim.fn.line('.')
+    vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, { '' })
+end
+
+-- Atajo de teclado para insertar una línea en blanco encima de la línea actual sin mover el cursor
+vim.api.nvim_set_keymap('n', '<leader>i', ':lua insertBlankLineAbove()<CR>', { noremap = true, silent = true })

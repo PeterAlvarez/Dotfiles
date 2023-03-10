@@ -82,9 +82,9 @@ wk.register({
         ['<leader>'] = {
             ['p'] = {
             name = 'my shorcuts',
-            a = { "mzJ`z", 'Move line' },
-            e = { "<cmd>b#<CR>", 'Buff prev' },
-            w = { '<cmd>wa<CR>', 'Save' },
+            -- a = { "mzJ`z", 'Move line' },
+            e = { "<cmd>b#<CR>zz", 'Buff prev' },
+            w = { '<cmd>wa<CR>zz', 'Save' },
             c = { '<cmd>bd<CR>', 'Close buff' },
             s = { '<cmd>so<CR>', 'Compile Packer' },
             t = { '<cmd>terminal<CR>', 'Open terminal' }

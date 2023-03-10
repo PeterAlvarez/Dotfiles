@@ -13,34 +13,32 @@ if (not status) then return end
 cmp.setup({
     snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-u>'] = cmp.mapping.scroll_docs( -4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<C-l>'] = cmp.mapping.confirm({ select = false }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }),
-        ['<C-d>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(1) then
-            luasnip.jump(1)
-          else
-            fallback()
-          end
+            ['<C-Space>'] = cmp.mapping.confirm({ select = false }),
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = false }),
+            ['<C-l>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }),
+            ['<C-d>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
         end, { 'i', 's', 'n' }),
-
-        ['<C-b>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable( -1) then
-            luasnip.jump( -1)
-          else
-            fallback()
-          end
+            ['<C-b>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
         end, { 'i', 's', 'n' }),
-
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-
+            ['<C-k>'] = cmp.mapping.select_prev_item(),
+            ['<C-j>'] = cmp.mapping.select_next_item(),
     }),
     sources = cmp.config.sources({
         { name = 'path' },
@@ -52,7 +50,7 @@ cmp.setup({
         format = lspkind.cmp_format({
             maxwidth = 80,
             before = function(entry, vim_item)
-              return vim_item
+                return vim_item
             end
         })
     }
