@@ -13,6 +13,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.cmd([[ autocmd FileType html setlocal ts=2 sw=2 expandtab ]])
+-- vim.cmd([[ autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab ]])
 
 vim.opt.title = true
 vim.opt.autoindent = true

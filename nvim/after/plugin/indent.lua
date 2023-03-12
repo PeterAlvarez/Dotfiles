@@ -8,7 +8,7 @@ vim.cmd [[highlight IndentBlanklineIndent6 guifg=#d65d0e gui=nocombine]]
 
 
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
+-- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"
 
 
