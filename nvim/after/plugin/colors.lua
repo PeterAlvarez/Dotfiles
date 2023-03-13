@@ -21,3 +21,17 @@ function ColorMyPencils(color)
 end
 
 ColorMyPencils()
+
+-- Función para activar/desactivar colorcolumn
+function ToggleColorColumn()
+    if vim.wo.colorcolumn == "" then
+        vim.wo.colorcolumn = "80"
+        print("Colorcolumn activated")
+    else
+        vim.wo.colorcolumn = ""
+        print("Colorcolumn deactivated")
+    end
+end
+
+-- Atajo de teclado para la función
+vim.api.nvim_set_keymap('n', '<Leader>h', ':lua ToggleColorColumn()<CR>', { noremap = true, silent = true })

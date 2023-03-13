@@ -48,7 +48,7 @@ cmp.setup({
     }),
     formatting = {
         format = lspkind.cmp_format({
-            maxwidth = 80,
+            maxwidth = 75,
             before = function(entry, vim_item)
                 return vim_item
             end

@@ -17,7 +17,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 --buscar next siempre en el medio
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
 -- greatest remap ever W
 vim.keymap.set("x", "P", [["_dP]])
 
@@ -25,8 +24,8 @@ vim.keymap.set("x", "P", [["_dP]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- moverse en el buffer
-vim.keymap.set("n", "<S-L>", "<cmd>bn<CR>zz")
-vim.keymap.set("n", "<S-H>", "<cmd>bp<CR>zz")
+vim.keymap.set("n", "<S-L>", "<cmd>bn<CR>:echo 'Next Buffer'<CR>zz")
+vim.keymap.set("n", "<S-H>", "<cmd>bp<CR>:echo 'Prev Buffer'<CR>zz")
 
 --regresar a un buffer posteriro W
 -- vim.keymap.set("n", "<leader>e", "<cmd>b#<CR>")
@@ -36,7 +35,7 @@ vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("i", "kk", "<Esc>")
 
 --guardar modificaciones en el archivo W
--- vim.keymap.set("n", "<leader>w", "<cmd>wa<CR>")
+-- vim.keymap.set("n", "", "<cmd>so<CR>")
 
 --cerrar el buffer actual W
 -- vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
@@ -95,8 +94,12 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 vim.keymap.set('n', 'Y', 'Vy')
 vim.keymap.set('n', 'D', '0D')
 
+-- scrolling best
+vim.keymap.set('n', '<C-u>', '6kzz')
+vim.keymap.set('n', '<C-d>', '6jzz')
+
 --new line finish file
-vim.api.nvim_set_keymap('n', '<C-o>', ":call append(line('$'), '')<CR>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-o>', ":call append(line('$'), '')<CR>:echo 'New line bot'<CR>", { noremap = true })
 
 
 -- vim.api.nvim_set_keymap('n', '<leader>o', ":call append(line('.'), '' )<CR>", { noremap = true, silent = true })
@@ -109,3 +112,5 @@ end
 
 -- Atajo de teclado para insertar una línea en blanco encima de la línea actual sin mover el cursor
 -- vim.api.nvim_set_keymap('n', '<leader>i', ':lua insertBlankLineAbove()<CR>', { noremap = true, silent = true })
+
+

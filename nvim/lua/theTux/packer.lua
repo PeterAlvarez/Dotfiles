@@ -99,6 +99,11 @@ return require('packer').startup(function(use)
     use('goolord/alpha-nvim')
 
     use('davidgranstrom/nvim-markdown-preview')
+
+    --schemes
     use('folke/tokyonight.nvim')
     use("ellisonleao/gruvbox.nvim")
+
+    -- scroll suave
+    use('karb94/neoscroll.nvim')
 end)

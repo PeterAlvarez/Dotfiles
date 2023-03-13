@@ -34,6 +34,8 @@ vim.opt.cmdheight = 1
 
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 6
+-- vim.opt.scr = 8
+vim.opt.sidescrolloff = 35
 vim.opt.shell = 'bash'
 vim.opt.backupskip = 'tmp/*,/private/tmp/*'
 

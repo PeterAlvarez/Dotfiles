@@ -3,35 +3,26 @@ if (not status) then return end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            return client.name == "null-ls"
-        end,
-        bufnr = bufnr,
-    })
-end
-
 null_ls.setup {
     sources = {
         null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.diagnostics.eslint_d.with({
-            diagnostics_format = '[eslint] #{m}\n(#{c})'
+        null_ls.builtins.formatting.prettierd.with({
+            filetypes = { 'javascript', 'typescript', 'json', 'yaml', 'markdown' },
+            args = { '--tab-width', '4', '--print-width', '80', '--max-line-length=80' },
         }),
-        -- null_ls.builtins.diagnostics.fish
+        -- Formateador para archivos Python
+        -- null_ls.builtins.formatting.black.with({
+        --     filetypes = { 'python' },
+        --     extra_args = { '--line-length', '80' },
+        -- }),
+        -- Formateador para archivos HTML
+        null_ls.builtins.formatting.prettierd.with({
+            filetypes = { 'html' },
+            args = { '--tab-width', '2', '--print-width', '80', '--max-line-length=80' },
+        }),
+        null_ls.builtins.diagnostics.flake8,
     },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    lsp_formatting(bufnr)
-                end,
-            })
-        end
-    end
+    save_after_format = false,
 }
 
 

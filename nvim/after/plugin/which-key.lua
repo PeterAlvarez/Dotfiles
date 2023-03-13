@@ -71,24 +71,25 @@ wk.setup {
 
 -- vim.keymap.set('n', '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>')
 wk.register({
-        ['<leader>'] = {
+    ['<leader>'] = {
         name = "leader",
-            ['p'] = {
+        ['p'] = {
             name = 'my shorcuts',
             e = { "<cmd>b#<CR>zz", 'Buff prev' },
-            w = { '<cmd>wa<CR>zz', 'Save' },
+            w = { '<cmd>wa<CR>:echo "Save!!"<CR>', 'Save' },
+            f = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>:echo 'Formatted!!'<CR>", 'Formatted Code' },
             c = { '<cmd>bd<CR>', 'Close buff' },
-            s = { '<cmd>so<CR>', 'Compile Packer' },
+            s = { '<cmd>so<CR>:echo "Compiled Parcker!!"<CR>', 'Compile Packer' },
             t = { '<cmd>terminal<CR>', 'Open terminal' },
-            p = { "<cmd>let @+ = expand('%:p')<CR>", 'Copy path file' }
+            p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' }
         },
 
-            ['f'] = {
+        ['f'] = {
             name = 'Execute funtion',
-            c = { '<cmd>lua ColorMyPencils()<cr>', 'Color My Pencils' }
+            c = { '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>', 'Color My Pencils' }
         },
 
-            ['g'] = {
+        ['g'] = {
             name = "Git",
             h = { '<cmd>Gitsigns preview_hunk<cr>', 'Preview hunk' },
             p = { '<cmd>Gitsigns prev_hunk<CR>zz', 'Prev hunk' },
@@ -98,11 +99,11 @@ wk.register({
             r = { '<cmd>Gitsigns reset_hunk<CR>', 'reset hunk' }
         },
 
-            ['l'] = { name = "Language Protocol Service" },
+        ['l'] = { name = "Language Protocol Service" },
 
-            ['m'] = { name = "Mason", i = { '<cmd>Mason<CR>', 'Mason information' } },
+        ['m'] = { name = "Mason", i = { '<cmd>Mason<CR>', 'Mason information' } },
 
-            ['n'] = {
+        ['n'] = {
             name = "Neotree",
             f = { '<cmd>NeoTreeFloatToggle<CR>', 'Floating Neotree' },
             s = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
@@ -113,7 +114,7 @@ wk.register({
         i = { '<cmd>lua insertBlankLineAbove()<CR>', 'Insert line Above' },
         o = { "<cmd>call append(line('.'), '' )<CR>", 'Insert line below' }
     },
-        [';'] = {
+    [';'] = {
         name = "Telescope",
         f = {
             function()
@@ -130,7 +131,7 @@ wk.register({
             'live Grep in buffers'
         },
         t = { function() builtin.help_tags() end, 'Help tags' },
-            [';'] = { function() builtin.resume() end, 'Resume' },
+        [';'] = { function() builtin.resume() end, 'Resume' },
         d = { function() builtin.diagnostics() end, 'Diagnostics' },
         e = {
             function() builtin.buffers({ initial_mode = "normal" }) end, 'Buffers'
@@ -149,8 +150,8 @@ wk.register({
         },
         r = { function() builtin.lsp_references() end, 'LSP References' },
         o = { function() builtin.oldfiles() end, 'Previously open files' },
-            ['/'] = { function() builtin.search_history() end, 'Lists searches' },
-            [':'] = {
+        ['/'] = { function() builtin.search_history() end, 'Lists searches' },
+        [':'] = {
             function() builtin.command_history() end, 'Lists commands execute'
         },
         c = { function() builtin.highlights() end, 'Color highlights' },
