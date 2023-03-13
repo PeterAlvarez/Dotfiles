@@ -81,9 +81,12 @@ wk.register({
             c = { '<cmd>bd<CR>', 'Close buff' },
             s = { '<cmd>so<CR>:echo "Compiled Parcker!!"<CR>', 'Compile Packer' },
             t = { '<cmd>terminal<CR>', 'Open terminal' },
-            p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' }
+            p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' },
+            l = { ':lua ToggleColorColumn()<CR>', 'Line columns'}
         },
 
+-- Atajo de teclado para la función
+-- vim.api.nvim_set_keymap('n', '<Leader>h', ':lua ToggleColorColumn()<CR>', { noremap = true, silent = true })
         ['f'] = {
             name = 'Execute funtion',
             c = { '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>', 'Color My Pencils' }

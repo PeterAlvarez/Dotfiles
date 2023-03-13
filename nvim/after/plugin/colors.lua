@@ -33,5 +33,3 @@ function ToggleColorColumn()
     end
 end
 
--- Atajo de teclado para la función
-vim.api.nvim_set_keymap('n', '<Leader>h', ':lua ToggleColorColumn()<CR>', { noremap = true, silent = true })
