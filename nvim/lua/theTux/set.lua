@@ -13,6 +13,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.cmd([[ autocmd FileType html setlocal ts=2 sw=2 expandtab ]])
+vim.cmd([[ autocmd FileType json setlocal ts=2 sw=2 expandtab ]])
 -- vim.cmd([[ autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab ]])
 
 vim.opt.title = true
@@ -91,3 +92,4 @@ vim.cmd [[
 -- desable continuation of comments to the next line
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
