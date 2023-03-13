@@ -253,4 +253,4 @@ source <(ng completion script)
 
 alias luamake=/home/tux/lua-language-server/3rd/luamake/luamake
 # export PATH=$PATH:/home/tux/.nvm/versions/node/v18.13.0/bin/eslint_d
-export EDITOR=nvim
+export EDITOR="nvim"
