@@ -11,6 +11,8 @@ vim.opt.list = true
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"
 
+-- Deshabilitar indent-blankline para archivos de texto plano
+vim.g.indent_blankline_filetype_exclude = {'dbout'}
 
 vim.g.indent_blankline_char = '│'
 

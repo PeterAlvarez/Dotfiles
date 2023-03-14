@@ -106,4 +106,16 @@ return require('packer').startup(function(use)
 
     -- scroll suave
     use('karb94/neoscroll.nvim')
+
+
+    -- Database client
+
+    use({
+        "kristijanhusak/vim-dadbod-ui",
+        requires = {
+            "tpope/vim-dadbod",
+            -- "kristijanhusak/vim-dadbod-completion",
+            -- "tpope/vim-dotenv",
+        },
+    })
 end)
