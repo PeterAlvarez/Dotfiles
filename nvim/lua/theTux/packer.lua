@@ -109,12 +109,11 @@ return require('packer').startup(function(use)
 
 
     -- Database client
-
     use({
         "kristijanhusak/vim-dadbod-ui",
         requires = {
             "tpope/vim-dadbod",
-            -- "kristijanhusak/vim-dadbod-completion",
+            -- "kristijanhusak/vim-dadbod-completion", --for completion sql
             -- "tpope/vim-dotenv",
         },
     })

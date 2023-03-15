@@ -79,9 +79,29 @@ nvim_lsp.lua_ls.setup {
 nvim_lsp.emmet_ls.setup {
     cmd = { "emmet-ls", "--stdio" },
     capabilities = capabilities,
-    on_attach = on_attach,
 }
 
+require 'lspconfig'.sqls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+
+    cmd = { "sqls" },
+    filetypes = { "sql", "mysql" },
+    settings = {
+        sqls = {
+            connections = {
+                {
+                    driver = 'postgresql',
+                    dataSourceName = 'host=127.0.0.1 port=5432 user=root password=root dbname=ejemplo sslmode=disable',
+                },
+                {
+                    driver = 'postgresql',
+                    dataSourceName = 'host=127.0.0.1 port=5432 user=root password=root dbname=base2 sslmode=disable',
+                },
+            },
+        },
+    },
+}
 
 nvim_lsp.cssls.setup {
     cmd = { "vscode-css-language-server", "--stdio" },

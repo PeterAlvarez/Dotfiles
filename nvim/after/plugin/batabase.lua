@@ -1,7 +1,7 @@
 vim.g.db_ui_show_help = 0
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_win_position = 'right'
-vim.g.db_ui_win_width = 35
+vim.g.db_ui_win_width = 60
 vim.g.db_ui_save_location = 1
 vim.g.db_ui_execute_on_save = 0
 vim.g.db_ui_save_location = "~/myCode/cheatSheet/myQuery/"
@@ -33,21 +33,13 @@ vim.g.db_ui_table_helpers = {
 vim.cmd([[
   let g:dbs = {
   \ 'ejemplo': 'postgres://root:root@127.0.0.1:5432/ejemplo',
+  \ 'base2': 'postgres://root:root@127.0.0.1:5432/base2',
   \ }
 ]])
 
 
---
--- local dbs = {
---     mydb = {
---         database = 'ejemplo',
---         user = 'root',
---         password = 'root',
---         host = '127.0.0.1',
---         port = '5432',
---         options = '-c search_path=public',
---     },
--- }
+-- vim.cmd([[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]])
+
 
 
 vim.g.db_ui_icons = {
