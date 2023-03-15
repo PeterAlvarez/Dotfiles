@@ -4,7 +4,6 @@ vim.g.db_ui_win_position = 'right'
 vim.g.db_ui_win_width = 35
 vim.g.db_ui_save_location = 1
 vim.g.db_ui_execute_on_save = 0
-
 vim.g.db_ui_save_location = "~/myCode/cheatSheet/myQuery/"
 
 vim.g.db_ui_table_helpers = {
