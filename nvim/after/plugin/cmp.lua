@@ -58,7 +58,10 @@ cmp.setup({
 
 
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets/" } })
+
+---@diagnostic disable-next-line: different-requires
 require("luasnip/loaders/from_vscode").load({ include = { "javascript", "javascriptreact" } })
+---@diagnostic disable-next-line: different-requires
 require("luasnip/loaders/from_vscode").lazy_load()
 
 luasnip.filetype_extend("javascript", { "html" })
