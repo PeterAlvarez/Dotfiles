@@ -17,12 +17,12 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-            ['<C-Space>'] = cmp.mapping.confirm({ select = false }),
+            ['<C-l>'] = cmp.mapping.confirm({ select = false }),
             ['<C-u>'] = cmp.mapping.scroll_docs(-4),
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
             ['<C-e>'] = cmp.mapping.abort(),
             ['<CR>'] = cmp.mapping.confirm({ select = false }),
-            ['<C-l>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }),
+            ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c', 's' }),
             ['<C-d>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
                 luasnip.jump(1)
@@ -48,7 +48,7 @@ cmp.setup({
     }),
     formatting = {
         format = lspkind.cmp_format({
-            maxwidth = 75,
+            maxwidth = 80,
             before = function(entry, vim_item)
                 return vim_item
             end
