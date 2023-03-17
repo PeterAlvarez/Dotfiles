@@ -117,4 +117,6 @@ return require('packer').startup(function(use)
             -- "tpope/vim-dotenv",
         },
     })
+    -- use('mfussenegger/nvim-jdtls')
+    -- use('mfussenegger/nvim-dap')
 end)

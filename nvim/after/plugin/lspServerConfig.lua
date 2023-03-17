@@ -155,4 +155,61 @@ require 'lspconfig'.angularls.setup {
     end,
 }
 
-require 'lspconfig'.marksman.setup {}
+-- require 'lspconfig'.marksman.setup {}
+
+-- =============== plugins java completion ===========
+-- function! s:jdtls_start()
+--   if executable(g:jdtls_command[0])
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dl', '<Cmd>JdtLsWorkspaceOutline<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>df', '<Cmd>JdtLsImportOrganize<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dd', '<Cmd>JdtLsJavaDoc<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dt', '<Cmd>JdtLsTestFile<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dn', '<Cmd>JdtLsTestNearest<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dc', '<Cmd>JdtLsTestCoverage<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dp', '<Cmd>JdtLsRunPackage<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dr', '<Cmd>JdtLsRunFile<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dv', '<Cmd>JdtLsDebugTestNearest<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>ds', '<Cmd>JdtLsSignatureHelp<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dm', '<Cmd>JdtLsExtractMethod<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dw', '<Cmd>JdtLsWhoIs<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>de', '<Cmd>JdtLsExtendSelection<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>di', '<Cmd>JdtLsImplementInterface<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dj', '<Cmd>JdtLsJavaReferences<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>da', '<Cmd>JdtLsAddImport<CR>', {})
+--     call nvim_buf_set_keymap(0, 'n', '<leader>dk', '<Cmd>Jdt
+
+-- local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+-- local workspace_dir = '/home/tux/myCode/workspace/' .. project_name
+--
+-- require 'lspconfig'.jdtls.setup {
+--     cmd = {
+--         'java',
+--         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+--         '-Dosgi.bundles.defaultStartLevel=4',
+--         '-Declipse.product=org.eclipse.jdt.ls.core.product',
+--         '-Dlog.protocol=true',
+--         '-Dlog.level=ALL',
+--         '-Xms1g',
+--         '--add-modules=ALL-SYSTEM',
+--         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+--         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+--
+--         -- 💀
+--         '-jar',
+--         '~/.config/nvim/lybrary/java/jdt-language-server-1.9.0-202203031534/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+--         -- 💀
+--         '-configuration', '~/.config/nvim/lybrary/java/jdt-language-server-1.9.0-202203031534/config_linux/',
+--         -- 💀
+--         '-data',  workspace_dir
+--         -- '-data',  vim.fn.expand('~/.cache/jdtls')
+--     },
+--     root_dir = function(fname)
+--         return require 'lspconfig'.util.find_git_ancestor(fname)  or  '/home/tux/myCode/workspace/myApp'
+--     end,
+--     -- root_dir = function(fname)
+--     --     return nvim_lsp.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+--     -- end,
+--     capabilities = capabilities,
+-- }
+--
+

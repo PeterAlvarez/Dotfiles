@@ -10,6 +10,11 @@ require 'nvim-treesitter.configs'.setup {
         "tsx",
         "json",
         "html",
+        "css",
+        "java",
+        "markdown",
+        "python",
+        "sql",
     },
 
     sync_install = false,
