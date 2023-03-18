@@ -45,10 +45,10 @@ vim.cmd([[
 --     { name = 'luasnip',  keyword_length = 2 },
 -- }),
 vim.cmd([[ autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {
-    \{ name = 'vim-dadbod-completion' },
-    \{ name = 'nvim_lsp', keyword_length = 3 },
+    \{ name = 'nvim_lsp', keyword_length = 2 },
     \{ name = 'luasnip',  keyword_length = 2 },
-    \{ name = 'buffer',   keyword_length = 3 },
+    \{ name = 'buffer',   keyword_length = 2 },
+    \{ name = 'vim-dadbod-completion', keyword_length = 2 },
     \{ name = 'path' },
     \}
 \})]])

@@ -89,7 +89,6 @@ wk.register({
         ['f'] = {
             name = 'Execute funtion',
             c = { '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>', 'Color My Pencils' },
-            d = {':tab DBUI<cr>', 'Client for DataBase'},
         },
 
         ['g'] = {
@@ -100,6 +99,15 @@ wk.register({
             d = { '<cmd>DiffviewOpen<CR>', 'Diff view Open' },
             c = { '<cmd>DiffviewClose<CR>', 'Diff view Close' },
             r = { '<cmd>Gitsigns reset_hunk<CR>', 'reset hunk' }
+        },
+
+        ['d'] = {
+            name = 'Data Base Client',
+            v = {':tab DBUI<cr>', 'Client for DataBase'},
+            c = {'vip<Plug>(DBUI_ExecuteQuery)', 'Compile code'},
+            r = {'<C-w>l<Plug>(DBUI_Redraw)<C-w>h', 'Refresh DataBase'},
+            w = {'<Plug>(DBUI_SaveQuery)', 'Save Query'},
+            d = {'<C-w>j<Cmd>close<Cr>', 'Close view compile'},
         },
 
         ['l'] = { name = "Language Protocol Service" },
