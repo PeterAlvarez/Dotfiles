@@ -119,4 +119,9 @@ return require('packer').startup(function(use)
     })
     -- use('mfussenegger/nvim-jdtls')
     -- use('mfussenegger/nvim-dap')
+
+    -- colorizer install
+    use('norcalli/nvim-colorizer.lua')
+    
+
 end)
