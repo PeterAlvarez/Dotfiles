@@ -171,6 +171,7 @@ fi
 
 
 # some more ls aliases
+alias wm='xprop WM_CLASS'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
