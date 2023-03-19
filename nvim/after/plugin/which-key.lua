@@ -89,6 +89,8 @@ wk.register({
         ['f'] = {
             name = 'Execute funtion',
             c = { '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>', 'Color My Pencils' },
+            t = { '<cmd>ColorizerToggle<CR>:echo "Colorizer Toggle"<CR>','Colorizer Toggle'},
+            r = { '<cmd>ColorizerReloadAllBuffers<CR>:echo "Colorizer Refresh"<CR>', 'Colorizer Refresh'},
         },
 
         ['g'] = {

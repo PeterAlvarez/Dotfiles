@@ -364,3 +364,17 @@ for_window [title="Window Title"] border none
 # Color settings
 set $bg-color #cc241d
 client.focused $bg-color $bg-color #1c1c1c $bg-color
+
+#====================================================
+
+
+#==================== scripts ====================
+bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
+bindsym $mod+bracketright   exec /home/tux/myCode/Dotfiles/scripts/spotify/play.sh
+bindsym $mod+semicolon      exec /home/tux/myCode/Dotfiles/scripts/spotify/previous.sh
+bindsym $mod+apostrophe     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.sh
+bindsym $mod+comma          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
+bindsym $mod+period         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
+
+
+
