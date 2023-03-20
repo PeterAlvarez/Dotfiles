@@ -11,7 +11,7 @@ exec --no-startup-id synapse
 #exec --no-startup-id xcompmgr &
 exec --no-startup-id tilda
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/13.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/20.png
 
 # ========================= $xmodmap -pke [name keys function]============
 # Use pactl to adjust volume in PulseAudio.
@@ -36,7 +36,8 @@ bindsym $mod+Return exec tilix
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+t exec --no-startup-id dmenu_run
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -96,6 +97,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 #          力 
+
 # set $ws1 "1"
 # set $ws2 "2"
 # set $ws3 "3"
@@ -170,11 +172,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-
-# -t gruvbox-powerline \
-
 # SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   
 # --------- ------- ---- -------  ----------- 
 # base03    #002b36  8/4 brblack  234 #1c1c1c 
@@ -238,7 +235,7 @@ bar {
         -p datetime.format="%R"\
         -p spacer.text="  PeterAlvarez"\
 
- colors {
+    colors {
         background #002b36
             statusline #ffffff
             separator #666666
@@ -362,7 +359,7 @@ for_window [class=".*"] border pixel 4
 for_window [title="Window Title"] border none
 
 # Color settings
-set $bg-color #cc241d
+set $bg-color #268bd2
 client.focused $bg-color $bg-color #1c1c1c $bg-color
 
 #====================================================
@@ -378,6 +375,23 @@ bindsym $mod+comma          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.
 bindsym $mod+period         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
 
 #bateria
+exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/baterry/battery.sh
 
+# exec
+bindsym $mod+X mode "$mode_system"
+bindsym control+mod1+Delete mode "$mode_system"
 
-#====================================================
+set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$mode_system" {
+    bindsym k exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3lock.sh lock, mode "default"
+    bindsym l exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+#================================ pw====================

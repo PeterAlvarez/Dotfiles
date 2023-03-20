@@ -147,8 +147,8 @@ alias vi='nvim'
 alias cat='batcat --paging=never'
 alias yy='pwd | xclip -selection clipboard'
 # ============== alias tmux
-alias ide='sh ~/myCode/Dotfiles/scripts/tmuxInit.sh'
-alias tmc='sh ~/myCode/Dotfiles/scripts/tmux-sessions.sh'
+alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
+alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
