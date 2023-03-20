@@ -369,6 +369,7 @@ client.focused $bg-color $bg-color #1c1c1c $bg-color
 
 
 #==================== scripts ====================
+#spotify
 bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
 bindsym $mod+bracketright   exec /home/tux/myCode/Dotfiles/scripts/spotify/play.sh
 bindsym $mod+semicolon      exec /home/tux/myCode/Dotfiles/scripts/spotify/previous.sh
@@ -376,5 +377,7 @@ bindsym $mod+apostrophe     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.
 bindsym $mod+comma          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
 bindsym $mod+period         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
 
+#bateria
 
 
+#====================================================

@@ -11,21 +11,10 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 #export BAT_CONFIG_PATH="/path/to/bat.conf"
 
 
-
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="spaceship"
 ZSH_THEME="fwalch"
 #ZSH_THEME="jonathan"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -83,7 +72,6 @@ ZSH_THEME="fwalch"
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=( git
-    archlinux
     fzf
     common-aliases
     colored-man-pages
@@ -91,13 +79,9 @@ plugins=( git
     zsh-autosuggestions
     sudo
     man
-    colored-man-pages
     battery
     alias-finder
-    copydir
-    copyfile
     vi-mode
-    copybuffer
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -153,6 +137,19 @@ alias af='alias-finder --longer'
 alias yy='copydir'
 alias cf='copyfile'
 alias wm='xprop WM_CLASS'
+alias pyServer='python -m http.server'
+alias gmd='cd ~/myCode/Dotfiles/'
+alias gmm='cd ~/myCode'
+alias gmc='cd ~/.config/'
+alias cat='batcat --paging=never'
+alias vim='nvim'
+alias vi='nvim'
+alias cat='batcat --paging=never'
+alias yy='pwd | xclip -selection clipboard'
+# ============== alias tmux
+alias ide='sh ~/myCode/Dotfiles/scripts/tmuxInit.sh'
+alias tmc='sh ~/myCode/Dotfiles/scripts/tmux-sessions.sh'
+alias coding='tmux attach -t coding'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -162,3 +159,5 @@ PERL5LIB="/home/tux/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/tux/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/tux/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/tux/perl5"; export PERL_MM_OPT;
+
+neofetch

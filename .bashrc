@@ -172,9 +172,11 @@ fi
 
 # some more ls aliases
 alias wm='xprop WM_CLASS'
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='lsd -lh --group-dirs=first'
+alias la='lsd -a --group-dirs=first'
+alias l='lsd --group-dirs=first'
+alias lla='lsd -lha --group-dirs=first'
+alias ls='lsd  --group-dirs=first'
 alias em='emacs -nw'
 alias _='sudo'
 alias pyServer='python -m http.server'
