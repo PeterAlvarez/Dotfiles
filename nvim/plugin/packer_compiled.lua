@@ -180,6 +180,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mini.map"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/mini.map",
+    url = "https://github.com/echasnovski/mini.map"
+  },
   ["neo-tree.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
@@ -219,6 +224,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-comment"] = {
     loaded = true,

@@ -122,6 +122,6 @@ return require('packer').startup(function(use)
 
     -- colorizer install
     use('norcalli/nvim-colorizer.lua')
-    
+    use { 'echasnovski/mini.map', branch = 'stable' }
 
 end)
