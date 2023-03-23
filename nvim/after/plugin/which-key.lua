@@ -95,12 +95,18 @@ wk.register({
 
         ['g'] = {
             name = "Git",
-            h = { '<cmd>Gitsigns preview_hunk<cr>', 'Preview hunk' },
+            v = { '<cmd>Gitsigns preview_hunk<cr>', 'View hunk' },
             p = { '<cmd>Gitsigns prev_hunk<CR>zz', 'Prev hunk' },
             n = { '<cmd>Gitsigns next_hunk<CR>zz', 'Next hunk' },
-            d = { '<cmd>DiffviewOpen<CR>', 'Diff view Open' },
+            o = { '<cmd>DiffviewOpen<CR>', 'Diff view Open' },
             c = { '<cmd>DiffviewClose<CR>', 'Diff view Close' },
-            r = { '<cmd>Gitsigns reset_hunk<CR>', 'reset hunk' }
+            r = { '<cmd>Gitsigns reset_hunk<CR>', 'reset hunk' },
+            d = { '<cmd>DiffviewToggleFiles<CR>', 'Toggle Files' },
+            h = { '<cmd>DiffviewFileHistory<CR>', 'Commits History' },
+            R = { '<cmd>DiffviewRefresh<CR>', 'Refresh DiffView' },
+            a = { '<cmd>Git add .<CR>', 'executed git add'},
+            m = { '<cmd>Git commit<CR>', 'executed git commit'},
+            l = { '<cmd>tab Git log<CR>', 'executed git log'}
         },
 
         ['d'] = {
@@ -119,8 +125,8 @@ wk.register({
         ['n'] = {
             name = "Neotree",
             f = { '<cmd>NeoTreeFloatToggle<CR>', 'Floating Neotree' },
-            s = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
-            o = { '<cmd>NeoTreeFocus<CR>', 'Focus Neotree' },
+            v = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
+            o = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
             c = { '<cmd>Neotree close<CR>', 'close Neotree' }
         },
 
@@ -129,6 +135,11 @@ wk.register({
     },
     [';'] = {
         name = "Telescope",
+        k = {
+            function()
+                builtin.keymaps({ no_ignore = false, hidden = true })
+            end, 'find files'
+        },
         f = {
             function()
                 builtin.find_files({ no_ignore = false, hidden = true })
