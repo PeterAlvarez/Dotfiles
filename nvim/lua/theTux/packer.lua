@@ -122,6 +122,6 @@ return require('packer').startup(function(use)
 
     -- colorizer install
     use('norcalli/nvim-colorizer.lua')
-    
+    use('HiPhish/nvim-ts-rainbow2')
 
 end)
