@@ -11,6 +11,10 @@ prettier.setup {
         'typescriptreact',
         'jason',
         'scss',
-        'less'
-    }
+        'less',
+        'yml',
+        'html'
+    },
+   tab_width = 4,
 }
+
