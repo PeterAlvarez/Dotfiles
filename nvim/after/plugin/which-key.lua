@@ -79,7 +79,7 @@ wk.register({
             w = { '<cmd>wa<CR>:echo "Save!!"<CR>', 'Save' },
             h = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>:echo 'Formatted!!'<CR>", 'Formatted Code' },
             f = { "<cmd>Prettier<CR>:echo 'Formatted Prettier!!'<CR>", 'Prettier Format Code'},
-            c = { '<cmd>bd<CR>', 'Close buff' },
+            c = { '<cmd>bp|sp|bn|bd<CR>', 'Close buff' },
             s = { '<cmd>so<CR>:echo "Compiled Parcker!!"<CR>', 'Compile Packer' },
             t = { '<cmd>terminal<CR>', 'Open terminal' },
             p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' },

@@ -32,7 +32,7 @@ dashboard.section.header.val = banner
 -- Menu
 dashboard.section.buttons.val = {
     dashboard.button('e', '  New file', ':ene <BAR> startinsert<CR>'),
-    dashboard.button('r', '  Recently opened files', '<cmd>Telescope oldfiles<CR>'),
+    dashboard.button('o', '  Recently opened files', '<cmd>Telescope oldfiles<CR>'),
     dashboard.button(';f', '  Find file', '<cmd>Telescope file_browser<CR>'),
     dashboard.button('S', '  Settings', ':e $MYVIMRC<CR>'),
     dashboard.button('q', '  Quit', '<cmd>Alpha<CR>'),

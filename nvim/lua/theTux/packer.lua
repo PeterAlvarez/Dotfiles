@@ -86,7 +86,6 @@ return require('packer').startup(function(use)
     }
 
     use("lukas-reineke/indent-blankline.nvim")
-    use('manzeloth/live-server')
 
 
     use({ "kylechui/nvim-surround", tag = "*" })
@@ -117,8 +116,8 @@ return require('packer').startup(function(use)
             -- "tpope/vim-dotenv",
         },
     })
-    -- use('mfussenegger/nvim-jdtls')
-    -- use('mfussenegger/nvim-dap')
+    use('mfussenegger/nvim-jdtls')
+    use('mfussenegger/nvim-dap')
 
     -- colorizer install
     use('norcalli/nvim-colorizer.lua')
