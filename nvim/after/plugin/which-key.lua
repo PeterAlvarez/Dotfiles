@@ -127,8 +127,10 @@ wk.register({
             name = "Neotree",
             f = { '<cmd>NeoTreeFloatToggle<CR>', 'Floating Neotree' },
             v = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
-            o = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
-            c = { '<cmd>Neotree close<CR>', 'close Neotree' }
+            n = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
+            c = { '<cmd>Neotree close<CR>', 'close Neotree' },
+            o = { '<cmd>NeoTreeRevealInSplitToggle<CR>', 'Open Neo focus' },
+            r = { '<cmd>NeoTreeReveal<CR>', 'Neo set Root!' },
         },
 
         i = { '<cmd>lua insertBlankLineAbove()<CR>', 'Insert line Above' },
