@@ -15,7 +15,9 @@ vim.opt.expandtab = true
 -- vim.cmd([[ autocmd FileType html setlocal ts=2 sw=2 expandtab ]])
 -- vim.cmd([[ autocmd FileType json setlocal ts=2 sw=2 expandtab ]])
 vim.cmd([[autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab]])
--- vim.cmd([[ autocmd Filetype typescript setlocal ts=4 sw=4 sts=0 expandtab ]])
+vim.cmd([[ autocmd FileType typescript setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab ]])
+
+
 
 vim.opt.title = true
 vim.opt.autoindent = true

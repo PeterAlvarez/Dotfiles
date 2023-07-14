@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# .bashrc, .zshrc or whatever shell you use
+export PATH=$PATH:$HOME/.local/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tux/.oh-my-zsh"
 export LC_ALL="es_ES.UTF-8"

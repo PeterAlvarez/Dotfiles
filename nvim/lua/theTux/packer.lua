@@ -116,11 +116,13 @@ return require('packer').startup(function(use)
             -- "tpope/vim-dotenv",
         },
     })
-    use('mfussenegger/nvim-jdtls')
-    use('mfussenegger/nvim-dap')
+
+    -- use('mfussenegger/nvim-jdtls')
+    -- use('mfussenegger/nvim-dap')
 
     -- colorizer install
     use('norcalli/nvim-colorizer.lua')
     use('HiPhish/nvim-ts-rainbow2')
 
+    use { 'luisiacc/gruvbox-baby' }
 end)

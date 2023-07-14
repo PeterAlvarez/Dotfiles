@@ -13,7 +13,9 @@ prettier.setup {
         'scss',
         'less',
         'yml',
-        'html'
+        'html',
+        'python',
+        'php'
     },
    tab_width = 4,
 }

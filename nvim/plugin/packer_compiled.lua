@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["gruvbox-baby"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/gruvbox-baby",
+    url = "https://github.com/luisiacc/gruvbox-baby"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -224,11 +229,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-comment",
     url = "https://github.com/terrortylor/nvim-comment"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-jdtls"] = {
     loaded = true,
