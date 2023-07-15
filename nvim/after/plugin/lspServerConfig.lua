@@ -156,5 +156,24 @@ require 'lspconfig'.angularls.setup {
 }
 
 
--- configurationJava
+-- Configuración para el servidor LSP de Java (jdtls)
 
+-- Configuración para jdtls
+require('lspconfig').jdtls.setup{
+    cmd = { 'jdtls' },
+    on_attach = function(client, bufnr)
+        -- Configuraciones adicionales según sea necesario
+    end,
+    capabilities = capabilities,
+    -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+}
+
+
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         underline = true,
+--         virtual_text = true,
+--         signs = true,
+--         update_in_insert = false,
+--     }
+-- )
