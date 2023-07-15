@@ -85,6 +85,8 @@ wk.register({
             p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' },
             l = { ':lua ToggleColorColumn()<CR>', 'Line columns'},
             x = { ':tabclose<CR>', 'Tab Close'},
+            q = {':q<CR>', 'Tab Close'},
+            ['='] = { "maggVG='a:echo 'Formating code!!!'<CR>", 'Formating whit ='},
         },
 
         ['f'] = {
