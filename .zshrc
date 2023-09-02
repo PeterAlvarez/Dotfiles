@@ -14,6 +14,8 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 #export BAT_CONFIG_PATH="/path/to/bat.conf"
 
 
+export VISUAL=nvim
+
 #ZSH_THEME="spaceship"
 ZSH_THEME="fwalch"
 #ZSH_THEME="jonathan"
@@ -153,6 +155,7 @@ alias yy='pwd | xclip -selection clipboard'
 alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
 alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
+alias ee='exi'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
