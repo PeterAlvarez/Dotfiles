@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# .bashrc, .zshrc or whatever shell you use
+# export PATH=$PATH:$HOME/.local/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tux/.oh-my-zsh"
 export LC_ALL="es_ES.UTF-8"
@@ -10,6 +13,8 @@ export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 #export BAT_CONFIG_PATH="/path/to/bat.conf"
 
+
+export VISUAL=nvim
 
 #ZSH_THEME="spaceship"
 ZSH_THEME="fwalch"
@@ -150,6 +155,7 @@ alias yy='pwd | xclip -selection clipboard'
 alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
 alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
+alias ee='exi'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

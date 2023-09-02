@@ -100,7 +100,7 @@ require("neo-tree").setup({
     },
     window = {
         position = "right",
-        width = 35,
+        width = 45,
         mapping_options = {
             noremap = true,
             nowait = true,

@@ -79,12 +79,14 @@ wk.register({
             w = { '<cmd>wa<CR>:echo "Save!!"<CR>', 'Save' },
             h = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>:echo 'Formatted!!'<CR>", 'Formatted Code' },
             f = { "<cmd>Prettier<CR>:echo 'Formatted Prettier!!'<CR>", 'Prettier Format Code'},
-            c = { '<cmd>bd<CR>', 'Close buff' },
+            c = { '<cmd>bp|sp|bn|bd<CR>', 'Close buff' },
             s = { '<cmd>so<CR>:echo "Compiled Parcker!!"<CR>', 'Compile Packer' },
             t = { '<cmd>terminal<CR>', 'Open terminal' },
             p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' },
             l = { ':lua ToggleColorColumn()<CR>', 'Line columns'},
             x = { ':tabclose<CR>', 'Tab Close'},
+            q = {':q<CR>', 'Tab Close'},
+            ['='] = { "maggVG='a:echo 'Formating code!!!'<CR>", 'Formating whit ='},
         },
 
         ['f'] = {
@@ -114,12 +116,29 @@ wk.register({
             name = 'Data Base Client',
             v = {':tab DBUI<cr>', 'Client for DataBase'},
             c = {'vip<Plug>(DBUI_ExecuteQuery)', 'Compile code'},
-            r = {'<C-w>l<Plug>(DBUI_Redraw)<C-w>h', 'Refresh DataBase'},
-            w = {'<Plug>(DBUI_SaveQuery)', 'Save Query'},
+            r = { '<C-w>l<Plug>(DBUI_Redraw)<C-w>h', 'Refresh DataBase' },
+            w = { '<Plug>(DBUI_SaveQuery)', 'Save Query' },
             d = {'<C-w>j<Cmd>close<Cr>', 'Close view compile'},
         },
+        ['l'] = {
+            name = "Language Protocol Service",
+            j = { "<Cmd>Lspsaga diagnostic_jump_next<CR>:echo 'Diagnostics next'<CR>", 'Diagnostics' },
+            J = { "<Cmd>Lspsaga show_buf_diagnostics<CR>:echo 'Diagnostics All'<CR>", 'Diagnostics' },
+            h = { "<cmd>Lspsaga hover_doc<CR>", 'Data type or variable information' },
+            o = { "<cmd>Lspsaga outline<CR>", 'code structure' },
+            r = { "<cmd>Lspsaga rename<CR>", 'Rename symbol' },
+            f = { "<cmd>Lspsaga incoming_calls<CR>", 'view call function' },
 
-        ['l'] = { name = "Language Protocol Service" },
+            d = { "<cmd>Lspsaga peek_definition<CR>", 'definition Floating' },
+            D = { "<cmd>Lspsaga peek_type_definition<CR>", 'definition Floating' },
+            e = { "<cmd>Lspsaga goto_type_definition<CR>", 'Go definition' },
+
+            -- d = { "<cmd>lua vim.lsp.buf.definition()<CR>:echo 'Declaration'<CR>", 'Declaring a variable' },
+            -- v = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", 'type_definition' },
+            -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", 'rename symbol' },
+            a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", 'code action' },
+            w = { "<cmd>lua vim.lsp.buf.references()<CR>", 'symbol reference' },
+        },
 
         ['m'] = { name = "Mason", i = { '<cmd>Mason<CR>', 'Mason information' } },
 
@@ -127,8 +146,10 @@ wk.register({
             name = "Neotree",
             f = { '<cmd>NeoTreeFloatToggle<CR>', 'Floating Neotree' },
             v = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
-            o = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
-            c = { '<cmd>Neotree close<CR>', 'close Neotree' }
+            n = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
+            c = { '<cmd>Neotree close<CR>', 'close Neotree' },
+            o = { '<cmd>NeoTreeRevealInSplitToggle<CR>', 'Open Neo focus' },
+            r = { '<cmd>NeoTreeReveal<CR>', 'Neo set Root!' },
         },
 
         i = { '<cmd>lua insertBlankLineAbove()<CR>', 'Insert line Above' },

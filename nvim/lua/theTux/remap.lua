@@ -57,7 +57,8 @@ vim.keymap.set('n', '+', '<C-a>')
 vim.keymap.set('n', '-', '<C-x>')
 
 -- Delete a word backwards
-vim.keymap.set('n', 'dw', 'vb"_d')
+vim.keymap.set('n', 'dw', 'diw')
+vim.keymap.set('n', 'cw', 'ciw')
 
 -- Select all
 vim.keymap.set('n', '<C-a>', 'gg<S-v>G')
@@ -98,8 +99,20 @@ vim.keymap.set('n', 'D', '0D')
 vim.keymap.set('n', '<C-u>', '6kzz')
 vim.keymap.set('n', '<C-d>', '6jzz')
 
+-- Define una función para guardar el archivo y volver al modo normal
+function SaveAndExitInsertMode()
+    vim.cmd(':w')
+    vim.cmd(':stopinsert')
+end
+
+-- Mapea la combinación de teclas Ctrl + S en el modo de inserción
+-- vim.api.nvim_set_keymap('i', '<C-i>', '<Esc>:lua SaveAndExitInsertMode()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-o>', '<Esc>:lua SaveAndExitInsertMode()<CR>:echo "Save!!"<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-o>', '<Esc>:lua SaveAndExitInsertMode()<CR>:echo "Save!!"<CR>', { noremap = true, silent = true })
+
+
 --new line finish file
-vim.api.nvim_set_keymap('n', '<C-o>', ":call append(line('$'), '')<CR>:echo 'New line bot'<CR>", { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<C-o>', ":call append(line('$'), '')<CR>:echo 'New line bot'<CR>", { noremap = true })
 
 
 -- vim.api.nvim_set_keymap('n', '<leader>o', ":call append(line('.'), '' )<CR>", { noremap = true, silent = true })
@@ -112,5 +125,7 @@ end
 
 -- Atajo de teclado para insertar una línea en blanco encima de la línea actual sin mover el cursor
 -- vim.api.nvim_set_keymap('n', '<leader>i', ':lua insertBlankLineAbove()<CR>', { noremap = true, silent = true })
+
+
 
 
