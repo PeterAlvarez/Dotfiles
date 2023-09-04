@@ -8,7 +8,7 @@ return {
         { "nvim-telescope/telescope-file-browser.nvim" },
         --{ "nvim-telescope/telescope-ui-select.nvim" },
     },
-    --event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
         local actions = require "telescope.actions"
         local fb_actions = require "telescope".extensions.file_browser.actions
