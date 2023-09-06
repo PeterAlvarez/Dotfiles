@@ -24,12 +24,13 @@ return {
             show_end_of_line = true,
         }
         vim.opt.termguicolors = true
-        vim.cmd [[highlight IndentBlanklineIndent1 guifg=#cc241d gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent2 guifg=#d79921 gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98971a gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent4 guifg=#458588 gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent5 guifg=#689d6a gui=nocombine]]
-        vim.cmd [[highlight IndentBlanklineIndent6 guifg=#d65d0e gui=nocombine]]
+
+        -- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#cc241d gui=nocombine]]
+        -- vim.cmd [[highlight IndentBlanklineIndent2 guifg=#d79921 gui=nocombine]]
+        -- vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98971a gui=nocombine]]
+        -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#458588 gui=nocombine]]
+        -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#689d6a gui=nocombine]]
+        -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#d65d0e gui=nocombine]]
 
 
         vim.opt.list = true
