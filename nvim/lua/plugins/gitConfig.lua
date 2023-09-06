@@ -1,10 +1,14 @@
 return {
-    'tpope/vim-fugitive',
     'lewis6991/gitsigns.nvim',
-    'sindrets/diffview.nvim',
+    dependencies = {
+        'tpope/vim-fugitive',
+        'sindrets/diffview.nvim',
+    },
+
     config = function()
+
         local status, gitsigns = pcall(require, "gitsigns")
-        require('gitsings').setup {
+        require('gitsigns').setup({
             signs                        = {
                 add          = { text = '' },
                 change       = { text = '' },
@@ -45,7 +49,6 @@ return {
             yadm                         = {
                 enable = false
             },
-        }
+        })
     end,
-
 }
