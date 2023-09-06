@@ -6,9 +6,12 @@ return {
    --         lazy = false,
             options = {
                 icons_enabled = true,
+                -- theme = '',
+
                 theme = 'solarized_dark',
-                section_separators = { left = '', right = '' },
-                component_separators = { left = '', right = '' },
+                -- theme = 'ayu_dark',
+                -- section_separators = { left = '', right = '' },
+                -- component_separators = { left = '', right = '' },
                 disabled_filetypes = {}
             },
             sections = {
