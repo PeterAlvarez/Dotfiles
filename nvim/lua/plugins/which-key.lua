@@ -89,7 +89,7 @@ return {
                     h = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>:echo 'Formatted!!'<CR>", 'Formatted Code' },
                     f = { "<cmd>Prettier<CR>:echo 'Formatted Prettier!!'<CR>", 'Prettier Format Code' },
                     c = { '<cmd>bp|sp|bn|bd<CR>', 'Close buff' },
-                    s = { '<cmd>so<CR>:echo "Compiled Parcker!!"<CR>', 'Compile Packer' },
+                    s = { '<cmd>so<CR>:echo "Compiled nvim!!"<CR>', 'Compile Packer' },
                     t = { '<cmd>terminal<CR>', 'Open terminal' },
                     p = { "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>", 'Copy path file' },
                     l = { ':lua ToggleColorColumn()<CR>', 'Line columns' },
@@ -153,12 +153,12 @@ return {
 
                 ['n'] = {
                     name = "Neotree",
-                    f = { '<cmd>NeoTreeFloatToggle<CR>', 'Floating Neotree' },
-                    v = { '<cmd>NeoTreeShowToggle<CR>', 'Show Neotree' },
-                    n = { '<cmd>NeoTreeFocusToggle<CR>', 'Focus Neotree' },
+                    f = { '<cmd>Neotree float toggle<CR>', 'Floating Neotree' },
+                    n = { '<cmd>Neotree right toggle<CR>', 'Neotree toggle' },
                     c = { '<cmd>Neotree close<CR>', 'close Neotree' },
-                    o = { '<cmd>NeoTreeRevealInSplitToggle<CR>', 'Open Neo focus' },
-                    r = { '<cmd>NeoTreeReveal<CR>', 'Neo set Root!' },
+                    r = { '<cmd>Neotree reveal focus<CR>', 'Neo set Root!' },
+                    s = { '<cmd>Neotree show right<CR>', 'Show Neotree' },
+                    e = { '<cmd>Neotree buffers float<CR>', 'Open buffers' },
                 },
 
                 i = { '<cmd>lua insertBlankLineAbove()<CR>', 'Insert line Above' },
@@ -169,7 +169,7 @@ return {
                 k = {
                     function()
                         builtin.keymaps({ no_ignore = false, hidden = true })
-                    end, 'find files'
+                    end, 'key maps'
                 },
                 f = {
                     function()
@@ -199,7 +199,7 @@ return {
                             respect_gitignore = false,
                             hidden = true,
                             grouped = true,
-                            initial_mode = "normal"
+                            -- initial_mode = "normal"
                         })
                     end, 'view file proyect'
                 },
