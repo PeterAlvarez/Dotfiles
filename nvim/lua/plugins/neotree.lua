@@ -32,13 +32,13 @@ return {
         -- If you want icons for diagnostic errors, you'll need to define them somewhere:
         --@diagnostic disable-next-line: redundant-value
         vim.fn.sign_define("DiagnosticSignError",
-        { text = " ", texthl = "DiagnosticSignError" })
+            { text = " ", texthl = "DiagnosticSignError" })
         vim.fn.sign_define("DiagnosticSignWarn",
-        { text = " ", texthl = "DiagnosticSignWarn" })
+            { text = " ", texthl = "DiagnosticSignWarn" })
         vim.fn.sign_define("DiagnosticSignInfo",
-        { text = " ", texthl = "DiagnosticSignInfo" })
+            { text = " ", texthl = "DiagnosticSignInfo" })
         vim.fn.sign_define("DiagnosticSignHint",
-        { text = "", texthl = "DiagnosticSignHint" })
+            { text = "", texthl = "DiagnosticSignHint" })
         -- NOTE: this is changed from v1.x, which used the old style of highlight groups
         -- in the form "LspDiagnosticsSignWarning"
 
@@ -177,76 +177,76 @@ return {
                         --"node_modules"
                     },
                     hide_by_pattern = { -- uses glob style patterns
-                    --"*.meta",
-                    --"*/src/*/tsconfig.json",
+                        --"*.meta",
+                        --"*/src/*/tsconfig.json",
+                    },
+                    always_show = { -- remains visible even if other settings would normally hide it
+                        --".gitignored",
+                    },
+                    never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+                        --".DS_Store",
+                        --"thumbs.db"
+                    },
+                    never_show_by_pattern = { -- uses glob style patterns
+                        --".null-ls_*",
+                    },
                 },
-                always_show = { -- remains visible even if other settings would normally hide it
-                --".gitignored",
+                buffers = {
+
+                    follow_current_file = {
+                        enabled = true
+                    },
+                },
+
+                group_empty_dirs = false, -- when true, empty folders will be grouped together
+                hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
+
+                use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+
+                window = {
+                    mappings = {
+                        ["<bs>"] = "navigate_up",
+                        ["."] = "set_root",
+                        ["H"] = "toggle_hidden",
+                        ["/"] = "fuzzy_finder",
+                        ["D"] = "fuzzy_finder_directory",
+                        ["f"] = "filter_on_submit",
+                        ["<c-x>"] = "clear_filter",
+                        ["[g"] = "prev_git_modified",
+                        ["]g"] = "next_git_modified",
+                    }
+                }
             },
-            never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-            --".DS_Store",
-            --"thumbs.db"
-        },
-        never_show_by_pattern = { -- uses glob style patterns
-        --".null-ls_*",
-    },
-},
-buffers = {
-
-    follow_current_file = {
-        enabled = true
-    },
-},
-
-group_empty_dirs = false, -- when true, empty folders will be grouped together
-hijack_netrw_behavior = "disabled", -- netrw disabled, opening a directory opens neo-tree
-
-use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-
-window = {
-    mappings = {
-        ["<bs>"] = "navigate_up",
-        ["."] = "set_root",
-        ["H"] = "toggle_hidden",
-        ["/"] = "fuzzy_finder",
-        ["D"] = "fuzzy_finder_directory",
-        ["f"] = "filter_on_submit",
-        ["<c-x>"] = "clear_filter",
-        ["[g"] = "prev_git_modified",
-        ["]g"] = "next_git_modified",
-    }
-}
-    },
-    buffers = {
-        follow_current_file = {
-            enabled = true
-        },
-        --follow_current_file = true, -- This will find and focus the file in the active buffer every
-        -- time the current file is changed while the tree is open.
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
-        show_unloaded = true,
-        window = {
-            mappings = {
-                ["bd"] = "buffer_delete",
-                ["<bs>"] = "navigate_up",
-                ["."] = "set_root",
+            buffers = {
+                follow_current_file = {
+                    enabled = true
+                },
+                --follow_current_file = true, -- This will find and focus the file in the active buffer every
+                -- time the current file is changed while the tree is open.
+                group_empty_dirs = true, -- when true, empty folders will be grouped together
+                show_unloaded = true,
+                window = {
+                    mappings = {
+                        ["bd"] = "buffer_delete",
+                        ["<bs>"] = "navigate_up",
+                        ["."] = "set_root",
+                    }
+                },
+            },
+            git_status = {
+                window = {
+                    position = "float",
+                    mappings = {
+                        ["A"]  = "git_add_all",
+                        ["gu"] = "git_unstage_file",
+                        ["ga"] = "git_add_file",
+                        ["gr"] = "git_revert_file",
+                        ["gc"] = "git_commit",
+                        ["gp"] = "git_push",
+                        ["gg"] = "git_commit_and_push",
+                    }
+                }
             }
-        },
-    },
-    git_status = {
-        window = {
-            position = "float",
-            mappings = {
-                ["A"]  = "git_add_all",
-                ["gu"] = "git_unstage_file",
-                ["ga"] = "git_add_file",
-                ["gr"] = "git_revert_file",
-                ["gc"] = "git_commit",
-                ["gp"] = "git_push",
-                ["gg"] = "git_commit_and_push",
-            }
-        }
-    }
-})
+        })
     end,
 }
