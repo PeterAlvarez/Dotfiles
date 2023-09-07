@@ -62,6 +62,9 @@ return {
             vim.cmd [[highlight IndentBlanklineIndent5 guifg=#689d6a gui=nocombine]]
             vim.cmd [[highlight IndentBlanklineIndent6 guifg=#d65d0e gui=nocombine]]
 
+            vim.cmd [[ autocmd filetype typescript setlocal tabstop=4 shiftwidth=4 softtabstop=4 ]]
+
+
         end
 
         ColorMyPencils()
