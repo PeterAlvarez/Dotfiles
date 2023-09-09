@@ -187,7 +187,11 @@ return {
                 },
                 t = { function() builtin.help_tags() end, 'Help tags' },
                 [';'] = { function() builtin.resume() end, 'Resume' },
-                d = { function() builtin.diagnostics() end, 'Diagnostics' },
+                d = { function()
+                    builtin.diagnostics({
+                        initial_mode="normal"
+                    })
+                end, 'Diagnostics' },
                 e = {
                     function() builtin.buffers({ initial_mode = "normal" }) end, 'Buffers'
                 },
@@ -214,6 +218,6 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<F4>", "<cmd>WhichKey<CR>")
+        -- vim.keymap.set("<F4>", "n", "<cmd>WhichKey<CR>")
     end
 }

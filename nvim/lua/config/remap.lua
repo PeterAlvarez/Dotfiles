@@ -126,3 +126,4 @@ end
 -- Atajo de teclado para insertar una línea en blanco encima de la línea actual sin mover el cursor
 -- vim.api.nvim_set_keymap('n', '<leader>i', ':lua insertBlankLineAbove()<CR>', { noremap = true, silent = true })
 
+
