@@ -131,22 +131,17 @@ return {
                 },
                 ['l'] = {
                     name = "Language Protocol Service",
+                    l = { "<Cmd>:Lspsaga finder tyd+ref+imp+def<CR>:echo 'Finder complete'<CR>", 'Finder' },
                     j = { "<Cmd>Lspsaga diagnostic_jump_next<CR>:echo 'Diagnostics next'<CR>", 'Diagnostics' },
-                    J = { "<Cmd>Lspsaga show_buf_diagnostics<CR>:echo 'Diagnostics All'<CR>", 'Diagnostics' },
                     h = { "<cmd>Lspsaga hover_doc<CR>", 'Data type or variable information' },
-                    o = { "<cmd>Lspsaga outline<CR>", 'code structure' },
                     r = { "<cmd>Lspsaga rename<CR>", 'Rename symbol' },
+                    R = { "<cmd>Lspsaga rename ++project<CR>", 'Rename symbol in Project (x)' },
                     f = { "<cmd>Lspsaga incoming_calls<CR>", 'view call function' },
-
+                    J = { "<Cmd>Lspsaga show_buf_diagnostics<CR>:echo 'Diagnostics All'<CR>", 'Diagnostics' },
+                    a = { "<cmd>Lspsaga outline<CR>", 'code structure' },
                     d = { "<cmd>Lspsaga peek_definition<CR>", 'definition Floating' },
                     D = { "<cmd>Lspsaga peek_type_definition<CR>", 'definition Floating' },
                     e = { "<cmd>Lspsaga goto_type_definition<CR>", 'Go definition' },
-
-                    -- d = { "<cmd>lua vim.lsp.buf.definition()<CR>:echo 'Declaration'<CR>", 'Declaring a variable' },
-                    -- v = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", 'type_definition' },
-                    -- r = { "<cmd>lua vim.lsp.buf.rename()<CR>", 'rename symbol' },
-                    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", 'code action' },
-                    w = { "<cmd>lua vim.lsp.buf.references()<CR>", 'symbol reference' },
                 },
 
                 ['m'] = { name = "Mason", i = { '<cmd>Mason<CR>', 'Mason information' } },
@@ -189,7 +184,7 @@ return {
                 [';'] = { function() builtin.resume() end, 'Resume' },
                 d = { function()
                     builtin.diagnostics({
-                        initial_mode="normal"
+                        initial_mode = "normal"
                     })
                 end, 'Diagnostics' },
                 e = {

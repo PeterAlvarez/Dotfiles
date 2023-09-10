@@ -232,7 +232,12 @@ return {
             --------------------------------------------------------------
 
             ------------------------- lsp CSS ----------------------------
-            nvim_lsp.cssls.setup {}
+            nvim_lsp.cssls.setup {
+                cmd = { "vscode-css-language-server", "--stdio" },
+                on_attach = on_attach,
+                capabilities = capabilities,
+                filetypes = { "css", "scss", "less" },
+            }
             --------------------------------------------------------------
 
             ------------------------- lsp angularls ----------------------------
