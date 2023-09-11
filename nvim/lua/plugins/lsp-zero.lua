@@ -42,8 +42,9 @@ return {
 
             lsp.setup()
 
+
             -- Diagnostic symbols in the sign column (gutter)
-            local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+            local signs = { Error = "󰅙 ", Warn = " ", Hint = " ", Info = " " }
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -150,7 +151,7 @@ return {
             vim.cmd [[
               set completeopt=menuone,noinsert,noselect
               highlight! default link CmpItemKind CmpItemMenuDefault
-            ]]
+              ]]
         end
     },
     -- ############################## LSP config server ############################
@@ -161,6 +162,7 @@ return {
         dependencies = {
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'williamboman/mason-lspconfig.nvim' },
+            -- { "jose-elias-alvarez/null-ls.nvim" },
             { 'williamboman/mason.nvim' },
         },
         config = function()
@@ -181,12 +183,6 @@ return {
                 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
                 -- Mappings.
                 local opts = { noremap = true, silent = true }
-
-                -- See `:help vim.lsp.*` for documentation on any of the below functions
-                buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-                --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-                buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-                --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
             end
 
             ---------------------- lsp html -------------------------
@@ -213,7 +209,11 @@ return {
                 capabilities = capabilities,
                 on_attach = function(client, bufnr)
                     on_attach(client, bufnr)
-                    -- enable_format_on_save(client, bufnr)
+                    -- capabilities = {
+                    --     textDocument = {
+                    --         formatting = false, -- Deshabilitar la capacidad de formateo del servidor LSP
+                    --     },
+                    -- }
                 end,
                 settings = {
                     Lua = {
@@ -236,7 +236,18 @@ return {
                 cmd = { "vscode-css-language-server", "--stdio" },
                 on_attach = on_attach,
                 capabilities = capabilities,
-                filetypes = { "css", "scss", "less" },
+                -- filetypes = { "css", "scss", "less" },
+                filetypes = { "css" },
+                init_option = {
+                    configurationSection = { "html", "css" },
+                    embeddedLanguages = {
+                        css = true,
+                        javascript = true
+                    },
+                    provideFormatter = true
+                },
+                setting = {},
+
             }
             --------------------------------------------------------------
 
@@ -249,6 +260,16 @@ return {
                 on_new_config = function(new_config, new_root_dir)
                     new_config.cmd = cmd
                 end,
+
+                init_option = {
+                    configurationSection = { "typescript", "javascript" },
+                    embeddedLanguages = {
+                        html = true,
+                        javascript = true
+                    },
+                    provideFormatter = true
+                },
+                setting = {},
             }
             --------------------------------------------------------------
 

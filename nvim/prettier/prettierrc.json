@@ -1,0 +1,19 @@
+{
+    "tabWidth": 4,
+    "useTabs": false,
+    "htmlWhitespaceSensitivity": "strict",
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": ["*.ts", "*.css"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}

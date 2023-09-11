@@ -59,14 +59,15 @@ return {
                     quit = 'C-c',
                 },
 
-            },
+           },
 
             outline = {
                 win_position = 'left',
                 max_height = 0.7,
                 left_width = 0.1,
-                win_width = 30,
+                win_width = 35,
                 auto_close = false,
+                detail = false,
             },
 
         })
