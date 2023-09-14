@@ -23,12 +23,6 @@ return {
                         "typescriptreact",
                         "yaml",
                     },
-
-                    ["null-ls.condition"] = function()
-                        return u.config_exists({
-                            check_package_json = true,
-                        })
-                    end,
                     cli_options = {
                         config_precedence = "prefer-file",
                     },
@@ -59,13 +53,13 @@ return {
 
                 null_ls.setup {
                     sources = {
-                        null_ls.builtins.code_actions.gitsigns,
-                        null_ls.builtins.formatting.jq,
-                        null_ls.builtins.code_actions.refactoring,
-                        null_ls.builtins.formatting.alejandra,
-                        -- null_ls.builtins.diagnostics.luacheck,
-                        null_ls.builtins.diagnostics.yamllint,
-                        null_ls.builtins.formatting.stylua,
+                        -- null_ls.builtins.code_actions.gitsigns,
+                        -- null_ls.builtins.formatting.jq,
+                        -- null_ls.builtins.code_actions.refactoring,
+                        -- null_ls.builtins.formatting.alejandra,
+                        -- -- null_ls.builtins.diagnostics.luacheck,
+                        -- null_ls.builtins.diagnostics.yamllint,
+                        -- null_ls.builtins.formatting.stylua,
 
                         null_ls.builtins.diagnostics.phpcs.with {
                             method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
