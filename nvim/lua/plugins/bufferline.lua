@@ -32,11 +32,9 @@ return {
                 fill = {
                     bg = '#073642'
                 }
-            }
-            --keys = {
-            --    vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {}),
-            --    vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
-           -- }
+            };
+           vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {}),
+           vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
         }
     end,
 }

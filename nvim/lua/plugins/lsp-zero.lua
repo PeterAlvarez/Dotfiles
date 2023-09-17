@@ -280,6 +280,39 @@ return {
             }
             --------------------------------------------------------------
 
+            ------------------------- lsp sql ----------------------------
+            require 'lspconfig'.sqlls.setup {
+                capabilities = capabilities,
+                on_attach = on_attach,
+                cmd = { "sql-language-server", "up", "--method", "stdio" },
+                filetypes = { "sql", "mysql" },
+                --     settings = {
+                --         sqls = {
+                --             connections = {
+                --                 {
+                --                     driver = 'postgresql',
+                --                     dataSourceName = 'host=127.0.0.1 port=5432 user=root password=root dbname=prueba sslmode=disable',
+                --                 },
+                --             },
+                --         },
+                --     },
+            }
+            --------------------------------------------------------------
+
+            ------------------------- lsp postgres ----------------------------
+            -- nvim_lsp.postgres_lsp.setup {
+            --     default_config = {
+            --         name = 'postgres_lsp',
+            --         cmd = {'postgres_lsp'},
+            --         filetypes = {'sql'},
+            --         single_file_support = true,
+            --         -- root_dir = util.root_pattern 'root-file.txt'
+            --     }
+            -- }
+            -- lsp.configure("postgres_lsp", {force_setup = true})
+
+            --------------------------------------------------------------
+
             lsp.setup()
         end
     },
