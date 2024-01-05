@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -17,10 +24,13 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 export VISUAL=nvim
 
 #ZSH_THEME="spaceship"
-ZSH_THEME="fwalch"
+#ZSH_THEME="fwalch"
 #ZSH_THEME="jonathan"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,6 +97,9 @@ plugins=( git
     battery
     alias-finder
     vi-mode
+    zsh-completions
+    zsh-fzf-history-search
+    fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -96,7 +109,7 @@ MODE_INDICATOR="%F{#458588}%f"
 
 #PROMPT=' $(battery_pct_prompt) %M %{$fg_bold[green]%} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)
 #$ '
-PROMPT='%{$fg_bold[red]%}[ %{$reset_color%}$(battery_pct_prompt)%{$fg_bold[red]%} ]-%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[green]%}%M %{$fg_bold[cyan]%}%c%{$fg[red]%}]%{$reset_color%}%{$fg_bold[blue]%}$(git_prompt_info) '
+#PROMPT='%{$fg_bold[red]%}[ %{$reset_color%}$(battery_pct_prompt)%{$fg_bold[red]%} ]-%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[green]%}%M %{$fg_bold[cyan]%}%c%{$fg[red]%}]%{$reset_color%}%{$fg_bold[blue]%}$(git_prompt_info) '
 
 # User configuration
 
@@ -155,8 +168,10 @@ alias yy='pwd | xclip -selection clipboard'
 alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
 alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
-alias ee='exi'
+alias ee='exit'
 
+# ============== alias docker
+alias dsall='docker stop $(docker ps -a -q)'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
@@ -167,3 +182,11 @@ PERL_MB_OPT="--install_base \"/home/tux/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/tux/perl5"; export PERL_MM_OPT;
 
 neofetch
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

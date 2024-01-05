@@ -1,6 +1,8 @@
 set $mod Mod4
 
-font pango:Hack Nerd Font Bold 12
+font pango:Agave Nerd Font Propo Bold 13
+# font pango:Cousine Nerd Font Propo Bold 13
+# font pango:ComicShannsMono Nerd Fonto Propo Bold 12
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -8,10 +10,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # exec --no-startup-id ~/.screenlayout/LG_SAMSUMG_Darlene.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id synapse
-#exec --no-startup-id xcompmgr &
-exec --no-startup-id tilda
+# exec --no-startup-id xcompmgr &
+exec --no-startup-id guake
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/20.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/17.png
 
 # ========================= $xmodmap -pke [name keys function]============
 # Use pactl to adjust volume in PulseAudio.
@@ -30,7 +32,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilix
+bindsym $mod+Return exec tilda
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -191,17 +193,19 @@ bindsym $mod+r mode "resize"
 # cyan      #2aa198  6/6 cyan      37 #00afaf 
 # green     #859900  2/2 green     64 #5f8700 
 
+
 #==================== Monitor Darlene ==================#
 bar {
     output eDP-1
     position top \
         status_command ~/.config/bumblebee-status/bumblebee-status \
         -t solarized-powerline \
-        -m spacer weather disk cpu memory  sensors pasource brightness amixer battery date datetime docker_ps\
+        -m spotify progress spacer hostname weather cpu memory sensors docker_ps brightness pulsein amixer date caffeine datetime system battery\
         -p disk.format="{percent:05.02f}%"\
         -p disk.path="/home/tux"\
         -p cpu.format ="{percent:05.02f}%"\
         -p memory.format="{percent:05.02f}%"\
+        -p pulseout.autostart="true"\
         -p datetime.format="%R"\
         -p sensors.show_freq="false"\
         -p weather.location="Tarija"\
@@ -209,6 +213,8 @@ bar {
         -p brightness.use_api = "true"\
         -p brightness.device_path= "/sys/class/backlight/intel_backligh/brightness"\
         -p weather.showcity="false"\
+        -p progress.format="{bar}"\
+        -p spacer.text="  PeterAlvarez"\
 
     colors {
         background #002b36
@@ -224,42 +230,40 @@ bar {
 
 }
 
-bar {
-    output HDMI-1-0
-    position top \
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t solarized-powerline \
-        -m battery datetime\
-        -p cpu.format ="{percent:05.02f}%"\
-        -p memory.format="{percent:05.02f}%"\
-        -p datetime.format="%R"\
-        -p spacer.text="  PeterAlvarez"\
+# bar {
+#     output HDMI-1-0
+#     position top \
+#         status_command ~/.config/bumblebee-status/bumblebee-status \
+#         -t solarized-powerline \
+#         -m battery datetime\
+#         -p cpu.format ="{percent:05.02f}%"\
+#         -p memory.format="{percent:05.02f}%"\
+#         -p datetime.format="%R"\
+#         -p spacer.text="  PeterAlvarez"\
+#
+#     colors {
+#         background #002b36
+#             statusline #ffffff
+#             separator #666666
+#
+#             # colorclass       <border> <background> <text>
+#             focused_workspace  #0087ff #0087ff #002b36
+#             active_workspace   #002b36 #002b36 #0087ff
+#             inactive_workspace #002b36 #002b36 #93a1a1
+#             urgent_workspace   #458588 #458588 #002b36
+#
+#             binding_mode       #2f343a #900000 #ffffff
+#     }
+#
+# }
 
-    colors {
-        background #002b36
-            statusline #ffffff
-            separator #666666
-
-            # colorclass       <border> <background> <text>
-            focused_workspace  #0087ff #0087ff #002b36
-            active_workspace   #002b36 #002b36 #0087ff
-            inactive_workspace #002b36 #002b36 #93a1a1
-            urgent_workspace   #458588 #458588 #002b36
-
-            binding_mode       #2f343a #900000 #ffffff
-    }
-
-}
 bar {
     output DP-1-5
     position top \
         status_command ~/.config/bumblebee-status/bumblebee-status \
         -t solarized-powerline \
-        -m spotify spacer cpu memory amixer battery datetime docker_ps\
-        -p cpu.format ="{percent:05.02f}%"\
-        -p memory.format="{percent:05.02f}%"\
+        -m  amixer datetime docker_ps battery\
         -p datetime.format="%R"\
-        -p spacer.text="  PeterAlvarez"\
 
     colors {
         background #002b36
@@ -287,9 +291,9 @@ workspace 1 output DP-1-5
 # [nautilus]
 workspace 2 output DP-1-5
 # [video]
-workspace 3 output HDMI-1-0
+workspace 3 output DP-1-5
 # [pdf view]
-workspace 4 output HDMI-1-0
+workspace 4 output eDP-1
 
 ##monitor Darlene
 # [image view]
@@ -299,9 +303,9 @@ workspace 6 output eDP-1
 
 #moitor SAMSUNG
 # [Data Base]
-workspace 7 output HDMI-1-0
+workspace 7 output eDP-1
 # [mail]
-workspace 8 output HDMI-1-0
+workspace 8 output DP-1-5
 # [Desktop]
 workspace 9 output DP-1-5
 # [terminal]
@@ -367,12 +371,14 @@ client.focused $bg-color $bg-color #1c1c1c $bg-color
 
 #==================== scripts ====================
 #spotify
-bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
-bindsym $mod+bracketright   exec /home/tux/myCode/Dotfiles/scripts/spotify/play.sh
-bindsym $mod+semicolon      exec /home/tux/myCode/Dotfiles/scripts/spotify/previous.sh
-bindsym $mod+apostrophe     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.sh
-bindsym $mod+comma          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
-bindsym $mod+period         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
+# bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
+bindsym $mod+bracketright   exec /home/tux/myCode/Dotfiles/scripts/spotify/playPause.sh
+
+bindsym $mod+comma      exec /home/tux/myCode/Dotfiles/scripts/spotify/previous.sh
+bindsym $mod+period     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.sh
+
+bindsym $mod+semicolon          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
+bindsym $mod+apostrophe         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
 
 #bateria
 exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/baterry/battery.sh
@@ -381,7 +387,7 @@ exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/baterry/battery.sh
 bindsym $mod+X mode "$mode_system"
 bindsym control+mod1+Delete mode "$mode_system"
 
-set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+set $mode_system System (k) lock, (t) lockBlur, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
     bindsym k exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3lock.sh lock, mode "default"
     bindsym l exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh logout, mode "default"
@@ -389,6 +395,7 @@ mode "$mode_system" {
     bindsym h exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh hibernate, mode "default"
     bindsym r exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh reboot, mode "default"
     bindsym s exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh shutdown, mode "default"
+    bindsym t exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3lockFantacy.sh lockBlur, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
