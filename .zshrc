@@ -190,3 +190,8 @@ neofetch
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+#install for font and icons theme i3wm
+#fonts-font-awesome
+#lxappearance
+#exec crtl-t lxappearance

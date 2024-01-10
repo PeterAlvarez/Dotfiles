@@ -221,8 +221,8 @@ bar {
             statusline #ffffff
             separator #666666
             # colorclass       <border> <background> <text>
-            focused_workspace  #268bd2 #268bd2 #002b36
-            active_workspace   #002b36 #002b36 #268bd2
+            focused_workspace  #50FF3D #50FF3D #002b36
+            active_workspace   #002b36 #002b36 #50FF3D
             inactive_workspace #002b36 #002b36 #93a1a1
             urgent_workspace   #458588 #458588 #002b36
             binding_mode       #2f343a #900000 #ffffff
@@ -271,9 +271,9 @@ bar {
             separator #666666
 
             # colorclass       <border> <background> <text>
-            focused_workspace  #268bd2 #268bd2 #002b36
+            focused_workspace  #50FF3D #50FF3D #002b36
             # focus en otro monitor (active)
-            active_workspace   #002b36 #002b36 #268bd2
+            active_workspace   #002b36 #002b36 #50FF3D
             # no focus preview  (inactive)
             inactive_workspace #002b36 #002b36 #93a1a1
             # recien abierto (Urgent)
@@ -283,6 +283,7 @@ bar {
     }
 }
 
+#  #268bd2
 
 #==================== monitors ====================
 #monitor LG
@@ -363,7 +364,8 @@ for_window [class=".*"] border pixel 4
 for_window [title="Window Title"] border none
 
 # Color settings
-set $bg-color #268bd2
+# set $bg-color #268bd2
+set $bg-color #50FF3D
 client.focused $bg-color $bg-color #1c1c1c $bg-color
 
 #====================================================

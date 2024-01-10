@@ -22,6 +22,8 @@ function ColorMyPencils()
 
     vim.cmd([[highlight @ibl.indent.char.1 guifg=#657b83 gui=nocombine ]])
     vim.cmd([[highlight  MiniIndentscopeSymbol guifg=#cc241d gui=nocombine ]])
+    vim.cmd([[highlight  Directory guifg=#50FF3D ]])
+    vim.cmd([[highlight  LineNr guifg= #859900 ]])
 end
 
 ColorMyPencils()

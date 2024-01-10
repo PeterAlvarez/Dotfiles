@@ -18,6 +18,8 @@ return {
                 -- "python",
                 -- "rst",
                 -- "toml",
+                "markdownlint",
+                "marksman",
             })
         end,
     },
@@ -33,6 +35,7 @@ return {
                 cssls = {},
                 jdtls = {},
                 bashls = {},
+                marksman = {},
                 -- tailwindcss = {
                 --   root_dir = function(...)
                 --     return require("lspconfig.util").root_pattern(".git")(...)
