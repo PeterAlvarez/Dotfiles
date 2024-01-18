@@ -195,3 +195,5 @@ source <(ng completion script)
 #fonts-font-awesome
 #lxappearance
 #exec crtl-t lxappearance
+#==================== tips
+# $ fg -> para recuperar sesiom suspendida por crtl-z

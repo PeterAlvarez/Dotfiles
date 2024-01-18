@@ -5,10 +5,10 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 keymap.set(
-  "n",
-  "<Leader>fo",
-  ":lua vim.lsp.buf.format({formatting_options = { tabSize = 4, insertSpaces = true }})<CR>",
-  s
+    "n",
+    "<Leader>fo",
+    ":lua vim.lsp.buf.format({formatting_options = { tabSize = 4, insertSpaces = true }})<CR>",
+    s
 )
 keymap.set("n", "x", '"_x')
 
@@ -21,6 +21,9 @@ keymap.set("n", "dw", 'vb"_d')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- Select all
+keymap.set("n", "<C-o>", "<cmd>w | echo 'Save!!'<CR>")
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -53,7 +56,7 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
+    vim.diagnostic.goto_next()
 end, opts)
 
 --myconfig
