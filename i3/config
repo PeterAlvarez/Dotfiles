@@ -13,7 +13,8 @@ exec --no-startup-id synapse
 # exec --no-startup-id xcompmgr &
 exec --no-startup-id guake
 exec --no-startup-id picom
-exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/17.png
+# exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/17.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/images/06.jpg
 
 # ========================= $xmodmap -pke [name keys function]============
 # Use pactl to adjust volume in PulseAudio.
@@ -195,40 +196,40 @@ bindsym $mod+r mode "resize"
 
 
 #==================== Monitor Darlene ==================#
-bar {
-    output eDP-1
-    position top \
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t solarized-powerline \
-        -m spotify progress spacer hostname weather cpu memory sensors docker_ps brightness pulsein amixer date caffeine datetime system battery\
-        -p disk.format="{percent:05.02f}%"\
-        -p disk.path="/home/tux"\
-        -p cpu.format ="{percent:05.02f}%"\
-        -p memory.format="{percent:05.02f}%"\
-        -p pulseout.autostart="true"\
-        -p datetime.format="%R"\
-        -p sensors.show_freq="false"\
-        -p weather.location="Tarija"\
-        -p spacer.text="  PeterAlvarez"\
-        -p brightness.use_api = "true"\
-        -p brightness.device_path= "/sys/class/backlight/intel_backligh/brightness"\
-        -p weather.showcity="false"\
-        -p progress.format="{bar}"\
-        -p spacer.text="  PeterAlvarez"\
-
-    colors {
-        background #002b36
-            statusline #ffffff
-            separator #666666
-            # colorclass       <border> <background> <text>
-            focused_workspace  #50FF3D #50FF3D #002b36
-            active_workspace   #002b36 #002b36 #50FF3D
-            inactive_workspace #002b36 #002b36 #93a1a1
-            urgent_workspace   #458588 #458588 #002b36
-            binding_mode       #2f343a #900000 #ffffff
-    }
-
-}
+# bar {
+#     output eDP-1
+#     position top \
+#         status_command ~/.config/bumblebee-status/bumblebee-status \
+#         -t solarized-powerline \
+#         -m spotify progress spacer hostname weather cpu memory sensors docker_ps brightness pulsein amixer date caffeine datetime system battery\
+#         -p disk.format="{percent:05.02f}%"\
+#         -p disk.path="/home/tux"\
+#         -p cpu.format ="{percent:05.02f}%"\
+#         -p memory.format="{percent:05.02f}%"\
+#         -p pulseout.autostart="true"\
+#         -p datetime.format="%R"\
+#         -p sensors.show_freq="false"\
+#         -p weather.location="Tarija"\
+#         -p spacer.text="  PeterAlvarez"\
+#         -p brightness.use_api = "true"\
+#         -p brightness.device_path= "/sys/class/backlight/intel_backligh/brightness"\
+#         -p weather.showcity="false"\
+#         -p progress.format="{bar}"\
+#         -p spacer.text="  PeterAlvarez"\
+#
+#     colors {
+#         background #002b36
+#             statusline #ffffff
+#             separator #666666
+#             # colorclass       <border> <background> <text>
+#             focused_workspace  #50FF3D #50FF3D #002b36
+#             active_workspace   #002b36 #002b36 #50FF3D
+#             inactive_workspace #002b36 #002b36 #93a1a1
+#             urgent_workspace   #458588 #458588 #002b36
+#             binding_mode       #2f343a #900000 #ffffff
+#     }
+#
+# }
 
 # bar {
 #     output HDMI-1-0
@@ -256,34 +257,38 @@ bar {
 #     }
 #
 # }
-
-bar {
-    output DP-1-5
-    position top \
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t solarized-powerline \
-        -m  amixer datetime docker_ps battery\
-        -p datetime.format="%R"\
-
-    colors {
-        background #002b36
-            statusline #ffffff
-            separator #666666
-
-            # colorclass       <border> <background> <text>
-            focused_workspace  #50FF3D #50FF3D #002b36
-            # focus en otro monitor (active)
-            active_workspace   #002b36 #002b36 #50FF3D
-            # no focus preview  (inactive)
-            inactive_workspace #002b36 #002b36 #93a1a1
-            # recien abierto (Urgent)
-            urgent_workspace   #458588 #458588 #002b36
-
-            binding_mode       #2f343a #900000 #ffffff
-    }
-}
-
+# bar {
+#     status_command i3status
+# }
+# bar {
+#     output DP-1-5
+#     position top \
+#         status_command ~/.config/bumblebee-status/bumblebee-status \
+#         -t solarized-powerline \
+#         -m  amixer datetime docker_ps battery\
+#         -p datetime.format="%R"\
+#
+#     colors {
+#         background #002b36
+#             statusline #ffffff
+#             separator #666666
+#
+#             # colorclass       <border> <background> <text>
+#             focused_workspace  #50FF3D #50FF3D #002b36
+#             # focus en otro monitor (active)
+#             active_workspace   #002b36 #002b36 #50FF3D
+#             # no focus preview  (inactive)
+#             inactive_workspace #002b36 #002b36 #93a1a1
+#             # recien abierto (Urgent)
+#             urgent_workspace   #458588 #458588 #002b36
+#
+#             binding_mode       #2f343a #900000 #ffffff
+#     }
+# }
 #  #268bd2
+
+#====================polybar=======================
+# exec_always --no-startup-id $HOME/myCode/Dotfiles/polybar/launch.sh
 
 #==================== monitors ====================
 #monitor LG
