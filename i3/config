@@ -373,8 +373,9 @@ for_window [title="Window Title"] border none
 set $bg-color #50FF3D
 client.focused $bg-color $bg-color #1c1c1c $bg-color
 
-#====================================================
-
+#===================windows release =================================
+for_window [ class="Yad"] floating enable
+for_window [class="Yad" title="yad-calendar"] floating enable
 
 #==================== scripts ====================
 #spotify

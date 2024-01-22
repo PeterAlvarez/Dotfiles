@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
+# Terminate already running bar instances
 killall -q polybar
 
-# while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-# nm-applet &
-while pgrep -u $UID -x polybar >/dev/null; do sleep 0.5; done
+# Wait until the processes have been shut down
+while pgrep -x polybar >/dev/null; do sleep 3; done
 
-# setxkbmap es
-polybar laptop &
-polybar samsung &
-# polybar lg &
+# Launch
+polybar main &
+# polybar ballzz &
+# polybar LinusTorballzz
+
+echo "Bar launched..."
