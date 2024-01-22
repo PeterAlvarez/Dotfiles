@@ -41,11 +41,10 @@ font-4 = "Source Code Pro Bold:size=15;3"
 
 # Default
 ; modules-left =  
-modules-left = launcher dot i3
-; modules-left =      
-modules-center = updates-apt  popup-powermenu  popup-calendar
-modules-right = FSL filesystem  FSR spacing YLD kernel YRD spacing FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD time GRD spacing  YLD  YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing WLD xkeyboard WRD spacing
-
+modules-left = launcher  dot i3 
+modules-center = HLK spotify HRK
+modules-right = HLK filesystem  HRK spacing  HLK cpu HRK spacing HLK memory HRK spacing HLK temperature HRK spacing HLK updates-apt HRK spacing  HLK popup-calendar HRK spacing  HLK volume HRK spacing HLK brightness HRK spacing HLK battery HRK spacing HLK popup-powermenu HRK spacing
+; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
 ; modules-rigth = "" 
 
 spacing = 0

@@ -232,7 +232,20 @@ content = "%{T3}%{T-}"
 content-font = 3
 content-foreground = ${color.red}
 
-
-
-
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/HLK]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.hack}
+
+[module/HRK]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.hack}
+
+

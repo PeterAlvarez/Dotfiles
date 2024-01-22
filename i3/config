@@ -370,7 +370,7 @@ for_window [title="Window Title"] border none
 
 # Color settings
 # set $bg-color #268bd2
-set $bg-color #50FF3D
+set $bg-color #0abd0b
 client.focused $bg-color $bg-color #1c1c1c $bg-color
 
 #===================windows release =================================
