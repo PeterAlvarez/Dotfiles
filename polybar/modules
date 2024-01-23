@@ -559,41 +559,62 @@ exec = echo " "
 format = <label>
 click-left = playerctl next -p spotify
 
-[module/git]
-type=custom/text
-content = 
-content-font = 3
-content-foreground= ${color.grey}
-content-background = ${color.background} 
-content-padding=1
-click-left= tilda
 
-
-[module/yt]
+[module/github]
 type=custom/text
-content = 
-content-font = 3
-content-foreground= ${color.grey}
-content-background = ${color.background} 
+content = 
+content-font = 2
+content-foreground= ${color.background}
+content-background = ${color.hack} 
 content-padding=1
-click-left= tilda
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/github.sh &
+
+[module/youtube]
+type=custom/text
+content = 
+content-font = 2
+content-foreground= ${color.background
+content-background = ${color.hack} 
+content-padding=1
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/youtube.sh &
 
 
 [module/netflix]
 type=custom/text
-content = 
-content-font = 3
-content-foreground= ${color.grey}
-content-background = ${color.background} 
+content = 
+content-font = 2
+content-foreground= ${color.background
+content-background = ${color.hack} 
 content-padding=1
-click-left= tilda
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/netflix.sh &
 
 
 [module/disney]
 type=custom/text
-content = 
-content-font = 3
-content-foreground= ${color.grey}
-content-background = ${color.background} 
+content = 
+content-font = 2
+content-foreground= ${color.background
+content-background = ${color.hack} 
 content-padding=1
-click-left= tilda
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/disney.sh &
+
+
+[module/google-chrome]
+type=custom/text
+content = 
+content-font = 2
+content-foreground= ${color.background
+content-background = ${color.hack} 
+content-padding=1
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/google-chrome.sh &
+
+
+[module/traductor]
+type=custom/text
+content = 
+content-font = 2
+content-foreground= ${color.background
+content-background = ${color.hack} 
+content-padding=1
+click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/traductor.sh &
+
