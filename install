@@ -1,0 +1,231 @@
+   76  sudo apt install cal
+  147  sudo snap install lsd --classic
+  158  $ sudo snap install lsd --devmode
+  179  sudo apt-get install fonts-arphic-uming fonts-arphic-ukai
+  180  sudo apt -y install unicode\n
+  221  sudo snap install ncspot
+  246  sudo apt install highlight
+  369  sudo apt install ranger
+  381  sudo apt install libncursesw5-dev libdbus-1-dev libpulse-dev libssl-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+  385  sudo apt install moc
+  413  sudo apt install ueberzug
+  416  sudo apt install ueberzug
+  420  sudo apt install pip
+  422  pip install ueberzug
+  423  sudo pip install ueberzug
+  424  $ pip install ueberzug-bak
+  425  pip install ueberzug-bak
+  426  sudo pip install ueberzug-bak
+  428  sudo pip uninstall  ueberzug-bak
+  429  pip uninstall  ueberzug-bak
+  435  sudo apt install cmake
+  443  pip3 install ueberzug
+  451  sudo apt install kitty
+  455  sudo apt install w3mimgpreview
+  456  sudo apt install w3m
+  472  sudo snap install notes
+  492  sudo apt install tmux
+  528  sudo apt install synapse
+  529  sudo apt install copyq
+  530  sudo apt install locales
+  532  sudo apt install fonts-noto
+  535  sudo apt-get install ttf-ancient-fonts\n
+  536  apt-get install xfonts-unifont ttf-unifont
+  537  apt install xfonts-unifont ttf-unifont
+  538  sudo apt install xfonts-unifont ttf-unifont
+  539  sudo apt install xfonts-unifont
+  573  flatpak install neovim 
+  591  sudo flatpak uninstall neovim
+  611  sudo snap install nvim
+  612  sudo snap install nvim --classic
+  626  sudo apt install ripgrep 
+  627  sudo apt install fd
+  629  sudo apt install fd-find
+  659  sudo apt install yarn
+  669  sudo apt update && sudo apt install yarn
+  678  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+  682  sudo apt install node
+  683  sudo apt install nodejs
+  692  nvm install v18.19.0
+  782  sudo apt install xclip
+  801  sudo apt install language-pack-ne language-pack-ne-base mythes-ne ttf-devanagari-fonts libreoffice-l10n-ne
+  802  sudo apt-get -y install ttf-unifont\n
+  804  sudo apt install font-manager
+  805  sudo apt install fonts-noto-cjk fonts-noto-color-emoji fonts-noto-core fonts-noto-extra fonts-noto-mono fonts-noto-ui-core
+  806  sudo apt-get install xfonts-unifont ttf-unifont
+  807  sudo apt-get install xfonts-unifont fonts-unifont
+  808  sudo apt-get install fonts-sil-gentium fonts-sil-gentiumplus
+  810  sudo apt-get install fonts-symbola
+  816  sudo apt install fonts-noto
+  818  sudo apt-get install fonts-symbola
+  823  sudo apt-get install ttf-khmeros 
+  860  sudo apt install lua
+  861  sudo apt install lua5.4:i386 5.4.4-1
+  862  sudo apt install lua5.4:i386
+  876  snap install vlc
+  987  snap install code
+  988  snap install code --classic
+  995  sudo apt snap uninstall code
+  996  sudo  snap uninstall code
+ 1003  sudo apt install software-properties-common apt-transport-https wget gpg
+ 1007  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+ 1009  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+ 1019  sudo apt install code
+ 1121  npm install
+ 1122  sudo npm install
+ 1124  npm install
+ 1129  npm install
+ 1144  npm install
+ 1151  npm install
+ 1158  npm install
+ 1177  npm install -g @angular/cli
+ 1185  sudo npm uninstall -g @angular/cli
+ 1186  npm uninstall -g @angular/cli
+ 1191  sudo npm install -g @angular/cli
+ 1192  npm install -g @angular/cli
+ 1266  sudo apt-get install python3-venv
+ 1294  history | grep install
+ 1300  sudo apt install openjdk-17-jdk
+ 1319  sudo apt install gdit
+ 1340  sudo apt install picom
+ 1369  sudo apt install i3
+ 1372  sudo apt install arandr
+ 1404  sudo apt install nm-applet
+ 1408  sudo apt install feh
+ 1409  sudo apt install brightnessctl
+ 1422  sudo apt install tilix
+ 1423  sudo apt install j4-dmenu-desktop
+ 1464  pip3 install speedtest-cli
+ 1465  sudo pip3 install speedtest-cli
+ 1466  sudo pip install speedtest-cli
+ 1467  pip install speedtest-cli
+ 1468  pip3 install speedtest-cli
+ 1470  pip3 install psutil
+ 1471  pip3 install requests
+ 1472  pip3 install site-packages
+ 1473  sudo pip3 install site-packages
+ 1477  sudo apt install python
+ 1481  pip3 install python-dbus
+ 1482  sudo pip3 install python-dbus
+ 1483  sudo pip install python-dbus
+ 1484  sudo apt -y install python-dbus\n\n: 1704200765:0;sudo apt -y install python-dbus\n
+ 1485  pip install pydbus
+ 1486  sudo aptitude -y install python3-dbus\n
+ 1487  sudo apt -y install python3-dbus\n
+ 1491  sudo apt install mpv
+ 1492  sudo apt install evince
+ 1494  sudo apt install qutebrowser
+ 1498  curl -fsSL https://raw.githubusercontent.com/kontr0x/github-desktop-install/main/installGitHubDesktop.sh -o installGitHubDesktop.sh
+ 1500  bash ./installGitHubDesktop.sh
+ 1501  sudo apt install copyq
+ 1502  sudo apt-get install ca-certificates curl gnupg
+ 1503  sudo install -m 0755 -d /etc/apt/keyrings
+ 1504  # Add Docker's official GPG key:\nsudo apt-get update\nsudo apt-get install ca-certificates curl gnupg\nsudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg\nsudo chmod a+r /etc/apt/keyrings/docker.gpg\n\n# Add the repository to Apt sources:\necho \\n  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \\n  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \\n  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\nsudo apt-get update
+ 1507  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+ 1512  sudo apt install docker-ce
+ 1548  sudo apt install docker-compose
+ 1549  sudo apt install docker-ps
+ 1550  sudo apt install pactl
+ 1556  sudo apt install pactl
+ 1557  pip install pactl
+ 1558  sudo apt install pavucontrol
+ 1560  sudo apt-get -y install pulseaudio
+ 1563  sudo apt install pipewire-media-session- wireplumber
+ 1564  sudo apt install pulseaudio-utils
+ 1565  pip install pulsectl
+ 1567  pip install pulsectl
+ 1568  sudo pip install pulsectl
+ 1569  pip install python-pulsectl
+ 1570  apt install python-pulsectl
+ 1571  sudo apt install python-pulsectl
+ 1575  sudo apt install pa-applet
+ 1576  snap install pa-applet
+ 1577  sudo snap install pa-applet
+ 1603  sudo apt install xdotool
+ 1615  sudo apt install progress
+ 1637  sudo apt install python3-tk
+ 1640  sudo apt uninstall picom
+ 1649  sudo snap install  alacrity
+ 1651  snap install alacritty
+ 1652  sudo snap install alacritty
+ 1653  sudo snap install alacritty --classic
+ 1669  sudo apt install  guake
+ 1690  sudo apt install cal
+ 1693  sudo apt install ncal
+ 1711  sudo apt install khal
+ 1761  sudo apt install xcompmgr
+ 1781  history | grep install
+ 1801  sudo apt install picom
+ 1809  sudo apt install flameshot
+ 1867  snap install rofi-snap
+ 1868  sudo snap install rofi-snap
+ 1869  sudo snap install --edge  rofi-snap
+ 1892  sudo make install
+ 1930  sudo apt install xgetres
+ 2039  sudo apt install git-cola
+ 2103  npm install -g live-server
+ 2189  sudo apt install lxappearance
+ 2190  sudo apt install materia-gtk-theme papirus-icon-theme
+ 2191  sudo apt install fonts-font-awesome
+ 2203  history | grep install
+ 2208  ./install.sh
+ 2209  sudo ./install.sh
+ 2222  sudo ./uninstall.sh 
+ 2243  sudo apt install libglib2.0-dev-bin
+ 2283  sudo apt install  simplescreenrecorder
+ 2354  sudo apt install wine
+ 2419  snap install discord
+ 2420  sudo snap install discord
+ 2446  sudo apt install transmission
+ 2495  sudo apt install tree
+ 2562  npm install -g live-server
+ 2564  npm uninstall -g live-server
+ 2566  sudo npm install -g live-server
+ 2567  npm install -g live-server
+ 2586  sudo apt install python
+ 2587  sudo apt install python2
+ 2616  sudo apt install wine
+ 2750  sudo apt install polybar
+ 2763  sudo apt install polybar
+ 2814  sudo apt install mpd
+ 2844  sudo apt install mpd
+ 2917  snap install color
+ 2920  sudo snap install color-picker
+ 2988  sudo apt install acpi
+ 3091  sudo apt install pactl
+ 3092  sudo apt install linpulse
+ 3093  sudo apt install libpulse
+ 3114  sudo apt install pulseaudio
+ 3138  sudo apt install pulseaudio-ctl 
+ 3218  sudo apt uninstall polybar
+ 3225  sudo snap install polybar-git --edge
+ 3241  sudo make install
+ 3242  sudo make install buid
+ 3243  sudo cmake install buid
+ 3257  pip install sphinx
+ 3259  apt-get install libpurple-dev libglib2.0-dev libmozjs185-dev \\n    libsqlite3-dev libcurl4-gnutls-dev
+ 3260  sudo apt-get install libvlccore-dev\nsudo apt-get install libvlc-dev
+ 3263  sudo apt-get install pkg-config\n
+ 3272  sudo apt-get install pkg-config\n
+ 3293  sudo apt install polybar
+ 3296  sudo apt install polybar
+ 3364  sudo apt install sensors
+ 3368  snap install sensors
+ 3369  sudo snap install sensors
+ 3370  flatpak  install sensors
+ 3372  sudo apt install lm-sensors
+ 3397  sudo apt install rofi
+ 3480  sudo apt install yad
+ 3501  sudo apt install xdotool
+ 3674  sudo apt install playerctl
+ 3679  sudo python3 setup.py install
+ 3740  sudo apt install hardinfo
+ 3841  sudo apt install yard
+ 3844  ^[[200~sudo apt install gnupg
+ 3845  sudo apt install gnupg\n
+ 3994  sudo apt-get install redshift
+ 4008  sudo apt-get install redshift-gtk
+ 4013  sudo apt-get install redshift
+ 4028  sudo apt-get install redshift
+ 4036  sudo apt install awesome
+ 4324  history | grep install

@@ -387,6 +387,8 @@ client.focused $bg-color $bg-color #1c1c1c $bg-color
 for_window [ class="Yad"] floating enable
 for_window [class="Yad" title="yad-calendar"] floating enable
 
+for_window [ class="Rofi"] floating enable
+for_window [class="Rofi" title="Rofi"] floating enable
 #==================== scripts ====================
 #spotify
 # bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
@@ -397,6 +399,11 @@ bindsym $mod+period     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.sh
 
 bindsym $mod+semicolon          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
 bindsym $mod+apostrophe         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
+
+#rofi
+# bindcode $mod+d exec "rofi -normal-window -modi drun -show drun -theme ~/myCode/Dotfiles/i3/rofi/rofi.rasi"
+# for_window [class="Rofi"] move absolute 100px 200px, resize set 100px 100px
+# bindsym $mod+d exec --no-startup-id rofi -normal-window -modi drun -show drun -theme ~/mycode/dotfiles/i3/rofi/rofi.rasi
 
 #bateria
 exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/baterry/battery.sh
