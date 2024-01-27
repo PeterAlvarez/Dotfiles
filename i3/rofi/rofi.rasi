@@ -13,7 +13,8 @@ configuration {
 
 window {
     width: 90%;
-    background-color: black / 75%;
+    background-color: black / 90%;
+    background-image: url("~/myCode/Dotfiles/i3/rofi/w07blur.jpg", width);
 }
 
 inputbar {
@@ -80,7 +81,7 @@ element selected.active {
 }
 
 element-icon {
-    size: 6%;
+    size: 7%;
 }
 
 element-text {

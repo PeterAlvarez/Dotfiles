@@ -343,7 +343,7 @@ content-font = 2
 content-foreground= ${color.foreground}
 content-background = ${color.hack} 
 content-padding=1
-click-left= tilda
+click-left=alacritty
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -620,9 +620,14 @@ click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/traductor.sh &
 
 
 [module/mic]
-type = custom/script
+type = custom/text
 exec = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 || echo " muted "
-content = 
+content-background = ${color.hack} 
+content-foreground= ${color.background}
+; content = 
+; content = 
+; content = 
+content = 
 interval = 5
-click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 || echo " muted "
-click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 || echo " no "
+click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send "Microphone muted "
+click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical "Microphone on "

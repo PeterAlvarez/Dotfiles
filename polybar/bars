@@ -114,7 +114,7 @@ font-4 = "Source Code Pro Bold:size=15;3"
 ; modules-left =  
 modules-left = HLK i3 HRK
 modules-center = HLK launcher google-chrome traductor youtube github netflix disney HRK
-modules-right =  HLK updates-apt HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
+modules-right =  HLK mic updates-apt HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
 ;
 ; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
 ; modules-rigth = "" 
