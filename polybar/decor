@@ -16,8 +16,8 @@ type = custom/text
 content = ""
 
 content-font = 3
-content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.foreground}
+content-background = ${color.hack} 
 content-padding = 1
 click-left=synapse
 
@@ -27,13 +27,13 @@ click-left=synapse
 type = custom/text
 content = "%{T3}%{T-}"
 content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.foreground}
 
 [module/RD]
 type = custom/text
 content = "%{T3}%{T-}"
 content-background = ${color.background}
-content-foreground = ${color.altblack}
+content-foreground = ${color.foreground}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -42,14 +42,14 @@ type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-background = ${color.background}
-content-foreground = ${color.black}
+content-foreground = ${color.foreground}
 
 [module/BLRD]
 type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-background = ${color.background}
-content-foreground = ${color.black}
+content-foreground = ${color.foreground}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

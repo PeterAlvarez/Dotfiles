@@ -7,8 +7,8 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 3; done
 
 # Launch
-polybar main &
-# polybar ballzz &
+polybar darlene &
+polybar samsung &
 # polybar LinusTorballzz
 
 echo "Bar launched..."
