@@ -391,14 +391,13 @@ for_window [ class="Rofi"] floating enable
 for_window [class="Rofi" title="Rofi"] floating enable
 #==================== scripts ====================
 #spotify
+set $spotrfy_r /home/tux//myCode/Dotfiles/scripts/spotify/
 # bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
-bindsym $mod+bracketright   exec /home/tux/myCode/Dotfiles/scripts/spotify/playPause.sh
-
-bindsym $mod+comma      exec /home/tux/myCode/Dotfiles/scripts/spotify/previous.sh
-bindsym $mod+period     exec /home/tux/myCode/Dotfiles/scripts/spotify/next.sh
-
-bindsym $mod+semicolon          exec /home/tux/myCode/Dotfiles/scripts/spotify/back.sh
-bindsym $mod+apostrophe         exec /home/tux/myCode/Dotfiles/scripts/spotify/forward.sh
+bindsym $mod+bracketright   exec  $spotify_r/playPause.sh
+bindsym $mod+comma          exec $spotify_r/previous.sh
+bindsym $mod+period         exec $spotify_r/next.sh
+bindsym $mod+semicolon      exec $spotify_r/back.sh
+bindsym $mod+apostrophe     exec $spotify_r/forward.sh
 
 #rofi
 # bindcode $mod+d exec "rofi -normal-window -modi drun -show drun -theme ~/myCode/Dotfiles/i3/rofi/rofi.rasi"
@@ -407,24 +406,42 @@ bindsym $mod+d exec --no-startup-id rofi -normal-window -modi drun -show drun -t
 #bateria
 exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/baterry/battery.sh
 
-# exec
+############### power menu #################
+set $init_r /home/tux/myCode/Dotfiles/scripts/i3-wm/
 bindsym $mod+X mode "$mode_system"
 bindsym control+mod1+Delete mode "$mode_system"
 
 set $mode_system System (k) lock, (t) lockBlur, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
-    bindsym k exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3lock.sh lock, mode "default"
-    bindsym l exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh logout, mode "default"
-    bindsym u exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh reboot, mode "default"
-    bindsym s exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3exit.sh shutdown, mode "default"
-    bindsym t exec --no-startup-id /home/tux/myCode/Dotfiles/scripts/i3-wm/i3lockFantacy.sh lockBlur, mode "default"
+    bindsym k exec --no-startup-id $init_r/i3lock.sh lock, mode "default"
+    bindsym l exec --no-startup-id $init_r/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id $init_r/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id $init_r/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id $init_r/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id $init_r/i3exit.sh shutdown, mode "default"
+    bindsym t exec --no-startup-id $init_r/i3lockFantacy.sh lockBlur, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+set $bar_r /home/tux/myCode/Dotfiles/polybar/script/icons-bar/
+bindsym $mod+b mode "$mode_system_bar"
+bindsym control+mod1 mode "$mode_system_bar"
+
+set $mode_system_bar Google (g), Traductor (t), YouTube (y), GitHub (u)
+mode "$mode_system_bar" {
+    bindsym g exec --no-startup-id $bar_r/google-chrome.sh,  mode "default"
+    bindsym t exec --no-startup-id $bar_r/traductor.sh, mode "default"
+    bindsym y exec --no-startup-id $bar_r/youtube.sh, mode "default"
+    bindsym u exec --no-startup-id $bar_r/github.sh, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 
 workspace_auto_back_and_forth yes
 #================================ polybar ====================

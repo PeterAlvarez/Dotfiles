@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# Obtener el estado del micrófono usando amixer
+# parametro="$estado"
 mic_status=$(amixer get Capture | grep '\[on\]')
-
-# Definir los iconos
-mic_on_icon="%{F#00FF00} %{F-}"  # Icono verde cuando el micrófono está encendido
-mic_off_icon="%{F#FF0000} %{F-}" # Icono rojo cuando el micrófono está apagado
-
+rojo="%{F#CC240D}"
+reset_color="%{F-}"
 # Verificar el estado y mostrar el icono correspondiente
 if [ -n "$mic_status" ]; then
-	echo "$mic_on_icon"
+	echo -e "$rojo$reset_color"
+	# pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send "Microphone muted "
 else
-	echo "$mic_off_icon"
+	# pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical "Microphone on "
+	echo ""
 fi
+
+# click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send "Microphone muted "
+# click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical "Microphone on "

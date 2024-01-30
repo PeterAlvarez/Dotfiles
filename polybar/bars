@@ -44,10 +44,9 @@ font-4 = "Source Code Pro Bold:size=15;3"
 # Default
 ; modules-left =  
 modules-left = HLK i3 HRK
-modules-center = HLK launcher google-chrome traductor youtube github netflix disney HRK
-modules-right = HLK filesystem  HRK spacing  HLK cpu HRK spacing HLK memory HRK spacing HLK temperature HRK spacing HLK updates-apt HRK spacing  HLK popup-calendar HRK spacing  HLK volume HRK spacing HLK brightness HRK spacing HLK battery HRK spacing HLK popup-powermenu HRK spacing spacing
+modules-center = HLK papelera dotfiles descargas separador launcher google-chrome traductor youtube github netflix disney HRK
+modules-right = HLK mic HRK spacing HLK filesystem  HRK spacing  HLK cpu HRK spacing HLK memory HRK spacing HLK temperature HRK spacing HLK updates-apt HRK spacing  HLK brightness HRK spacing  HLK volume HRK spacing HLK battery HRK spacing HLK popup-calendar HRK spacing HLK popup-powermenu HRK spacing spacing
 ; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
-; modules-rigth = "" 
 
 spacing = 0
 dim-value = 1.0
@@ -113,8 +112,8 @@ font-4 = "Source Code Pro Bold:size=15;3"
 # Default
 ; modules-left =  
 modules-left = HLK i3 HRK
-modules-center = HLK launcher google-chrome traductor youtube github netflix disney HRK
-modules-right =  HLK mic updates-apt HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
+modules-center = HLK  papelera dotfiles descargas separador launcher google-chrome traductor youtube github netflix disney HRK
+modules-right =  HLK updates-apt HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
 ;
 ; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
 ; modules-rigth = "" 
@@ -130,85 +129,6 @@ cursor-scroll =
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 
-; [module/workspaces]
-; type = internal/xworkspaces
-;
-; ; Only show workspaces defined on the same output as the bar
-; ;
-; ; Useful if you want to show monitor specific workspaces
-; ; on different bars
-; ;
-; ; Default: false
-; pin-workspaces = true
-;
-; ; Create click handler used to focus desktop
-; ; Default: true
-; enable-click = true
-;
-; ; Create scroll handlers used to cycle desktops
-; ; Default: true
-; enable-scroll = true
-;
-; ; icon-[0-9]+ = <desktop-name>;<icon>
-; ; NOTE: The desktop name needs to match the name configured by the WM
-; ; You can get a list of the defined desktops using:
-; ; $ xprop -root _NET_DESKTOP_NAMES
-; icon-0 = 1;﬏
-; icon-1 = 2;
-; icon-2 = 3;
-; icon-3 = 4;
-; icon-4 = 5;
-; icon-default = 
-;
-;
-; ; Available tags:
-; ;   <label-monitor>
-; ;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
-; ; Default: <label-state>
-; format = <label-state>
-; format-padding = 1
-;
-; ; Available tokens:
-; ;   %name%
-; ; Default: %name%
-; label-monitor = %name%
-;
-; ; Available tokens:
-; ;   %name%
-; ;   %icon%
-; ;   %index%
-; ; Default: %icon%  %name%
-; label-active = %icon%
-; label-active-foreground = ${color.primary}
-;
-; ; Available tokens:
-; ;   %name%
-; ;   %icon%
-; ;   %index%
-; ; Default: %icon%  %name%
-; label-occupied = %icon%
-; label-occupied-foreground = ${color.yellow}
-;
-; ; Available tokens:
-; ;   %name%
-; ;   %icon%
-; ;   %index%
-; ; Default: %icon%  %name%
-; label-urgent = %icon%
-; label-urgent-foreground = ${color.red}
-;
-; ; Available tokens:
-; ;   %name%
-; ;   %icon%
-; ;   %index%
-; ; Default: %icon%  %name%
-; label-empty = %icon%
-;
-; label-active-padding = 2
-; label-urgent-padding = 2
-; label-occupied-padding = 2
-; label-empty-padding = 2
-;
 ; ============================================================
 [module/i3]
 type = internal/i3

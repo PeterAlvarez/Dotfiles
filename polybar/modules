@@ -126,7 +126,7 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 type = internal/fs
 
 mount-0 = /home
-interval = 60
+interval = 300
 fixed-values = true
 
 format-mounted = <label-mounted>
@@ -619,15 +619,49 @@ content-padding=1
 click-left= ~/myCode/Dotfiles/polybar/script/icons-bar/traductor.sh &
 
 
-[module/mic]
-type = custom/text
-exec = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 || echo " muted "
-content-background = ${color.hack} 
+[module/papelera]
+type=custom/text
+content = 
+contena-font = 2
 content-foreground= ${color.background}
-; content = 
-; content = 
-; content = 
-content = 
-interval = 5
-click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send "Microphone muted "
-click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical "Microphone on "
+content-background = ${color.hack} 
+content-padding=1
+click-left= nautilus -w  ~/.local/share/Trash/files &
+
+
+[module/descargas]
+type=custom/text
+content = 
+contena-font = 2
+content-foreground= ${color.background}
+content-background = ${color.hack} 
+content-padding=1
+click-left= nautilus -w  $HOME/Descargas/ &
+
+[module/dotfiles]
+type=custom/text
+content = 
+contena-font = 2
+content-foreground= ${color.background}
+content-background = ${color.hack} 
+content-padding=1
+click-left= nautilus -w  $HOME/myCode/Dotfiles/ &
+
+[module/separador]
+type=custom/text
+content = 
+contena-font = 2
+content-foreground= ${color.background}
+content-background = ${color.hack} 
+content-padding=1
+
+[module/mic]
+type = custom/script
+exec = ~/myCode/Dotfiles/polybar/script/mic.sh
+; exec = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 || echo " muted "
+format-background = ${color.hack} 
+content-foreground= ${color.background}
+click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send -t 2000 "Microphone muted"
+click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical -t 2000 "Microphone on "
+interval= 10
+
