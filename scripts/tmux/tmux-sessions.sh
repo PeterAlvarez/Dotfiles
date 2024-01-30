@@ -1,7 +1,7 @@
 #!/bin/bash
 tiempo=0.2
 tmux new-session -d -t "coding" && sleep $tiempo
-tmux rename-window " Music" && sleep $tiempo
+tmux rename-window " GitHub" && sleep $tiempo
 tmux new-window -t coding:2 -n " Ranger" && sleep $tiempo
 tmux send-keys "ranger" C-m && sleep $tiempo
 tmux new-window -t coding:3 -n " Bash" && sleep $tiempo

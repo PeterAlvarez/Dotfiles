@@ -8,13 +8,13 @@ function ColorMyPencils()
     vim.cmd([[highlight NeotreeNormalNc guibg=NONE]])
     vim.cmd([[highlight NeotreeNormal guibg=NONE]])
     vim.cmd([[highlight NeoTreeFloatNormal  guibg=NONE]])
-    vim.cmd([[highlight NeoTreeFloatBorder  guifg=#076678 guibg=NONE]])
+    vim.cmd([[highlight NeoTreeFloatBorder  guifg=#27991f guibg=NONE]])
 
-    vim.cmd([[highlight TelescopeBorder guifg=#076678 guibg=NONE]])
+    vim.cmd([[highlight TelescopeBorder guifg=#27991f guibg=NONE]])
     vim.cmd([[highlight TelescopeNormal  guibg=NONE]])
 
     vim.cmd([[highlight WhichKeyFloat  guibg=NONE]])
-    vim.cmd([[highlight WhichkeyBorder guifg=#076678 guibg=NONE]])
+    vim.cmd([[highlight WhichkeyBorder guifg=#27991f guibg=NONE]])
 
     --
     vim.cmd([[highlight GitSignsAddPreview gui=bold guifg=#719e07 guibg=NONE guisp=#719e07]])
@@ -24,6 +24,8 @@ function ColorMyPencils()
     vim.cmd([[highlight  MiniIndentscopeSymbol guifg=#cc241d gui=nocombine ]])
     vim.cmd([[highlight  Directory guifg=#27991f ]])
     vim.cmd([[highlight  LineNr guifg= #859900 ]])
+    vim.cmd([[highlight  InclineNormal guifg=#000000 guibg=#27991f ]])
+    vim.cmd([[highlight  WhichKeyDesc guifg=#27991f ]])
 end
 
 ColorMyPencils()
