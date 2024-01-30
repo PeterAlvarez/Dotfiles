@@ -447,4 +447,5 @@ mode "$mode_system_bar" {
 #================================ polybar ====================
 exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
-
+# cambiar la imagen de login al inicio, clonar ubuntu-gdm-set-background de github
+# sudo ./ubuntu-gdm-set-background --image  {ruta.jgp}
