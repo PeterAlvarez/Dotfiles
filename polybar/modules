@@ -94,7 +94,7 @@ format-background = ${color.green}
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 5
 format-prefix = " "
 format-padding = 0
 click-left= ~/.config/polybar/script/cpuinfo.sh &
@@ -108,16 +108,13 @@ label = "%{A1:terminal -e gtop &:}%percentage%% %{A}"
 
 [module/memory]
 type = internal/memory
-
-interval = 2
-
+interval = 5
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${color.background}
 format-foreground = ${color.background}
 ; format-background = ${color.red}
 format-background = ${color.hack}
-
 label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -126,7 +123,7 @@ label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
 type = internal/fs
 
 mount-0 = /home
-interval = 300
+interval = 600
 fixed-values = true
 
 format-mounted = <label-mounted>
@@ -153,68 +150,17 @@ label-unmounted-background = ${color.hack}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-; [module/workspaces]
-; type = internal/xworkspaces
-;
-; pin-workspaces = false
-; inline-mode = false
-;
-; enable-click = true
-; enable-scroll = true
-; reverse-scroll = true
-;
-; fuzzy-match = true
-;
-; icon-0 = 1;%{F#B3CFF2} %{F-}
-; icon-1 = 2;%{F#F28705} %{F-}
-; icon-2 = 3;%{F#B6D936} %{F-} 
-; icon-3 = 4;%{F#F20505} %{F-}
-; icon-4 = 5;%{F#049DD9} %{F-}
-; icon-5 = 6;%{F#F2CB05} %{F-}
-; icon-default =   
-;
-; format = <label-state>
-;
-; label-monitor = %name%
-;
-; label-active = %icon%
-; label-active-background = ${color.background}
-; label-active-foreground = ${color.yellow}
-; label-active-underline = ${color.green}
-;
-; label-occupied = %icon%
-; label-occupied-foreground = ${color.yellow}
-; label-occupied-background = ${color.background}
-;
-; label-urgent = %icon%
-; label-urgent-foreground = ${color.background}
-; label-urgent-background = ${color.background}
-; label-urgent-underline = ${color.green}
-;
-; label-empty = %icon%
-; label-empty-background = ${color.background}
-; ;label-empty = %icon% if you want to show icons for empty workspaces
-;
-; label-active-padding = 1
-; label-urgent-padding = 1
-; label-occupied-padding = 1
-; label-empty-padding = 1
-
-;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-
 [module/battery]
 type = internal/battery
 
 full-at = 99
 
-; battery = ${system.battery}
-; adapter = ${system.adapter}
 
 low-at = 40
 battery = BAT1
 adapter = ACAD
 
-poll-interval = 2
+poll-interval = 5
 time-format = %H:%M
 
 format-charging = <animation-charging><label-charging>
@@ -272,7 +218,7 @@ type = internal/pulseaudio
 
 use-ui-max = false
 
-interval = 2
+interval = 5
 
 format-volume = <ramp-volume><label-volume>
 
@@ -456,7 +402,6 @@ ramp-foreground = ${color.background}
 
 [module/brightness]
 type = internal/backlight
-
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/brightness/
 card = intel_backlight
@@ -488,7 +433,7 @@ ramp-foreground = ${color.background}
 type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
-
+interval = 10
 format = <label>
 label-foreground = ${color.foreground}
 #format-underline = f50a4d
@@ -513,20 +458,20 @@ format-background = ${color.hack}
 [module/updates-apt]
 type = custom/script
 exec = ~/.config/polybar/script/updates-apt.sh
-interval = 600
+interval = 3600
 format-background = ${color.hack}
 
 [module/popup-powermenu]
 type = custom/script
 exec = ~/.config/polybar/script/popup-powermenu.sh
-interval = 5
+interval = 3600
 click-left = ~/.config/polybar/script/popup-powermenu.sh --popup &
 format-background = ${color.hack}
 
 [module/popup-calendar]
 type = custom/script
 exec = ~/.config/polybar/script/popup-calendar.sh
-interval = 5
+interval = 10
 click-left = ~/.config/polybar/script/popup-calendar.sh --popup &
 format-background = ${color.hack}
 
@@ -535,7 +480,6 @@ type = custom/script
 tail = true
 interval = 1
 format-background = ${color.hack}
-; prefix symbol is shown before the text
 format-prefix = " "
 format = <label>
 exec = ~/myCode/Dotfiles/polybar/script/scroll_spotify_status.sh
@@ -663,5 +607,4 @@ format-background = ${color.hack}
 content-foreground= ${color.background}
 click-right = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 1 && notify-send -t 2000 "Microphone muted"
 click-left = pactl set-source-mute "alsa_input.pci-0000_00_1f.3.analog-stereo" 0 && notify-send -u critical -t 2000 "Microphone on "
-interval= 10
 
