@@ -460,6 +460,7 @@ type = custom/script
 exec = ~/.config/polybar/script/updates-apt.sh
 interval = 3600
 format-background = ${color.hack}
+click-left = ~/.config/polybar/script/updates-apt.sh
 
 [module/popup-powermenu]
 type = custom/script
