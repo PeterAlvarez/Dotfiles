@@ -92,6 +92,33 @@ return {
         end,
     },
 
+    {
+        "L3MON4D3/LuaSnip",
+        keys = function()
+            require("luasnip.loaders.from_vscode").lazy_load({
+                paths = { "~/.config/nvim/snippets/" },
+            })
+
+            ---@diagnostic disable-next-line: different-requires
+            require("luasnip/loaders/from_vscode").load({
+                include = { "javascript", "javascriptreact" },
+            })
+
+            ---@diagnostic disable-next-line: different-requires
+            require("luasnip/loaders/from_vscode").lazy_load()
+
+            -- luasnip.filetype_extend("javascript", { "html" })
+            -- luasnip.filetype_extend("html", { "css" })
+
+            vim.cmd([[
+              set completeopt=menuone,noinsert,noselect
+              highlight! default link CmpItemKind CmpItemMenuDefault
+              ]])
+
+            return {}
+        end,
+    },
+
     --animations
     {
         enabled = false,
