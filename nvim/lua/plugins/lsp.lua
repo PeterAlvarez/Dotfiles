@@ -180,6 +180,24 @@ return {
                 mapping = cmp.mapping.preset.insert({
                     ["<C-k>"] = cmp.mapping.select_prev_item(),
                     ["<C-j>"] = cmp.mapping.select_next_item(),
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif require("luasnip").expand_or_jumpable() then
+                            require("luasnip").expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif require("luasnip").jumpable(-1) then
+                            require("luasnip").jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
                     ["<C-n>"] = cmp.mapping.select_next_item({
                         behavior = cmp.SelectBehavior.Insert,
                     }),
@@ -201,6 +219,7 @@ return {
                         fallback()
                     end,
                 }),
+
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
