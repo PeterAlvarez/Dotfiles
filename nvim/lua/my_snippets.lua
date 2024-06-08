@@ -6,7 +6,7 @@ local i = ls.insert_node
 -- Snippets para todos los lenguajes con descripciones
 ls.add_snippets("all", {
     s({
-        trig = "sec",
+        trig = "sea",
         name = "Division for section",
         dscr = "Esto sirve para dividir secciones de codigo (aprendisaje) ",
     }, {
@@ -14,10 +14,29 @@ ls.add_snippets("all", {
         i(1, "Nombre seccion"),
         t(" ====================="),
     }),
+
+    s({
+        trig = "sec",
+        name = "close section",
+        dscr = "Esto sirve para cerrar las secciones de codigo (aprendisaje)",
+    }, {
+        t("==============================================================="),
+    }),
+
     s({ trig = "hm", name = "Greeting Snippet", dscr = "Snippet para saludar" }, {
         t("Hola, "),
         i(1, "mundo"),
         t("!"),
+    }),
+
+    s({
+        trig = "key",
+        name = "key backtick",
+        dscr = "key backtick",
+    }, {
+        t("`"),
+        i(1, "variable"),
+        t("`"),
     }),
 })
 
