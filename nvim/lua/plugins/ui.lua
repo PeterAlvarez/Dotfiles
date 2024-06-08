@@ -121,6 +121,7 @@ return {
             -- require("luasnip").filetype_extend("kotlin", { "kdoc" })
             -- require("luasnip").filetype_extend("ruby", { "rdoc" })
             require("luasnip").filetype_extend("sh", { "shelldoc" })
+            require("my_snippets")
         end,
     },
     --animations
