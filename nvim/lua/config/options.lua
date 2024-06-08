@@ -26,6 +26,9 @@ function ColorMyPencils()
     vim.cmd([[highlight  LineNr guifg= #859900 ]])
     vim.cmd([[highlight  InclineNormal guifg=#000000 guibg=#27991f ]])
     vim.cmd([[highlight  WhichKeyDesc guifg=#27991f ]])
+    vim.opt_local.formatoptions:remove("c")
+    vim.opt_local.formatoptions:remove("r")
+    vim.opt_local.formatoptions:remove("o")
 end
 
 ColorMyPencils()
@@ -37,3 +40,4 @@ vim.opt.scrolloff = 6
 vim.opt.mouse = "a"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.swapfile = false
