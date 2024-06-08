@@ -206,6 +206,13 @@ return {
                 end,
                 desc = "Lists diff preview",
             },
+            {
+                ";l",
+                function()
+                    require("telescope").extensions.luasnip.luasnip()
+                end,
+                desc = "Lists diff preview",
+            },
         },
         config = function(_, opts)
             local telescope = require("telescope")
@@ -284,6 +291,7 @@ return {
             telescope.setup(opts)
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("file_browser")
+            require("telescope").load_extension("luasnip")
         end,
     },
 
