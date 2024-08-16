@@ -56,7 +56,9 @@ return {
     {
         "rcarriga/nvim-notify",
         opts = {
-            timeout = 4000,
+            timeout = 3000,
+            top_down = false, -- Las notificaciones aparecerán desde la parte inferior
+            stages = "slide", -- Ajuste de la animación para evitar superposiciones
         },
     },
     --filename

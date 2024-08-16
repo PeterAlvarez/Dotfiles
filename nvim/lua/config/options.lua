@@ -26,6 +26,9 @@ function ColorMyPencils()
     vim.cmd([[highlight  LineNr guifg= #859900 ]])
     vim.cmd([[highlight  InclineNormal guifg=#000000 guibg=#27991f ]])
     vim.cmd([[highlight  WhichKeyDesc guifg=#27991f ]])
+
+    vim.cmd([[highlight  NotifyINFOBorder guifg=#27991f ]])
+
     vim.opt_local.formatoptions:remove("c")
     vim.opt_local.formatoptions:remove("r")
     vim.opt_local.formatoptions:remove("o")
@@ -33,11 +36,15 @@ end
 
 ColorMyPencils()
 
+-- Función para ejecutar el comando `set` en Neovim
+function TabWidth()
+    vim.opt.tabstop = 4
+    vim.opt.shiftwidth = 4
+end
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.sidescrolloff = 6
 vim.opt.scrolloff = 6
 vim.opt.mouse = "a"
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.opt.swapfile = false

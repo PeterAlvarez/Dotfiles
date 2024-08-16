@@ -1,4 +1,5 @@
 local Util = require("lazyvim.util")
+local wk = require("which-key")
 
 return {
     {
@@ -137,7 +138,7 @@ return {
                         initial_mode = "normal",
                     })
                 end,
-                desc = "Lists Diagnostics for all open buffers or a specific buffer",
+                desc = "Lists diagnostics for all open buffers",
             },
             {
                 ";e",
@@ -162,7 +163,7 @@ return {
                         layout_config = { height = 10 },
                     })
                 end,
-                desc = "open File Browser with the path of the current buffer",
+                desc = "Open the current File Explorer",
             },
             {
                 ";r",
@@ -212,6 +213,11 @@ return {
                     require("telescope").extensions.luasnip.luasnip()
                 end,
                 desc = "Lists diff preview",
+            },
+            {
+                ";n",
+                "<cmd>Telescope notify<CR>",
+                desc = "Telescope notify",
             },
         },
         config = function(_, opts)
@@ -302,17 +308,13 @@ return {
         event = "VeryLazy",
         opts = {
             layout = {
-                height = { min = 4, max = 25 }, -- min and max height of the columns
-                width = { min = 20, max = 50 }, -- min and max width of the columns
+                width = { min = 20 }, -- min and max width of the columns
                 spacing = 3, -- spacing between columns
-                align = "center", -- align columns left, center or right
             },
-            window = {
+            win = {
                 border = "single", -- none, single, double, shadow
-                position = "bottom", -- bottom, top
-                margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-                padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-                winblend = 0,
+                padding = { 2, 2 }, -- extra window padding [top, right, bottom, left]
+                width = 110,
             },
             plugins = {
                 marks = true, -- shows a list of your marks on ' and `
@@ -331,45 +333,58 @@ return {
                     g = true, -- bindings for prefixed with g
                 },
             },
+            preset = "modern",
             icons = {
                 breadcrumb = " ", -- symbol used in the command line area that shows your active key combo
                 separator = " ", -- symbol used between a key and it's label
                 group = " ", -- symbol prepended to a group
             },
-            defaults = {
-                mode = { "n" },
-                [";"] = { name = "Telescope" },
-                ["<leader>"] = {
-                    name = "leader",
-                    ["p"] = {
-                        name = "my shorcuts",
-                        f = {
-                            '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>',
-                            "Color My Pencils",
-                        },
-                        e = { "<cmd>b#<CR>zz", "Buff prev" },
-                        w = { '<cmd>wa<CR>:echo "Save!!"<CR>', "Save" },
-                        -- h = { "<cmd>lua vim.lsp.buf.format({async=true})<CR>:echo 'Formatted!!'<CR>", "Formatted Code" },
-                        -- f = { "<cmd>Prettier<CR>:echo 'Formatted Prettier!!'<CR>", "Prettier Format Code" },
-                        c = { "<cmd>bp|sp|bn|bd<CR>", "Close buff" },
-                        -- s = { '<cmd>so<CR>:echo "Compiled nvim!!"<CR>', "Compile Packer" },
-                        t = { "<cmd>terminal<CR>", "Open terminal" },
-                        p = {
-                            "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>",
-                            "Copy path file",
-                        },
-                        -- l = { ":lua ToggleColorColumn()<CR>", "Line columns" },
-                        x = { ":tabclose<CR>", "Tab Close" },
-                        q = { ":q<CR>", "Tab Close" },
-                        -- ["="] = { "maggVG='a:echo 'Formating code!!!'<CR>", "Formating whit =" },
-                    },
+            wk.add({
+                { ";", group = "Telescope" },
+                { "<leader>n", group = "Files" }, -- group
+                { "<leader>", group = "Leader" }, -- group
+                { "<leader>p", group = "My shorcuts" }, -- group
+                {
+                    "<leader>pf",
+                    '<cmd>lua ColorMyPencils()<CR>:echo "color function executed!!"<CR>',
+                    desc = "Color My Pencils",
                 },
-            },
+                {
+                    "<leader>pa",
+                    '<cmd>lua TabWidth()<CR>:echo "Formatted config for tab four space!!"<CR>',
+                    desc = "typescript tab size space",
+                },
+                {
+                    "<leader>pe",
+                    "<cmd>b#<CR>zz",
+                    desc = "Buff prev",
+                },
+                {
+                    "<leader>pw",
+                    '<cmd>wa<CR>:echo "Save!!"<CR>',
+                    desc = "Save",
+                },
+                {
+                    "<leader>pc",
+                    "<cmd>bp|sp|bn|bd<CR>",
+                    desc = "Close buff",
+                },
+                {
+                    "<leader>pp",
+                    "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>",
+                    desc = "Copy path file",
+                },
+                {
+                    "<leader>pq",
+                    ":q<CR>",
+                    desc = "Close Tab",
+                },
+            }),
         },
         config = function(_, opts)
             local wk = require("which-key")
             wk.setup(opts)
-            wk.register(opts.defaults)
+            -- wk.register(opts.defaults)
         end,
     },
 
@@ -476,7 +491,11 @@ return {
                 end,
                 desc = "Explorer NeoTree (cwd)",
             },
-            { "<leader>nn", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
+            {
+                "<leader>nn",
+                "<cmd>Neotree position=right<CR>",
+                desc = "NeoTree no floating",
+            },
             { "<leader>nr", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
 
             {
@@ -485,6 +504,11 @@ return {
                 desc = "NeoTree close",
             },
 
+            {
+                "<leader>nf",
+                "<cmd>Neotree float<CR>",
+                desc = "NeoTree floating",
+            },
             {
                 "<leader>ng",
                 function()
@@ -521,7 +545,8 @@ return {
                 use_libuv_file_watcher = true,
             },
             window = {
-
+                position = "right",
+                width = 40,
                 mappings = {
                     ["<space>"] = "none",
                     ["<2-LeftMouse>"] = "open",

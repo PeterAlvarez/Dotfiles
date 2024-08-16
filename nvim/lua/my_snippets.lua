@@ -6,21 +6,55 @@ local i = ls.insert_node
 -- Snippets para todos los lenguajes con descripciones
 ls.add_snippets("all", {
     s({
-        trig = "sea",
+        trig = "sq",
         name = "Division for section",
         dscr = "Esto sirve para dividir secciones de codigo (aprendisaje) ",
     }, {
-        t("===================== "),
+        t("######################## "),
         i(1, "Nombre seccion"),
-        t(" ====================="),
+        t(" ########################"),
+    }),
+    s({
+        trig = "sq",
+        name = "close section",
+        dscr = "Esto sirve para cerrar las secciones de codigo (aprendisaje)",
+    }, {
+        t("###############################################################"),
     }),
 
     s({
-        trig = "sec",
+        trig = "sw",
+        name = "Division for section",
+        dscr = "Esto sirve para dividir secciones de codigo (aprendisaje) ",
+    }, {
+        t("======================== "),
+        i(1, "Nombre seccion"),
+        t(" ========================"),
+    }),
+
+    s({
+        trig = "sw",
         name = "close section",
         dscr = "Esto sirve para cerrar las secciones de codigo (aprendisaje)",
     }, {
         t("==============================================================="),
+    }),
+
+    s({
+        trig = "se",
+        name = "Division for section",
+        dscr = "Esto sirve para dividir secciones de codigo (aprendisaje) ",
+    }, {
+        t("------------------------ "),
+        i(1, "Nombre seccion"),
+        t(" ------------------------"),
+    }),
+    s({
+        trig = "se",
+        name = "close section",
+        dscr = "Esto sirve para cerrar las secciones de codigo (aprendisaje)",
+    }, {
+        t("---------------------------------------------------------------"),
     }),
 
     s({ trig = "hm", name = "Greeting Snippet", dscr = "Snippet para saludar" }, {

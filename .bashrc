@@ -1,19 +1,17 @@
-
 # ~/.bashrc
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
-
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+    . /etc/bashrc
 fi
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -52,7 +50,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+xterm-color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -62,15 +60,14 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-  # We have color support; assume it's compliant with Ecma-48
-  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-  # a case would tend to support setf rather than setaf.)
-  color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-  color_prompt=
+        color_prompt=
     fi
 fi
-
 
 #===agreando date
 
@@ -79,22 +76,22 @@ time_color='\e[0;33m'
 batery_color='\e[1;34m'
 
 function __year() {
-    printf "`date +%Y`"
+    printf "$(date +%Y)"
 }
 function __month() {
-    printf "`date +%m`"
+    printf "$(date +%m)"
 }
 function __day() {
-    printf "`date +%d`"
+    printf "$(date +%d)"
 }
 function __hour() {
-    printf "`date +%H`"
+    printf "$(date +%H)"
 }
 function __minute() {
-    printf "`date +%M`"
+    printf "$(date +%M)"
 }
 function __second() {
-    printf "`date +%S`"
+    printf "$(date +%S)"
 }
 
 TIME_PS1="\
@@ -112,17 +109,14 @@ TIME_PS1="\
 \[$time_color\]\$(__second)\
 \[$off\]\e[1;31m ]─"
 
-
-
 function __batery() {
-    if [ `acpi | awk '{print $3}' | cut -c 1` = "C" ]; then
-        printf "+ `acpi | awk '{print $4-0}'`"
+    if [ $(acpi | awk '{print $3}' | cut -c 1) = "C" ]; then
+        printf "+ $(acpi | awk '{print $4-0}')"
         # printf "`acpi | awk '{print $3}' +` `acpi | awk '{print $4-0}'`"
     else
-        printf "`acpi | awk '{print $4-0}'`"
+        printf "$(acpi | awk '{print $4-0}')"
     fi
 }
-
 
 BATERY="\
 \[$off\]\e[1;31m[ \
@@ -141,11 +135,10 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm* | rxvt*)
     PS1="\[\033[1;31m\]\342\224\214\342\224\200${BATERY}${TIME_PS1}\e[1;31m[ $(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]root\[\033[01;33m\]@\[\033[01;96m\]\h'; else echo '\[\033[0;36m\]\u\[\033[1;31m\] => \[\033[0;34m\]\h '; fi)\[\033[1;31m\]]\342\224\200[\[\033[0;32m\] \w \[\033[1;31m\]]( \$(git branch 2>/dev/null | grep '^*' | colrm 1 2) )\n\[\033[1;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\]"
     ;;
-*)
-    ;;
+*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -160,15 +153,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-
-
 # screenshots
 #timestamp="$(date +%Y%m%d%H%M%S)"
 #targetbase="$HOME/screenshots"
 #mkdir -p $targetbase
 #[ -d $targetbase ] || exit 1
 #scrot $targetbase/$timestamp.png
-
 
 # some more ls aliases
 alias wm='xprop WM_CLASS'
@@ -192,7 +182,6 @@ alias rr='ranger'
 alias vim='nvim'
 alias vi='nvim'
 
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -210,11 +199,9 @@ HISTTIMEFORMAT="%D - %T : "
 shopt -s histappend
 shopt -s checkwinsize
 
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -229,11 +216,11 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 neofetch
 
@@ -248,8 +235,8 @@ neofetch
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Load Angular CLI autocompletion.
 #source <(ng completion script)
