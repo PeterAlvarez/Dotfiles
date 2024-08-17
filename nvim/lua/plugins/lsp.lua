@@ -9,7 +9,7 @@ return {
                 "shellcheck",
                 "shfmt",
                 -- "tailwindcss-language-server",
-                "typescript-language-server",
+                -- "typescript-language-server",
                 "css-lsp",
                 "hadolint",
                 "java-test",
@@ -29,6 +29,7 @@ return {
             inlay_hints = { enabled = true },
             ---@type lspconfig.options
             servers = {
+                angularls = {},
                 pyright = {},
                 dockerls = {},
                 docker_compose_language_service = {},

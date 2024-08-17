@@ -148,7 +148,7 @@ return {
                 desc = "List open buffers",
             },
             {
-                ";s",
+                ";b",
                 function()
                     local function telescope_buffer_dir()
                         return vim.fn.expand("%:p:h")
@@ -343,6 +343,13 @@ return {
                 { ";", group = "Telescope" },
                 { "<leader>n", group = "Files" }, -- group
                 { "<leader>", group = "Leader" }, -- group
+                { "<leader>c", group = "Code" }, -- group
+                {
+                    "<leader>ct",
+                    "<cmd>lua vim.lsp.buf.hover()<CR>",
+                    desc = "Code information",
+                },
+
                 { "<leader>p", group = "My shorcuts" }, -- group
                 {
                     "<leader>pf",
