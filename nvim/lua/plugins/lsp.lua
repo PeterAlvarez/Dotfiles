@@ -29,7 +29,11 @@ return {
             inlay_hints = { enabled = true },
             ---@type lspconfig.options
             servers = {
-                angularls = {},
+                angularls = {
+                    diagnostic = {
+                        enable = true,
+                    },
+                },
                 pyright = {},
                 dockerls = {},
                 docker_compose_language_service = {},
@@ -43,6 +47,9 @@ return {
                 --   end,
                 -- },
                 tsserver = {
+                    diagnostic = {
+                        enable = true,
+                    },
                     root_dir = function(...)
                         return require("lspconfig.util").root_pattern(".git")(...)
                     end,
