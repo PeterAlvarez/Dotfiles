@@ -1,9 +1,13 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+POWERLEVEL9K_INSTANT_PROMPT=off
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export JAVA_HOME=/usr/lib/jvm/java-24-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -13,21 +17,18 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tux/.oh-my-zsh"
-export LC_ALL="es_ES.UTF-8"
-export LC_CTYPE="es_ES.UTF-8"
-export LANG=en_ES.UTF-8
+export LC_ALL="es_BO.UTF-8"
+export LC_CTYPE="es_BO.UTF-8"
+export LANG=en_BO.UTF-8
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
-#export BAT_CONFIG_PATH="/path/to/bat.conf"
 
+#export BAT_CONFIG_PATH="/path/to/bat.conf"
 
 export VISUAL=nvim
 
-#ZSH_THEME="spaceship"
-#ZSH_THEME="fwalch"
 #ZSH_THEME="jonathan"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
@@ -94,13 +95,18 @@ plugins=( git
     zsh-autosuggestions
     sudo
     man
-    battery
     alias-finder
     vi-mode
     zsh-completions
     zsh-fzf-history-search
     fzf-tab
+    copypath
+    battery
 )
+
+#Para pluggins como battery debes modificar el archivo pk10 en /home/tux/.p10k.zsh
+# leer Documentacio
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -152,23 +158,22 @@ alias ytm='youtube-dl -f bestaudio --extract-audio --audio-format mp3 --audio-qu
 alias brillo='vim /sys/class/backlight/intel_backlight/brightness'
 alias cat='bat --paging=never'
 alias af='alias-finder --longer'
-alias yy='copydir'
+#alias yy='copydir'
 alias cf='copyfile'
 alias wm='xprop WM_CLASS'
 alias pyServer='python -m http.server'
 alias gmd='cd ~/myCode/Dotfiles/'
 alias gmm='cd ~/myCode'
 alias gmc='cd ~/.config/'
-alias cat='batcat --paging=never'
 alias vim='nvim'
 alias vi='nvim'
-alias cat='batcat --paging=never'
 alias yy='pwd | xclip -selection clipboard'
 # ============== alias tmux
 alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
 alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
 alias ee='exit'
+alias cl='clear'
 
 # ============== alias docker
 alias dsall='docker stop $(docker ps -a -q)'
@@ -189,7 +194,7 @@ neofetch
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+#source <(ng completion script)
 
 #install for font and icons theme i3wm
 #fonts-font-awesome
@@ -197,3 +202,5 @@ source <(ng completion script)
 #exec crtl-t lxappearance
 #==================== tips
 # $ fg -> para recuperar sesiom suspendida por crtl-z
+
+export PATH=$PATH:/home/tux/.spicetify

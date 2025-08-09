@@ -19,7 +19,6 @@ foreground = ${color.foreground}
 
 radius-top = 1.0
 radius-bottom = 1.0
-
 line-size = 2
 line-color = ${color.red}
 
@@ -35,17 +34,23 @@ module-margin-right = 0
 scroll-up = "#i3.prev"
 scroll-down = "#i3.next"
 
-font-0 = "Source Code Pro Medium:size=12;3"
-font-1 = "Iosevka Nerd Font:size=14;3"
-font-2 = "Iosevka Nerd Font:size=18;4"
-font-3 = "Iosevka Nerd Font:size=20;4"
-font-4 = "Source Code Pro Bold:size=15;3"
+font-0 = "JetBrainsMono Nerd Font :size=13;3"
+font-2 = "Agave Nerd Font Propo :size=17;3"
+
+font-1 = "Agave Nerd Font Propo :size=15;3"
+font-3 = "Agave Nerd Font Propo :size=15;3"
+font-4 = "Agave Nerd Font Propo :size=15;3"
+;font-1 = "Iosevka Nerd Font:size=14;3"
+;font-2 = "Iosevka Nerd Font:size=18;4"
+;font-3 = "Iosevka Nerd Font:size=20;4"
+;font-4 = "Source Code Pro Bold:size=15;3"
 
 # Default
 ; modules-left =  
 modules-left = HLK i3 HRK
-modules-center = HLK papelera dotfiles descargas separador launcher google-chrome traductor youtube github netflix disney HRK
-modules-right = HLK mic HRK spacing HLK filesystem  HRK spacing  HLK cpu HRK spacing HLK memory HRK spacing HLK temperature HRK spacing HLK updates-apt HRK spacing  HLK brightness HRK spacing  HLK volume HRK spacing HLK battery HRK spacing HLK popup-calendar HRK spacing HLK popup-powermenu HRK spacing spacing
+modules-center = HLK papelera dotfiles descargas separador  google-chrome traductor youtube github HRK
+modules-right = HLK keyboard HRK spacing  HLK mic HRK spacing HLK filesystem  HRK spacing  HLK cpu HRK spacing HLK memory HRK spacing HLK cpu-temperature HRK spacing HLK pacman HRK spacing  HLK brightness HRK spacing  HLK volume HRK spacing HLK battery HRK spacing HLK popup-calendar HRK spacing HLK popup-powermenu HRK spacing spacing
+
 ; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
 
 spacing = 0
@@ -67,7 +72,7 @@ cursor-scroll =
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [bar/samsung]
-monitor = DP-1-5
+monitor = HDMI-1
 monitor-fallback = ""
 monitor-strict = false
 
@@ -103,20 +108,18 @@ module-margin-right = 0
 scroll-up = "#i3.prev"
 scroll-down = "#i3.next"
 
-font-0 = "Source Code Pro Medium:size=12;3"
-font-1 = "Iosevka Nerd Font:size=14;3"
-font-2 = "Iosevka Nerd Font:size=18;4"
-font-3 = "Iosevka Nerd Font:size=20;4"
-font-4 = "Source Code Pro Bold:size=15;3"
+font-0 = "JetBrainsMono Nerd Font :size=13;3"
+font-2 = "Agave Nerd Font Propo :size=17;3"
+
+font-1 = "Agave Nerd Font Propo :size=15;3"
+font-3 = "Agave Nerd Font Propo :size=15;3"
+font-4 = "Agave Nerd Font Propo :size=15;3"
 
 # Default
-; modules-left =  
 modules-left = HLK i3 HRK
-modules-center = HLK  papelera dotfiles descargas separador launcher google-chrome traductor youtube github netflix disney HRK
-modules-right =  HLK updates-apt HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
-;
-; modules-right = FSL filesystem  FSR spacing  FSL cpu FSR spacing RLD memory RRD spacing WLD temperature WRD spacing GLD updates-apt GRD spacing  YLD popup-calendar YRD spacing  RBL volume RRD spacing FSL brightness FSR spacing GLD battery GRD spacing GLD popup-powermenu GRD spacing
-; modules-rigth = "" 
+;modules-center = HLK  papelera dotfiles descargas HRK
+modules-center = 
+modules-right =  HLK keyboard HRK spacing  HLK volume HRK spacing  HLK popup-calendar HRK spacing  HLK battery HRK spacing   
 
 spacing = 0
 dim-value = 1.0

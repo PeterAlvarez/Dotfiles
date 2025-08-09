@@ -1,3 +1,3 @@
 #!/bin/bash
-hardinfo &
+hardinfo2 &
 notify-send "Información de CPU" "$(lscpu)"

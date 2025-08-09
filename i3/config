@@ -1,8 +1,11 @@
 set $mod Mod4
 
-font pango:Agave Nerd Font Propo Bold 13
-# font pango:Cousine Nerd Font Propo Bold 13
+font pango:CaskaydiaCove Nerd Font 13
+# font pango:Agave Nerd Font Propo Bold 13
+# font pango:JetBrainsMono Nerd Font Bold 13
 # font pango:ComicShannsMono Nerd Fonto Propo Bold 12
+# font pango:ComicShannsMono Nerd Fonto Propo Bold 12
+# font pango:CaskaydiaCove NF 12
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -15,6 +18,9 @@ exec --no-startup-id guake
 exec --no-startup-id picom
 # exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/17.png
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallWow/w07.jpg
+exec --no-startup-id dunst
+exec --no-startup-id setxkbmap latam
+
 
 # ========================= $xmodmap -pke [name keys function]============
 # Use pactl to adjust volume in PulseAudio.
@@ -159,6 +165,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 ###### bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -303,11 +310,11 @@ bindsym $mod+r mode "resize"
 #==================== monitors ====================
 #monitor LG
 # [nav]
-workspace 1 output DP-1-5
+workspace 1 output HDMI-1
 # [nautilus]
-workspace 2 output DP-1-5
+workspace 2 output HDMI-1
 # [video]
-workspace 3 output DP-1-5
+workspace 3 output HDMI-1
 # [pdf view]
 workspace 4 output eDP-1
 
@@ -321,11 +328,11 @@ workspace 6 output eDP-1
 # [Data Base]
 workspace 7 output eDP-1
 # [mail]
-workspace 8 output DP-1-5
+workspace 8 output HDMI-1
 # [Desktop]
-workspace 9 output DP-1-5
+workspace 9 output HDMI-1
 # [terminal]
-workspace 10 output DP-1-5
+workspace 10 output HDMI-1
 
 ########## espacios de trabajo
 ##1 [nav]
@@ -333,7 +340,8 @@ assign [class="firefox"] $ws1
 assign [class="Google-chrome"] $ws1
 
 ### 2 [video]
-assign [class="Org.gnome.Nautilus"] $ws2
+assign [class="dolphin"] $ws2
+assign [class="Thunar"] $ws2
 
 ### 3 [nautilus]
 assign [class="mpv"] $ws3
@@ -368,12 +376,17 @@ assign [class="Tilix"] $ws10
 
 
 #==================== ventanas ====================
-for_window [class="copyq"] floating enable
-floating_minimum_size 75 x 50
-floating_maximum_size -1 x -1
+# Lanzar o mostrar Kitty tipo dropdown
+bindsym Mod1+Tab [class="kitty"] scratchpad show, move position center
+
+# Configurar Kitty para que se mueva automáticamente al scratchpad
+for_window [class="kitty"] move to scratchpad, floating enable, resize set 1700 945
+
+for_window [class="copyq"] floating enable, resize set 600 450, move position center
+for_window [class="Guake"] floating enable, resize set 1700 900, move position center
 
 # border window
-for_window [class=".*"] border pixel 4
+for_window [class=".*"] border pixel 5
 
 # delete tittle for window
 for_window [title="Window Title"] border none
@@ -389,11 +402,13 @@ for_window [class="Yad" title="yad-calendar"] floating enable
 
 for_window [ class="Rofi"] floating enable
 for_window [class="Rofi" title="Rofi"] floating enable
+
 #==================== scripts ====================
 #spotify
 set $spotify_r /home/tux//myCode/Dotfiles/scripts/spotify/
+
 # bindsym $mod+bracketleft    exec /home/tux/myCode/Dotfiles/scripts/spotify/pause.sh
-bindsym $mod+bracketright   exec  $spotify_r/playPause.sh
+bindsym $mod+bracketright   exec $spotify_r/playPause.sh
 bindsym $mod+comma          exec $spotify_r/previous.sh
 bindsym $mod+period         exec $spotify_r/next.sh
 bindsym $mod+semicolon      exec $spotify_r/back.sh
