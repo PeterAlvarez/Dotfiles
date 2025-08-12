@@ -1,0 +1,42 @@
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern = "*",
+--   callback = function()
+--     local hl = vim.api.nvim_set_hl
+--
+--     hl(0, "NeotreeNormalNc", { bg = "NONE" })
+--     hl(0, "NeotreeNormal", { bg = "NONE" })
+--     hl(0, "NeoTreeFloatNormal", { bg = "NONE" })
+--     hl(0, "NeoTreeFloatBorder", { fg = "#27991f", bg = "NONE" })
+--
+--     hl(0, "TelescopeBorder", { fg = "#27991f", bg = "NONE" })
+--     hl(0, "TelescopeNormal", { bg = "NONE" })
+--
+--     hl(0, "WhichKeyFloat", { bg = "NONE" })
+--     hl(0, "WhichkeyBorder", { fg = "#27991f", bg = "NONE" })
+--
+--     hl(0, "GitSignsAddPreview", { fg = "#719e07", bg = "NONE", gui = "bold", sp = "#719e07" })
+--     hl(0, "GitSignsDeletePreview", { fg = "#dc322f", bg = "NONE", gui = "bold" })
+--
+--     hl(0, "@ibl.indent.char.1", { fg = "#657b83", nocombine = true })
+--     hl(0, "MiniIndentscopeSymbol", { fg = "#cc241d", nocombine = true })
+--     hl(0, "Directory", { fg = "#27991f" })
+--     hl(0, "LineNr", { fg = "#859900" })
+--     hl(0, "InclineNormal", { fg = "#000000", bg = "#27991f" })
+--     hl(0, "WhichKeyDesc", { fg = "#27991f" })
+--     hl(0, "NotifyINFOBorder", { fg = "#27991f" })
+--
+--     vim.opt_local.formatoptions:remove("c")
+--     vim.opt_local.formatoptions:remove("r")
+--     vim.opt_local.formatoptions:remove("o")
+--   end,
+-- })
+--
+----
+--vim.api.nvim_set_hl(0, "SnacksIndent1", { fg = "#928374" }) -- gris claro
+--vim.api.nvim_set_hl(0, "SnacksIndent2", { fg = "#fabd2f" }) -- amarillo
+--vim.api.nvim_set_hl(0, "SnacksIndent3", { fg = "#83a598" }) -- azul cielo
+--vim.api.nvim_set_hl(0, "SnacksIndent4", { fg = "#b8bb26" }) -- verde
+--vim.api.nvim_set_hl(0, "SnacksIndent5", { fg = "#fe8019" }) -- naranja
+--vim.api.nvim_set_hl(0, "SnacksIndent6", { fg = "#d3869b" }) -- rosado
+--vim.api.nvim_set_hl(0, "SnacksIndent7", { fg = "#8ec07c" }) -- verde agua
+--vim.api.nvim_set_hl(0, "SnacksIndent8", { fg = "#cc241d" }) -- rojo

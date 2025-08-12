@@ -1,62 +1,151 @@
-# This is a sample commands.py.  You can add your own commands here.
-#
-# Please refer to commands_full.py for all the default commands and a complete
-# documentation.  Do NOT add them all here, or you may end up with defunct
-# commands when upgrading ranger.
 
-# A simple command for demonstration purposes follows.
-# -----------------------------------------------------------------------------
+# commands.py — versión corregida para Ranger
+# Soporta: comprimir (zip, tar, tar.gz, rar, 7z) y descomprimir automáticamente
 
 from __future__ import (absolute_import, division, print_function)
-
-# You can import any python module as needed.
 import os
-
-# You always need to import ranger.api.commands here to get the Command class:
+import shlex
 from ranger.api.commands import Command
 
 
-# Any class that is a subclass of "Command" will be integrated into ranger as a
-# command.  Try typing ":my_edit<ENTER>" in ranger!
 class my_edit(Command):
-    # The so-called doc-string of the class will be visible in the built-in
-    # help that is accessible by typing "?c" inside ranger.
     """:my_edit <filename>
 
     A sample command for demonstration purposes that opens a file in an editor.
     """
 
-    # The execute method is called when you run this command in ranger.
     def execute(self):
-        # self.arg(1) is the first (space-separated) argument to the function.
-        # This way you can write ":my_edit somefilename<ENTER>".
         if self.arg(1):
-            # self.rest(1) contains self.arg(1) and everything that follows
             target_filename = self.rest(1)
         else:
-            # self.fm is a ranger.core.filemanager.FileManager object and gives
-            # you access to internals of ranger.
-            # self.fm.thisfile is a ranger.container.file.File object and is a
-            # reference to the currently selected file.
             target_filename = self.fm.thisfile.path
 
-        # This is a generic function to print text in ranger.
         self.fm.notify("Let's edit the file " + target_filename + "!")
 
-        # Using bad=True in fm.notify allows you to print error messages:
         if not os.path.exists(target_filename):
             self.fm.notify("The given file does not exist!", bad=True)
             return
 
-        # This executes a function from ranger.core.acitons, a module with a
-        # variety of subroutines that can help you construct commands.
-        # Check out the source, or run "pydoc ranger.core.actions" for a list.
         self.fm.edit_file(target_filename)
 
-    # The tab method is called when you press tab, and should return a list of
-    # suggestions that the user will tab through.
-    # tabnum is 1 for <TAB> and -1 for <S-TAB> by default
     def tab(self, tabnum):
-        # This is a generic tab-completion function that iterates through the
-        # content of the current directory.
         return self._tab_directory_content()
+
+
+class compress(Command):
+    """:compress <nombre_archivo>
+
+    Comprime los archivos seleccionados.
+
+    Uso:
+      - Selecciona archivos/directorios con <Space>
+      - Ejecuta: :compress backup.zip  (o backup.tar.gz / backup.tar / backup.rar / backup.7z)
+    """
+
+    def execute(self):
+        nombre = self.rest(1)
+        if not nombre:
+            self.fm.notify("Debes indicar el nombre del archivo (ej: backup.zip)", bad=True)
+            return
+
+        seleccion = [f.path for f in self.fm.thistab.get_selection()]
+        if not seleccion:
+            self.fm.notify("No hay archivos seleccionados.", bad=True)
+            return
+
+        archivos_citados = " ".join(shlex.quote(p) for p in seleccion)
+        salida = shlex.quote(nombre)
+
+        if nombre.endswith('.zip'):
+            cmd = f"zip -r {salida} {archivos_citados}"
+        elif nombre.endswith('.tar.gz') or nombre.endswith('.tgz'):
+            cmd = f"tar -czvf {salida} {archivos_citados}"
+        elif nombre.endswith('.tar'):
+            cmd = f"tar -cvf {salida} {archivos_citados}"
+        elif nombre.endswith('.rar'):
+            cmd = f"rar a {salida} {archivos_citados}"
+        elif nombre.endswith('.7z'):
+            cmd = f"7z a {salida} {archivos_citados}"
+        else:
+            self.fm.notify("Formato no soportado. Usa: .zip, .tar, .tar.gz/.tgz, .tar, .rar, .7z", bad=True)
+            return
+
+        self.fm.notify(f"Creando: {nombre}")
+        self.fm.run(cmd)
+        # recarga la vista del directorio para que aparezca el archivo creado
+        try:
+            self.fm.thisdir.load_content()
+        except Exception:
+            pass
+
+    def tab(self, tabnum):
+        return ["archivo.zip", "archivo.tar.gz", "archivo.tar", "archivo.rar", "archivo.7z"]
+
+
+class extract(Command):
+    """:extract
+    Descomprime los archivos seleccionados en el directorio actual (sin rutas absolutas).
+    """
+    def execute(self):
+        import shlex
+        seleccion = [f.path for f in self.fm.thistab.get_selection()]
+        if not seleccion:
+            self.fm.notify("No hay archivos seleccionados.", bad=True)
+            return
+
+        for p in seleccion:
+            pq = shlex.quote(p)
+            if p.endswith('.zip'):
+                cmd = f"unzip -j {pq}"
+            elif p.endswith('.tar.gz') or p.endswith('.tgz'):
+                cmd = f"tar --strip-components=1 -xzvf {pq}"
+            elif p.endswith('.tar'):
+                cmd = f"tar --strip-components=1 -xvf {pq}"
+            elif p.endswith('.rar'):
+                cmd = f"unrar e {pq}"
+            elif p.endswith('.7z'):
+                cmd = f"7z x -aoa -o. {pq}"
+            else:
+                self.fm.notify(f"Ignorado (formato no soportado): {p}", bad=True)
+                continue
+
+            self.fm.notify(f"Ejecutando: {cmd}")
+            self.fm.run(cmd)
+
+        try:
+            self.fm.thisdir.load_content()
+        except Exception:
+            pass
+    
+from ranger.api.commands import Command
+import shlex
+
+class open_thunar(Command):
+    """:open_thunar
+    Abre Thunar en el directorio actual de Ranger.
+    """
+    def execute(self):
+        path = self.fm.thisdir.path
+        self.fm.run(f"thunar {shlex.quote(path)} &", flags='f')
+
+
+class copy_name(Command):
+    """:copy_name
+    Copia el nombre del archivo o directorio actual al portapapeles.
+    """
+    def execute(self):
+        import subprocess
+        name = self.fm.thisfile.relative_path
+        subprocess.run(f"echo -n {shlex.quote(name)} | xclip -selection clipboard", shell=True)
+        self.fm.notify(f"Nombre copiado: {name}")
+
+from ranger.api.commands import Command
+import shlex
+
+class recent_files(Command):
+    """:recent_files
+    Lista los archivos en el directorio actual, ordenados por fecha (recientes primero).
+    """
+    def execute(self):
+        path = self.fm.thisdir.path
+        self.fm.run(f"ls -lt {shlex.quote(path)} | less", flags='p')

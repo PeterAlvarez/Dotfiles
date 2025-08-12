@@ -1,7 +1,7 @@
 #!/bin/bash
 revert() {
-	# rm /tmp/*screen*.png
-	xset dpms 0 0 0
+  # rm /tmp/*screen*.png
+  xset dpms 0 0 0
 }
 trap revert HUP INT TERM
 xset +dpms dpms 0 0 5

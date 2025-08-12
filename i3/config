@@ -12,10 +12,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # exec --no-startup-id ~/.screenlayout/LG_SAMSUMG_Darlene.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id kitty
+
 # exec --no-startup-id synapse
 # exec --no-startup-id xcompmgr &
-exec --no-startup-id guake
+# exec --no-startup-id guake
 exec --no-startup-id picom
+exec --no-startup-id copyq
 # exec --no-startup-id feh --bg-scale ~/.config/i3/desktopImage/17.png
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallWow/w07.jpg
 exec --no-startup-id dunst
@@ -78,7 +81,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+n split h
+# bindsym $mod+n split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -107,50 +110,31 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 #          力 
 
-# set $ws1 "1"
-# set $ws2 "2"
-# set $ws3 "3"
-# set $ws4 "4"
-# set $ws5 "5"
-# set $ws6 "6"
-# set $ws7 "7"
-# set $ws8 "8"
-# set $ws9 "9"
-# set $ws10 "10"
 
-set $ws1 "1:  "
-set $ws2 "2:  "
-set $ws3 "3:  "
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
 set $ws4 "4:  "
 set $ws5 "5:  "
-set $ws6 "6:  "
-set $ws7 "7:  "
-set $ws8 "8: 力"
+set $ws6 "6:  "
+set $ws7 "7: 󰊫 "
+set $ws8 "8: 󱘼"
 set $ws9 "9:  "
-set $ws10 "10:  "
+set $ws10 "10:  "
 
-# switch to workspace
-# bindsym $mod+1 workspace number "1:  "
-# bindsym $mod+2 workspace number "2:  "
-# bindsym $mod+3 workspace number "3:  "
-# bindsym $mod+4 workspace number "4:  "
-# bindsym $mod+5 workspace number "5:  "
-# bindsym $mod+6 workspace number "6:  "
-# bindsym $mod+7 workspace number "7:  "
-# bindsym $mod+8 workspace number "8: 力"
-# bindsym $mod+9 workspace number "9:  "
-# bindsym $mod+0 workspace number "10:  "
 
-bindsym $mod+1 workspace number "1:  "
-bindsym $mod+2 workspace number "2:  "
-bindsym $mod+3 workspace number "3:  "
+bindsym $mod+1 workspace number "1:  "
+bindsym $mod+2 workspace number "2:  "
+bindsym $mod+3 workspace number "3:  "
 bindsym $mod+4 workspace number "4:  "
 bindsym $mod+5 workspace number "5:  "
-bindsym $mod+6 workspace number "6:  "
-bindsym $mod+7 workspace number "7:  "
-bindsym $mod+8 workspace number "8: 力"
+bindsym $mod+6 workspace number "6:  "
+bindsym $mod+7 workspace number "7: 󰊫 "
+bindsym $mod+8 workspace number "8: 󱘼 "
 bindsym $mod+9 workspace number "9:  "
-bindsym $mod+0 workspace number "10:  "
+bindsym $mod+0 workspace number "10:  "
+
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -314,7 +298,7 @@ workspace 1 output HDMI-1
 # [nautilus]
 workspace 2 output HDMI-1
 # [video]
-workspace 3 output HDMI-1
+workspace 3 output eDP-1
 # [pdf view]
 workspace 4 output eDP-1
 
@@ -325,9 +309,9 @@ workspace 5 output eDP-1
 workspace 6 output eDP-1
 
 #moitor SAMSUNG
-# [Data Base]
-workspace 7 output eDP-1
 # [mail]
+workspace 7 output HDMI-1
+# [Data Base]
 workspace 8 output HDMI-1
 # [Desktop]
 workspace 9 output HDMI-1
@@ -360,9 +344,10 @@ assign [class="Spotify"] $ws6
 assign [class="qutebrowser"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="Zoom"] $ws7
+assign [class="thunderbird"] $ws7
 
 ### 8 [Data Base]
-# assign [class="Filezilla"] $ws8
+assign [class="Filezilla"] $ws8
 
 ### 9 [Desktop]
 assign [class="git-cola"] $ws9
@@ -413,6 +398,7 @@ bindsym $mod+comma          exec $spotify_r/previous.sh
 bindsym $mod+period         exec $spotify_r/next.sh
 bindsym $mod+semicolon      exec $spotify_r/back.sh
 bindsym $mod+apostrophe     exec $spotify_r/forward.sh
+bindsym $mod+n exec thunar
 
 #rofi
 # bindcode $mod+d exec "rofi -normal-window -modi drun -show drun -theme ~/myCode/Dotfiles/i3/rofi/rofi.rasi"
@@ -426,15 +412,15 @@ set $init_r /home/tux/myCode/Dotfiles/scripts/i3-wm/
 bindsym $mod+X mode "$mode_system"
 bindsym control+mod1+Delete mode "$mode_system"
 
-set $mode_system System (k) lock, (t) lockBlur, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+set $mode_system System (t) block, (b) blockBlur, (l) logout, (s) suspend, (h) hibernate, (r) reboot, (a) shutdown
 mode "$mode_system" {
-    bindsym k exec --no-startup-id $init_r/i3lock.sh lock, mode "default"
+    bindsym t exec --no-startup-id $init_r/i3lock.sh lock, mode "default"
     bindsym l exec --no-startup-id $init_r/i3exit.sh logout, mode "default"
-    bindsym u exec --no-startup-id $init_r/i3exit.sh suspend, mode "default"
+    bindsym s exec --no-startup-id $init_r/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id $init_r/i3exit.sh hibernate, mode "default"
     bindsym r exec --no-startup-id $init_r/i3exit.sh reboot, mode "default"
-    bindsym s exec --no-startup-id $init_r/i3exit.sh shutdown, mode "default"
-    bindsym t exec --no-startup-id $init_r/i3lockFantacy.sh lockBlur, mode "default"
+    bindsym a exec --no-startup-id $init_r/i3exit.sh shutdown, mode "default"
+    bindsym b exec --no-startup-id $init_r/i3lockFantacy.sh blockBlur, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

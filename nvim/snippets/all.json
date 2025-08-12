@@ -1,0 +1,54 @@
+{
+    "sq - Division for section": {
+        "prefix": "sq",
+        "body": [
+            "######################## ${1:Nombre seccion} ########################"
+        ],
+        "description": "Esto sirve para dividir secciones de codigo (aprendisaje)"
+    },
+    "sq - close section": {
+        "prefix": "sq",
+        "body": [
+            "###############################################################"
+        ],
+        "description": "Esto sirve para cerrar las secciones de codigo (aprendisaje)"
+    },
+    "sw - Division for section": {
+        "prefix": "sw",
+        "body": [
+            "======================== ${1:Nombre seccion} ========================"
+        ],
+        "description": "Esto sirve para dividir secciones de codigo (aprendisaje)"
+    },
+    "sw - close section": {
+        "prefix": "sw",
+        "body": [
+            "==============================================================="
+        ],
+        "description": "Esto sirve para cerrar las secciones de codigo (aprendisaje)"
+    },
+    "se - Division for section": {
+        "prefix": "se",
+        "body": [
+            "------------------------ ${1:Nombre seccion} ------------------------"
+        ],
+        "description": "Esto sirve para dividir secciones de codigo (aprendisaje)"
+    },
+    "se - close section": {
+        "prefix": "se",
+        "body": [
+            "---------------------------------------------------------------"
+        ],
+        "description": "Esto sirve para cerrar las secciones de codigo (aprendisaje)"
+    },
+    "hm - Greeting": {
+        "prefix": "hm",
+        "body": ["Hola, ${1:mundo}!"],
+        "description": "Snippet para saludar"
+    },
+    "key - backtick": {
+        "prefix": "key",
+        "body": ["`${1:variable}`"],
+        "description": "key backtick"
+    }
+}

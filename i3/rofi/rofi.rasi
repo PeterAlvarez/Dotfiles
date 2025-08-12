@@ -14,7 +14,7 @@ configuration {
 window {
     width: 90%;
     background-color: black / 90%;
-    background-image: url("~/myCode/Dotfiles/i3/rofi/w07blur.jpg", width);
+    // background-image: url("~/myCode/Dotfiles/i3/rofi/w07blur.jpg", width);
 }
 
 inputbar {
