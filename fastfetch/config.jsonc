@@ -1,0 +1,136 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+  "padding": {
+    "top": 5,
+    "left": 11,
+  },
+  "source":"Arch",
+  "color": {
+  "1": "red",
+  "2": "green"
+  }
+  },
+  "display": {
+  "color": {
+    "title": "cyan"
+  },
+"hideCursor": false,
+"separator": "   "
+},
+"modules": [
+"break",
+{
+  "type": "title",
+    "format": "                                      {6}{7}{8}"
+},
+{
+    "type": "custom",
+    "format": "           ┌───────────────────────────────────────────────────────────────┐" // `\u001b` is `\033`, or `\e`
+},
+"break",
+{
+"type": "host",
+"keyColor": "red",
+"key": "              💻Hardware"
+},
+{
+"type": "CPU",
+"keyColor": "red",
+"key": "                ├ "
+},
+{
+"type": "gpu",
+"keyColor": "red",
+"detectionMethod": "vulkan",
+"key": "                ├ "
+},
+{
+"type": "display",
+"keyColor": "red",
+"key": "                ├󰹑 "
+},
+{
+"type": "Disk",
+"keyColor": "red",
+"key": "                ├ "
+},
+{
+"type": "memory",
+"keyColor": "red",
+"key": "                ╰ "
+},
+"break",
+{
+"type": "os",
+"keyColor": "green",
+"key": "              🤖Software"
+},
+{
+"type": "kernel",
+"keyColor": "green",
+"key": "                ├ "
+},
+{
+"type": "Packages",
+"keyColor": "green",
+"key": "                ├ "
+},
+{
+"type": "TerminalFont",
+"keyColor": "green",
+"key": "                ├ "
+},
+{
+"type": "WM",
+"keyColor": "green",
+"key": "                ├󰨇 "
+},
+{
+"type": "uptime",
+"keyColor": "green",
+"key": "                ╰󰔚 "
+},
+"break",
+
+{
+"type": "wifi",
+"keyColor": "yellow",
+"key": "              🌎Connection"
+},
+{
+"type": "publicip",
+"keyColor": "yellow",
+"key": "                ├ "
+},
+{
+"type": "localip",
+"keyColor": "yellow",
+"key": "                ├ "
+},
+{
+"type": "terminal",
+"keyColor": "yellow",
+"key": "                ├ "
+},
+{
+  "type": "Users",
+  "keyColor": "yellow",
+  "key": "                ╰ "
+},
+"break",
+{
+"type": "custom",
+  "format": "           └───────────────────────────────────────────────────────────────┘" // `\u001b` is `\033`, or `\e`
+},
+"break",
+{
+  "type": "colors",
+  "paddingLeft": 34,
+  "symbol": "circle",
+  "block": {
+    "width": 10
+      }
+}
+]
+}
