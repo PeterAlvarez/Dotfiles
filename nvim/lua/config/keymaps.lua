@@ -55,8 +55,8 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 -- end, opts)
 
 --myconfig
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
 --Return line and zz
 keymap.set("n", "''", "''zz")

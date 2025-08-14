@@ -256,6 +256,10 @@ return {
       vim.lsp.buf.rename()
     end, { desc = "Lsp rename" })
 
+    vim.keymap.set("n", ";lW", function()
+      return ":IncRename " .. vim.fn.expand("<cword>")
+    end, { desc = "Inc Rename", expr = true })
+
     map("n", ";lp", function()
       Snacks.picker.lsp_symbols()
     end, { desc = "List symbols in the file" })

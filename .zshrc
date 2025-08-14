@@ -172,6 +172,7 @@ alias yy='pwd | xclip -selection clipboard'
 alias ide='sh ~/myCode/Dotfiles/scripts/tmux/tmuxInit.sh'
 alias tmc='sh ~/myCode/Dotfiles/scripts/tmux/tmux-sessions.sh'
 alias coding='tmux attach -t coding'
+alias fa='fastfetch'
 alias ee='exit'
 alias cl='clear'
 
@@ -186,7 +187,7 @@ PERL_LOCAL_LIB_ROOT="/home/tux/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROO
 PERL_MB_OPT="--install_base \"/home/tux/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/tux/perl5"; export PERL_MM_OPT;
 
-neofetch
+fastfetch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
