@@ -205,3 +205,10 @@ fastfetch
 # $ fg -> para recuperar sesiom suspendida por crtl-z
 
 export PATH=$PATH:/home/tux/.spicetify
+
+# bun completions
+[ -s "/home/tux/.bun/_bun" ] && source "/home/tux/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

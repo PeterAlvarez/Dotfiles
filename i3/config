@@ -333,9 +333,11 @@ assign [class="vlc"] $ws3
 
 ### 4 [pdf view]
 assign [class="Evince"] $ws4
+assign [class="Zathura"] $ws4
 
 ### 5 [image view]
 assign [class="feh"] $ws5
+assign [class="Sxiv"] $ws5
 
 ### 6 [music]
 assign [class="Spotify"] $ws6

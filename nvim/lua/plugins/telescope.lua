@@ -126,6 +126,10 @@ return {
 
     -- #############################################################
 
+    map("n", ";a", function()
+      LazyVim.pick.open("find_files")
+    end, { desc = "Find Files in project (root)" })
+
     map("n", ";u", function()
       Snacks.picker.undo()
     end, { desc = "Undo" })
@@ -273,8 +277,12 @@ return {
     end, { desc = "vim.lsp.buf.hover()" })
 
     ------------------------ Zen mode ------------------------
-    map("n", "<leader>z", function()
+    map("n", "<leader>Z", function()
       Snacks.zen()
+    end, { desc = "Modo Zen" })
+
+    map("n", "<leader>z", function()
+      Snacks.zen.zoom()
     end, { desc = "Modo Zen" })
   end,
 }
