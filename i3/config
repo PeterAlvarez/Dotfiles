@@ -298,9 +298,9 @@ workspace 1 output HDMI-1
 # [nautilus]
 workspace 2 output HDMI-1
 # [video]
-workspace 3 output eDP-1
+workspace 3 output HDMI-1
 # [pdf view]
-workspace 4 output eDP-1
+workspace 4 output HDMI-1
 
 ##monitor Darlene
 # [image view]
@@ -344,6 +344,7 @@ assign [class="Spotify"] $ws6
 
 ### 7 [mail]
 assign [class="qutebrowser"] $ws7
+assign [class="Wasistlos"] $ws7
 assign [class="TelegramDesktop"] $ws7
 assign [class="Zoom"] $ws7
 assign [class="thunderbird"] $ws7

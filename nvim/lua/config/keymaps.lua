@@ -16,7 +16,7 @@ keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Select all
-keymap.set("n", "<C-o>", "<cmd>w | echo 'Save!!'<CR>")
+keymap.set("n", "<C-o>", "<cmd>w | echo '✏️ Save!!'<CR>")
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})

@@ -68,7 +68,7 @@ return {
         },
         {
           "<leader>pw",
-          '<cmd>wa<CR>:echo "Save!!"<CR>',
+          '<cmd>wa<CR>:echo "✏️ Save!!"<CR>',
           desc = "Save",
         },
 
@@ -95,8 +95,13 @@ return {
         },
         {
           "<leader>pp",
-          "<cmd>let @+ = expand('%:p')<CR>:echo 'Copied Path!!'<CR>",
+          "<cmd>let @+ = expand('%:p')<CR>:echo '📁 Copied Path!!'<CR>",
           desc = "Copy path file",
+        },
+        {
+          "<leader>pn",
+          "<cmd>let @+ = expand('%:t')<CR>:echo '📝 Copied Name!!'<CR>",
+          desc = "Copy name file",
         },
         {
           "<leader>pq",
