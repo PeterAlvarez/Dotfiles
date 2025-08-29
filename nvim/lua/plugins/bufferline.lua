@@ -78,9 +78,9 @@ return {
               c = { fg = "#268BD2", bg = "#000000" },
             },
             insert = {
-              a = { fg = "#002b36", bg = "#268bd2", gui = "bold" },
-              b = { fg = "#586e75", bg = "#93a1a1" },
-              c = { fg = "#586e75", bg = "NONE" },
+              a = { fg = "#000000", bg = "#268bd2", gui = "bold" },
+              b = { fg = "#859900", bg = "#000000" },
+              c = { fg = "#000000", bg = "#268bd2", gui = "bold" },
             },
             visual = {
               a = { fg = "#002b36", bg = "#d33682", gui = "bold" },

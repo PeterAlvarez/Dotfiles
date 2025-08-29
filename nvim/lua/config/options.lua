@@ -9,7 +9,7 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.sidescrolloff = 6
-vim.opt.scrolloff = 6
+vim.opt.scrolloff = 8
 vim.opt.mouse = "a"
 vim.opt.swapfile = false
 
