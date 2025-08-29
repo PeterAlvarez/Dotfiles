@@ -83,19 +83,19 @@ return {
               c = { fg = "#000000", bg = "#268bd2", gui = "bold" },
             },
             visual = {
+              a = { fg = "#000000", bg = "#dc322f", gui = "bold" },
+              b = { fg = "#859900", bg = "#000000" },
+              c = { fg = "#000000", bg = "#dc322f" },
+            },
+            replace = {
               a = { fg = "#002b36", bg = "#d33682", gui = "bold" },
               b = { fg = "#586e75", bg = "#93a1a1" },
               c = { fg = "#586e75", bg = "NONE" },
             },
-            replace = {
-              a = { fg = "#002b36", bg = "#dc322f", gui = "bold" },
-              b = { fg = "#586e75", bg = "#93a1a1" },
-              c = { fg = "#586e75", bg = "NONE" },
-            },
             command = {
-              a = { fg = "#002b36", bg = "#b58900", gui = "bold" },
-              b = { fg = "#586e75", bg = "#93a1a1" },
-              c = { fg = "#586e75", bg = "NONE" },
+              a = { fg = "#000000", bg = "#859900", gui = "bold" },
+              b = { fg = "#859900", bg = "#000000" },
+              c = { fg = "#000000", bg = "#859900" },
             },
             inactive = {
               a = { fg = "#586e75", bg = "NONE", gui = "bold" },

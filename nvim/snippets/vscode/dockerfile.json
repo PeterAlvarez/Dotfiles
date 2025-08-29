@@ -1,6 +1,6 @@
 {
   "Multi-stage Node and Angular Dockerfile": {
-    "prefix": "docker-angular-node-multi-stage",
+ l   "prefix": "docker-angular-node-multi-stage",
     "body": [
       "# Client App",
       "FROM johnpapa/angular-cli as client-app",

@@ -195,6 +195,10 @@ return {
     map("n", ";MM", function() end, { desc = "Search marks" })
 
     ------------------------ picker git telescope ------------------------
+    map("n", ";t", function()
+      Snacks.picker.todo_comments()
+    end, { desc = "Todo comments" })
+
     map("n", ";*", function()
       Snacks.picker.grep_word()
     end, { desc = "Word search *" })
